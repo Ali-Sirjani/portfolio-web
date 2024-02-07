@@ -31,3 +31,50 @@ class PostImageTabu(admin.TabularInline):
     fields = ('image', 'is_main',)
     extra = 1
     min_num = 1
+
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    fieldsets = (
+        (_('Post Information'), {
+            'fields': ('title', 'description', 'category', 'can_published')
+        }),
+        (_('Slug Settings'), {
+            'classes': ('collapse',),
+            'fields': ('slug_change', 'slug')
+        }),
+        (_('Date and Time'), {
+            'classes': ('collapse',),
+            'fields': ('datetime_created', 'datetime_updated'),
+        }),
+    )
+    readonly_fields = ('datetime_created', 'datetime_updated')
+    autocomplete_fields = ('category', )
+    list_display = ('limit_title', 'can_published', 'datetime_created', 'datetime_updated')
+    inlines = (PostImageTabu, )
+    search_fields = ('title', )
+    list_filter = ('can_published', )
+    ordering = ('-datetime_updated',)
+
+    def limit_title(self, obj):
+        return Truncator(obj.title).words(15)
+
+
+@admin.register(PostComment)
+class PostCommentAdmin(MPTTModelAdmin):
+    fields = ('post', 'author', 'parent', 'text', 'confirmation',
+              'datetime_created', 'datetime_updated',)
+    list_display = ('author', 'limit_text', 'confirmation', 'datetime_updated',)
+    autocomplete_fields = ('post', 'author')
+    list_filter = ('confirmation',)
+    search_fields = ('pk', 'post__title')
+
+    def get_readonly_fields(self, request, obj=None):
+        readonly_fields = ['datetime_created', 'datetime_updated', ]
+        if obj:
+            readonly_fields.extend(['post', 'author'])
+
+        return readonly_fields
+
+    def limit_text(self, obj):
+        return Truncator(obj.text).words(15)
