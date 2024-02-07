@@ -14,7 +14,7 @@ class Project(TimestampedModel):
     start_date = models.DateField(verbose_name=_('start date'))
     slug_change = models.BooleanField(verbose_name=_('slug change'), help_text=_('If you want change the slug by name'))
     slug = models.SlugField(unique=True, allow_unicode=True, blank=True, max_length=300, verbose_name=_('slug'),
-                            help_text=_('If field be empty it\'s automatic change by name '))
+                            help_text=_('If field be empty it\'s automatic change by title'))
 
     is_active = models.BooleanField(default=True, verbose_name=_('active'))
 
@@ -35,6 +35,7 @@ class ProjectImage(TimestampedModel):
     class Meta:
         verbose_name = _('project image')
         verbose_name_plural = _('project images')
+        ordering = ('-is_main', )
 
     def __str__(self):
         return f'{self.project.pk}'
