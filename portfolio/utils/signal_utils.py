@@ -22,13 +22,13 @@ def create_unique_slug(instance, create_by, slug_primitive=None):
     return slug
 
 
-def generate_unique_slug(instance):
+def generate_unique_slug(instance, create_by, slug):
     """
     Generates a unique slug for the given instance.
     """
     if not instance.slug or instance.slug_change:
-        instance.slug = create_unique_slug(instance, instance.title)
+        instance.slug = create_unique_slug(instance, create_by)
         instance.slug_change = False
     else:
-        instance.slug = create_unique_slug(instance, instance.slug)
+        instance.slug = create_unique_slug(instance, slug)
         instance.slug_change = False
