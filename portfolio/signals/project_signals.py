@@ -7,4 +7,4 @@ from ..utils import generate_unique_slug
 
 @receiver(pre_save, sender=Project)
 def create_slug_project(sender, instance, *args, **kwargs):
-    generate_unique_slug(instance)
+    generate_unique_slug(instance, instance.title, instance.slug)
