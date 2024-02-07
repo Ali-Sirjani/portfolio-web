@@ -1,2 +1,2 @@
 from .account_models import (CustomUser, )
-from .blog_models import (Category,)
+from .blog_models import (Category, Post, PostImage, PostComment)
