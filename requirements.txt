@@ -4,9 +4,11 @@ Django==5.0.2
 django-ckeditor==6.7.0
 django-cuser==2017.3.16
 django-environ==0.11.2
+django-jalali-date==1.1.0
 django-js-asset==2.2.0
 django-mptt==0.16.0
 django-tinymce==3.7.1
+jdatetime==4.1.1
 modeltranslation==0.25
 pillow==10.2.0
 psycopg2==2.9.9

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # third party
     'mptt',
     'ckeditor',
+    'jalali_date',
 
     # local apps
     'portfolio',
