@@ -45,6 +45,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # third party
+    'mptt',
+    'ckeditor',
+
+    # local apps
+    'portfolio',
 ]
 
 MIDDLEWARE = [
@@ -149,7 +156,7 @@ MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # config custom user model
-AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'portfolio.CustomUser'
 
 # config message
 MESSAGE_TAGS = {
