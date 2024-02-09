@@ -8,7 +8,7 @@ from django.utils.text import Truncator
 
 from mptt.admin import MPTTModelAdmin
 
-from ..models import Category, PostImage, Post, PostComment
+from ..models import Category, TopCategory, PostImage, Post, PostComment
 from ..forms import PostImageTabuFormSetAdmin
 
 
@@ -23,6 +23,16 @@ class CategoryAdmin(MPTTModelAdmin):
     def post_count(self, obj):
         url = (reverse('admin:portfolio_post_changelist') + '?' + urlencode({'category': obj.pk}))
         return format_html('<a href="{}">{}</a>', url, obj.post_count)
+
+
+@admin.register(TopCategory)
+class TopCategoryAdmin(admin.ModelAdmin):
+    fields = ('category', 'level', 'is_top_level', 'datetime_created', 'datetime_updated',)
+    readonly_fields = ('datetime_created', 'datetime_updated',)
+    autocomplete_fields = ('category',)
+    list_display = ('category', 'level', 'is_top_level')
+    ordering = ('level', '-is_top_level')
+    search_fields = ('category__name',)
 
 
 class PostImageTabu(admin.TabularInline):
