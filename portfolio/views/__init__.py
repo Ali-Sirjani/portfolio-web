@@ -1,1 +1,1 @@
-from .blog_views import (PostListView, )
+from .blog_views import (PostListView, PostSearchView, PostDetailView)
