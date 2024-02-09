@@ -1,0 +1,122 @@
+{% extends '_base.html' %}
+
+{% load crispy_forms_filters %}
+{% load mptt_tags %}
+{% load jalali_tags %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>{{ post.title }}</h2>
+                <p>Category: {{ post.category.name }}</p>
+                <p>Last Updated: {{ post.datetime_updated }}</p>
+                <p>{{ post.description|safe }}</p>
+                {% for image in post.images.all %}
+                    <img src="{{ image.image.url }}" class="img-fluid mb-3" alt="Post Image">
+                {% endfor %}
+                <hr>
+                <h3>{{ comments.count }} Comments</h3>
+                {% for genre, structure in comments|tree_info %}
+                    {% if structure.new_level %}
+                        <ul class="list-unstyled">
+                        <li class="mb-3">
+                            {% else %}
+                        </li>
+                        <li class="mb-3">
+                    {% endif %}
+                {% if not genre.is_child_node %}
+                    <div class="card">
+                        <div class="card-body">
+                            {% if genre.author.name %}
+                                <h6>{{ genre.author.name }}</h6>
+                            {% else %}
+                                <h6>{{ genre.author.username }}</h6>
+                            {% endif %}
+                            <span class="comment-date">{{ genre.datetime_updated|to_jalali:'%Y/%m/%d' }}</span>
+                            <p>{{ genre.text }}</p>
+                            <button class="btn btn-sm btn-primary reply-btn"
+                                    data-id="{{ genre.id }}"
+                                    data-comment-text="{{ genre.text|truncatechars:15 }}"><i
+                                    class="bi bi-reply"></i> Reply
+                            </button>
+                        </div>
+                    </div>
+                {% else %}
+                    <ul class="list-unstyled" style="margin-left: {% widthratio genre.level 1 30 %}px;">
+                        <li>
+                            <div class="card">
+                                <div class="card-body">
+                                    {% if genre.author.name %}
+                                        <h6>{{ genre.author.name }} {{ genre.level }}</h6>
+                                    {% else %}
+                                        <h6>{{ genre.author.username }} {{ genre.level }}</h6>
+                                    {% endif %}
+                                    <span class="comment-date">{{ genre.datetime_updated|to_jalali:'%Y/%m/%d' }}</span>
+                                    <p>{{ genre.text }}</p>
+                                    <button class="btn btn-sm btn-primary reply-btn"
+                                            data-id="{{ genre.id }}"
+                                            data-comment-text="{{ genre.text|truncatechars:15 }}"><i
+                                            class="bi bi-reply"></i> Reply
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                {% endif %}
+                {% for level in structure.closed_levels %}
+                    </li>
+                    </ul>
+                {% endfor %}
+                {% endfor %}
+                <p>No comments yet.</p>
+                <hr>
+                <h3>Add a Comment</h3>
+                <form method="post" id="commentForm">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <h3>Related Posts</h3>
+                <div class="list-group">
+                    {% for related_post in related_posts %}
+                        <a href="{{ related_post.get_absolute_url }}" class="list-group-item list-group-item-action">
+                            <div class="row align-items-center">
+                                <div class="col-3">
+                                    <img src="{{ related_post.main_image_url }}"
+                                         class="img-fluid" alt="Post Image">
+                                </div>
+                                <div class="col-9">
+                                    <h6 class="mb-0">{{ related_post.title }}</h6>
+                                    <p class="mb-0">Category: {{ related_post.category.name }}</p>
+                                    <p class="mb-0">Last Updated: {{ related_post.datetime_updated|to_jalali:'%Y/%m/%d' }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block script %}
+    <script>
+        var replyBtns = document.getElementsByClassName('reply-btn')
+
+        for (var i = 0; i < replyBtns.length; i++) {
+            replyBtns[i].addEventListener('click', function () {
+                var form = document.getElementById('commentForm')
+                console.log('this is id', this.dataset.id)
+                form.parent.value = this.dataset.id
+            })
+        }
+
+    </script>
+{% endblock script %}
