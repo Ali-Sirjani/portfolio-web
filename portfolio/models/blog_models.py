@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
+from django.shortcuts import reverse
 
 from mptt.models import MPTTModel, TreeForeignKey
 from ckeditor.fields import RichTextField
@@ -22,6 +23,34 @@ class Category(MPTTModel, TimestampedModel):
 
     def __str__(self):
         return f'{self.name}'
+
+    def get_absolute_url(self):
+        return reverse('portfolio:post_category_list', args=[self.slug])
+
+
+class TopCategory(TimestampedModel):
+    LEVEL_CHOICES = (
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+    )
+
+    category = models.OneToOneField(Category, on_delete=models.CASCADE, related_name='top_categories',
+                                    verbose_name=_('category'))
+
+    level = models.CharField(max_length=1, choices=LEVEL_CHOICES,
+                             help_text=_('Levels are ordered from top to bottom, with 1 being the highest.'),
+                             verbose_name=_('level'))
+    is_top_level = models.BooleanField(default=False,
+                                       help_text='Check this box if you want the category to be at the top of its specified level.',
+                                       verbose_name='is_top_level')
+
+    class Meta:
+        verbose_name = _('top category')
+        verbose_name_plural = _('top categories')
+
+    def __str__(self):
+        return f'{self.category}'
 
 
 class ActivePostManager(models.Manager):
@@ -50,9 +79,19 @@ class Post(TimestampedModel):
     def __str__(self):
         return f'{self.title}'
 
+    def get_absolute_url(self):
+        return reverse('portfolio:post_detail', args=[self.slug])
+
+    def main_image_url(self):
+        for image in self.images.all():
+            if image.is_main:
+                return image.image.url
+
+        return None
+
 
 class PostImage(TimestampedModel):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, verbose_name=_('post'))
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='images', verbose_name=_('post'))
 
     image = models.ImageField(upload_to='post_images/', verbose_name=_('image'))
     is_main = models.BooleanField(default=False, verbose_name=_('main'))
@@ -60,7 +99,7 @@ class PostImage(TimestampedModel):
     class Meta:
         verbose_name = _('post image')
         verbose_name_plural = _('post images')
-        ordering = ('-is_main', )
+        ordering = ('-is_main',)
 
     def __str__(self):
         return f'{self.post.pk}'
