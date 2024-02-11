@@ -1,8 +1,12 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-
 from ..abstract import TimestampedModel
+
+
+class ProjectActiveManger(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(is_active=True)
 
 
 class Project(TimestampedModel):
@@ -18,6 +22,9 @@ class Project(TimestampedModel):
 
     is_active = models.BooleanField(default=True, verbose_name=_('active'))
 
+    objects = models.Manager()
+    active_objs = ProjectActiveManger()
+
     class Meta:
         verbose_name = _('project')
         verbose_name_plural = _('projects')
@@ -25,9 +32,16 @@ class Project(TimestampedModel):
     def __str__(self):
         return f'{self.title}'
 
+    def main_image_url(self):
+        for image in self.images.all():
+            if image.is_main:
+                return image.image.url
+
+        return None
+
 
 class ProjectImage(TimestampedModel):
-    project = models.ForeignKey(Project, on_delete=models.CASCADE, verbose_name=_('project'))
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='images', verbose_name=_('project'))
 
     image = models.ImageField(upload_to='project_images/', verbose_name=_('image'))
     is_main = models.BooleanField(default=False, verbose_name=_('main'))
