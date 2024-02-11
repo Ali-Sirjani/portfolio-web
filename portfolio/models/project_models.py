@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.shortcuts import reverse
 
 from ..abstract import TimestampedModel
 
@@ -31,6 +32,9 @@ class Project(TimestampedModel):
 
     def __str__(self):
         return f'{self.title}'
+
+    def get_absolute_url(self):
+        return reverse('portfolio:project_detail', args=[self.slug])
 
     def main_image_url(self):
         for image in self.images.all():
