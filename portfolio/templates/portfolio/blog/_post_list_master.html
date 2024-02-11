@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        {% for post in posts %}
+            <div class="col-md-6 mb-4">
+                <div class="card">
+
+                            <a href="{{ post.get_absolute_url }}">
+                                <img src="{{ post.main_image_url }}" class="card-img-top" alt="Main Image">
+                            </a>
+                    <div class="card-body">
+                        <a href="{{ post.get_absolute_url }}">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                        </a>
+                        <p class="card-text">{{ post.category.name }}</p>
+                        <p class="card-text"><small class="text-muted">Last
+                            updated: {{ post.datetime_updated }}</small></p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-md-12">
+                <p>No posts found.</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% include 'portfolio/blog/_pagination.html' %}
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <h3>Recent Posts</h3>
+            <div class="list-group">
+                {% for recent_post in recent_posts %}
+                    <a href="{{ recent_post.get_absolute_url }}" class="list-group-item list-group-item-action">
+                        <div class="row align-items-center">
+                            <div class="col-3">
+                                <img src="{{ recent_post.main_image_url }}"
+                                     class="img-fluid" alt="Post Image">
+                            </div>
+                            <div class="col-9">
+                                <h6 class="mb-0">{{ recent_post.title }}</h6>
+                                <p class="mb-0">Category: {{ recent_post.category.name }}</p>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <h3>Top Categories</h3>
+            <ul class="list-group">
+                {% for category in top_categories %}
+                    <li class="list-group-item">
+                        <a href="{{ category.get_absolute_url }}">{{ category.name }}</a> ({{ category.post_count }} posts)
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

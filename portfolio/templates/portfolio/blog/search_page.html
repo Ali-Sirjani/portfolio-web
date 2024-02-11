@@ -1,0 +1,33 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    Search Results
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form action="{% url 'portfolio:post_search' %}" method="GET" class="mb-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="q" placeholder="Search for posts..." value="{{ q }}">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% if q %}
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <h4>Search Results for "{{ q }}"</h4>
+                    <hr>
+                    {% if posts %}
+                            {% include 'portfolio/blog/_post_list_master.html' with posts=posts %}
+                    {% else %}
+                        <p>No results found.</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}

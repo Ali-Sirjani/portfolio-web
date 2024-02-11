@@ -45,6 +45,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # third party
+    'mptt',
+    'ckeditor',
+    'jalali_date',
+    'crispy_forms',
+    'crispy_bootstrap5',
+
+    # local apps
+    'portfolio',
 ]
 
 MIDDLEWARE = [
@@ -70,13 +80,14 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # portfolio
+                'portfolio.context_processors.recent_posts',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -93,7 +104,6 @@ DATABASES = {
         # 'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -113,7 +123,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -132,7 +141,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -149,7 +157,7 @@ MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # config custom user model
-AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = 'portfolio.CustomUser'
 
 # config message
 MESSAGE_TAGS = {
@@ -158,3 +166,7 @@ MESSAGE_TAGS = {
 
 # config locale
 LOCALE_PATHS = (str(BASE_DIR.joinpath('templates/locale')),)
+
+# config crispy
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'

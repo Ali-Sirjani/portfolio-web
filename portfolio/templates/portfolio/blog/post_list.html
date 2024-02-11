@@ -1,0 +1,9 @@
+{% extends '_base.html' %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+
+    {% include 'portfolio/blog/_post_list_master.html' with posts=posts %}
+
+{% endblock content %}
