@@ -1,0 +1,57 @@
+{% extends '_base.html' %}
+
+{% block title %}
+    {{ project.title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1>{{ project.title }}</h1>
+                <p><strong>Description:</strong> {{ project.description }}</p>
+                <p><strong>Client:</strong> {{ project.client }}</p>
+                <p><strong>Link:</strong> <a href="{{ project.link }}">{{ project.link }}</a></p>
+                <p><strong>Location:</strong> {{ project.location }}</p>
+                <p><strong>Start Date:</strong> {{ project.start_date }}</p>
+                <!-- Add additional project details here if needed -->
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            {% if project.images.all %}
+                <div class="col-md-12">
+                    <h2>Project Images</h2>
+                    <div class="row">
+                        {% for image in project.images.all %}
+                            <div class="col-md-3 mb-3">
+                                <img src="{{ image.image.url }}" class="img-fluid" alt="Project Image">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <h3>Recent Posts</h3>
+                <div class="list-group">
+                    {% for recent_post in recent_posts %}
+                        <a href="{{ recent_post.get_absolute_url }}" class="list-group-item list-group-item-action">
+                            <div class="row align-items-center">
+                                <div class="col-3">
+                                    <img src="{{ recent_post.main_image_url }}"
+                                         class="img-fluid" alt="Post Image">
+                                </div>
+                                <div class="col-9">
+                                    <h6 class="mb-0">{{ recent_post.title }}</h6>
+                                    <p class="mb-0">Category: {{ recent_post.category.name }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
