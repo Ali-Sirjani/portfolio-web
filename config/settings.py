@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
 
     # local apps
+    'core',
     'portfolio',
 ]
 
@@ -157,7 +158,7 @@ MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # config custom user model
-AUTH_USER_MODEL = 'portfolio.CustomUser'
+AUTH_USER_MODEL = 'core.CustomUser'
 
 # config message
 MESSAGE_TAGS = {
