@@ -5,6 +5,8 @@ from . import views
 app_name = 'portfolio'
 
 urlpatterns = [
+    path('', views.HomePageView.as_view(), name='home_page'),
+    path('contact-me/create/', views.ContactMeView.as_view(), name='create_contact_message'),
     path('blog/', views.PostListView.as_view(), name='post_list'),
     path('blog/search/', views.PostSearchView.as_view(), name='post_search'),
     path('projects/', views.ProjectListView.as_view(), name='project_list'),
