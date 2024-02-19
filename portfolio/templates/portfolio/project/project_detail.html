@@ -1,57 +1,159 @@
 {% extends '_base.html' %}
 
+{% load static %}
+{% load i18n %}
+{% load jalali_tags %}
+
 {% block title %}
     {{ project.title }}
 {% endblock title %}
 
-{% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h1>{{ project.title }}</h1>
-                <p><strong>Description:</strong> {{ project.description }}</p>
-                <p><strong>Client:</strong> {{ project.client }}</p>
-                <p><strong>Link:</strong> <a href="{{ project.link }}">{{ project.link }}</a></p>
-                <p><strong>Location:</strong> {{ project.location }}</p>
-                <p><strong>Start Date:</strong> {{ project.start_date }}</p>
-                <!-- Add additional project details here if needed -->
-            </div>
-        </div>
+{% block style %}
+    <style>
+        .pagination .page-link {
+            font-size: 1.0rem;
+            padding: 0.8rem 0.8rem;
+        }
+    </style>
+{% endblock style %}
 
-        <div class="row mt-4">
-            {% if project.images.all %}
-                <div class="col-md-12">
-                    <h2>Project Images</h2>
-                    <div class="row">
-                        {% for image in project.images.all %}
-                            <div class="col-md-3 mb-3">
-                                <img src="{{ image.image.url }}" class="img-fluid" alt="Project Image">
+{% block content %}
+    <!-- Home Start -->
+    <section class="bg-half d-table w-100"
+             style="background: url('{% static 'images/home/bg-pages.jpg' %}')center center;">
+        <div class="bg-overlay bg-overlay-white"></div>
+        <div class="container">
+            <div class="row mt-5 justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="page-next-level">
+                        <h4 class="title">{{ project.title }}</h4>
+                    </div>
+                </div>  <!--end col-->
+            </div><!--end row-->
+        </div> <!--end container-->
+    </section><!--end section-->
+    <!-- Home End -->
+
+    <!-- Work Start -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <!-- WORK START -->
+                <div class="col-lg-7 col-md-6 order-2 order-md-1 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    <div class="row me-lg-4">
+                        <div class="col-lg-12">
+                            <div class="work-details">
+                                <h4 class="title mb-3 border-bottom pb-3">{{ project.title }} :</h4>
+                                <p class="text-muted">{{ project.description }}</p>
                             </div>
+                        </div><!--end col-->
+
+                        <div class="col-lg-7 mt-4 pt-2">
+                            <div class="work-details bg-light p-4">
+                                <h4 class="title border-bottom pb-3 mb-3">{% trans 'Project Info' %} :</h4>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mt-3">
+                                        <b>{% trans 'Client' %} :</b>
+                                        <span>{{ project.client|default:'' }}</span>
+                                    </li>
+                                    <li class="mt-3">
+                                        <b>{% trans 'Date' %} :</b>
+                                        <span>{{ project.start_date|to_jalali:'%Y/%m/%d'|default:'' }}</span>
+                                    </li>
+                                    <li class="mt-3">
+                                        <b>{% trans 'Website' %} :</b>
+                                        <span>{{ project.link|default:'' }}</span>
+                                    </li>
+                                    <li class="mt-3">
+                                        <b>{% trans 'Location' %} :</b>
+                                        <span>{{ project.location|default:'' }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!--end col-->
+                    </div><!--end row-->
+                </div><!--end col-->
+
+                <div class="col-lg-5 col-md-6 order-1 order-md-2 mb-4">
+                    <div class="port-images sticky-sidebar">
+                        {% for image in project.images.all %}
+                            <img src="{{ image.image.url }}" class="img-fluid mx-auto d-block rounded mt-4"
+                                 alt="{{ project.title }}">
                         {% endfor %}
                     </div>
-                </div>
-            {% endif %}
-        </div>
-        <div class="row mt-5">
-            <div class="col-md-4">
-                <h3>Recent Posts</h3>
-                <div class="list-group">
-                    {% for recent_post in recent_posts %}
-                        <a href="{{ recent_post.get_absolute_url }}" class="list-group-item list-group-item-action">
-                            <div class="row align-items-center">
-                                <div class="col-3">
-                                    <img src="{{ recent_post.main_image_url }}"
-                                         class="img-fluid" alt="Post Image">
-                                </div>
-                                <div class="col-9">
-                                    <h6 class="mb-0">{{ recent_post.title }}</h6>
-                                    <p class="mb-0">Category: {{ recent_post.category.name }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    {% endfor %}
-                </div>
+                </div><!--end col-->
+            </div><!--end row-->
+
+            <div class="row mt-4 pt-2 mt-5">
+                <div class="col-12">
+                    <ul class="pagination justify-content-center">
+                        {% if previous_project_slug %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="{% url 'portfolio:project_detail' previous_project_slug %}"> <i
+                                    class="mdi mdi-chevron-right"></i>{% trans 'Prev' %}</a></li>
+                        {% endif %}
+                        <li class="page-item"><a class="page-link" href="{% url 'portfolio:home_page' %}"> <i
+                                class="mdi mdi-home"></i> {% trans 'Home' %}</a></li>
+                        {% if next_project_slug %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="{% url 'portfolio:project_detail' next_project_slug %}">{% trans 'Next' %}
+                                <i class="mdi mdi-chevron-left"></i></a></li>
+                        {% endif %}
+                    </ul><!--end pagination-->
+                </div><!--end col-->
             </div>
-        </div>
-    </div>
+        </div><!--end container-->
+
+        <div class="container mt-100 mt-60">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <div class="section-title">
+                        <div class="position-relative">
+                            <h4 class="title text-uppercase mb-4">{% trans 'Latest News & Blog' %}</h4>
+                            <div>
+                                <div class="title-box"></div>
+                                <div class="title-line"></div>
+                            </div>
+                        </div>
+                        <p class="text-muted mx-auto para-desc mt-5 mb-0">
+                            {% trans 'By getting information and familiarizing yourself with the benefits of the site, you will find a broader view of its facilities and benefits. This blog is the meeting point of ideas and effective solutions for your growth.' %}
+                        </p>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+
+            <div class="row">
+                {% for recent_post in recent_posts %}
+                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                        <div class="blog-post rounded shadow">
+                            <img src="{{ recent_post.main_image_url }}" class="img-fluid rounded-top" alt="">
+                            <div class="content pt-4 pb-4 p-3">
+                                <ul class="list-unstyled d-flex justify-content-between post-meta">
+                                    <li><i data-feather="user" class="fea icon-sm me-1"></i><a href="javascript:void(0)"
+                                                                                               class="text-dark">{% trans 'Ali' %}</a>
+                                    </li>
+                                    <li><i data-feather="tag" class="fea icon-sm me-1"></i><a
+                                            href="{{ recent_post.category.get_absolute_url }}"
+                                            class="text-dark">{{ recent_post.category.name }}</a>
+                                    </li>
+                                </ul>
+                                <h5 class="mb-3"><a href="{{ recent_post.get_absolute_url }}"
+                                                    class="title text-dark">{{ recent_post.title }}</a></h5>
+                                <ul class="list-unstyled mb-0 pt-3 border-top d-flex justify-content-between">
+                                    <li><a href="{{ recent_post.get_absolute_url }}"
+                                           class="text-dark">{% trans 'Read More' %}<i
+                                            data-feather="chevron-right" class="fea icon-sm"></i></a></li>
+                                    <li>
+                                        <i class="mdi mdi-calendar-edit me-1"></i>{{ recent_post.datetime_updated|to_jalali:"%Y/%m/%d" }}
+                                    </li>
+                                </ul>
+                            </div><!--end content-->
+                        </div><!--end blog post-->
+                    </div><!--end col-->
+                {% endfor %}
+            </div><!--end row-->
+        </div><!--end container-->
+    </section><!--end section-->
+    <!-- Contact End -->
+
 {% endblock content %}
