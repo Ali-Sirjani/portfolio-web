@@ -13,7 +13,7 @@ class HomePageView(generic.ListView):
     template_name = 'portfolio/general/home_page.html'
 
     def get_queryset(self):
-        queryset = Project.active_objs.all().order_by('-datetime_updated')[:6]
+        queryset = Project.active_objs.all().prefetch_related('images').order_by('-datetime_updated')[:6]
         return queryset
 
 
