@@ -6,8 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.utils.translation import gettext_lazy as _
 
-from ..models import Post, PostComment, TopCategory, Category
+from ..models import Post, PostComment
 from ..forms import PostSearchForm, PostCommentForm
+from ..utils import top_category_query
 
 
 class PostListView(generic.ListView):
@@ -24,16 +25,14 @@ class PostListView(generic.ListView):
         else:
             queryset = Post.active_objs.all()
 
-        queryset = queryset.order_by('-datetime_updated')
+        queryset = queryset.select_related('category').prefetch_related('images').order_by('-datetime_updated')
 
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        category_pk_list = TopCategory.objects.values_list('category__pk')
-        category_queryset = Category.objects.filter(pk__in=category_pk_list).annotate(post_count=Count('posts'))
-        context['top_categories'] = category_queryset.order_by('top_categories__level', '-top_categories__is_top_level')
+        context['top_categories'] = top_category_query()
 
         return context
 
@@ -65,12 +64,15 @@ class PostSearchView(generic.ListView):
             context['q'] = self.q
         except AttributeError:
             context['q'] = None
+
+        context['top_categories'] = top_category_query()
+
         return context
 
     def dispatch(self, request, *args, **kwargs):
         q = request.GET.get('q')
         if not q or q.isspace():
-            return render(self.request, 'portfolio/blog/search_q_none.html')
+            return render(self.request, 'portfolio/blog/search_q_none.html', {'top_categories': top_category_query()})
         return super().dispatch(request, *args, **kwargs)
 
 
