@@ -1,0 +1,97 @@
+/* Custom Iranyekan Fonts */
+@font-face {
+    font-family: 'Iranyekan';
+    src: url('../fonts/Qs_Iranyekan.ttf') format('truetype');
+    /* Additional font-face properties can be added here */
+}
+
+@font-face {
+    font-family: 'Iranyekan-Black';
+    src: url('../fonts/Qs_Iranyekan black.ttf') format('truetype');
+    /* Additional font-face properties can be added here */
+}
+
+@font-face {
+    font-family: 'Iranyekan-Bold';
+    src: url('../fonts/Qs_Iranyekan bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'IranSans';
+    src: url("../fonts/FontsFree-Net-ir_sans.ttf") format('truetype');
+}
+
+.footer-link {
+    color: #acb4bc !important;
+    font-size: 19px;
+}
+.footer-link:hover {
+    color: #e54b4b !important;
+}
+
+/* In your CSS file or within <style> tags */
+.no-posts-container {
+        width: 100%; /* Set the desired width */
+    height: 449px; /* Set the desired height */
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px; /* Adds rounded corners for a modern look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    background-color: #fff; /* Always set the background color to white */
+}
+
+.no-posts-image {
+    width: 80%; /* Adjust as needed */
+    height: auto;
+    transition: transform 0.3s ease-in-out; /* Adds a smooth transition effect */
+    display: block;
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+.no-posts-image:hover {
+    transform: scale(1.05); /* Increases size slightly on hover for an interactive effect */
+}
+
+.no-posts-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.overlay-form {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+
+.overlay-form-container {
+      position: relative;
+      background-color: #fff;
+      padding: 35px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+.form-close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+

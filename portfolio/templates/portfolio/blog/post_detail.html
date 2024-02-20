@@ -3,120 +3,337 @@
 {% load crispy_forms_filters %}
 {% load mptt_tags %}
 {% load jalali_tags %}
+{% load static %}
+{% load i18n %}
 
 {% block title %}
     {{ post.title }}
 {% endblock title %}
 
 {% block content %}
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-8">
-                <h2>{{ post.title }}</h2>
-                <p>Category: {{ post.category.name }}</p>
-                <p>Last Updated: {{ post.datetime_updated }}</p>
-                <p>{{ post.description|safe }}</p>
-                {% for image in post.images.all %}
-                    <img src="{{ image.image.url }}" class="img-fluid mb-3" alt="Post Image">
-                {% endfor %}
-                <hr>
-                <h3>{{ comments.count }} Comments</h3>
-                {% for genre, structure in comments|tree_info %}
-                    {% if structure.new_level %}
-                        <ul class="list-unstyled">
-                        <li class="mb-3">
+    {#    <div class="container mt-4">#}
+    {#        <div class="row">#}
+    {#            <div class="col-md-8">#}
+    {#                <h2>{{ post.title }}</h2>#}
+    {#                <p>Category: {{ post.category.name }}</p>#}
+    {#                <p>Last Updated: {{ post.datetime_updated }}</p>#}
+    {#                <p>{{ post.description|safe }}</p>#}
+    {#                {% for image in post.images.all %}#}
+    {#                    <img src="{{ image.image.url }}" class="img-fluid mb-3" alt="Post Image">#}
+    {#                {% endfor %}#}
+    {#                <hr>#}
+    {#                <h3>{{ comments.count }} Comments</h3>#}
+    {#                {% for genre, structure in comments|tree_info %}#}
+    {#                    {% if structure.new_level %}#}
+    {#                        <ul class="list-unstyled">#}
+    {#                        <li class="mb-3">#}
+    {#                            {% else %}#}
+    {#                        </li>#}
+    {#                        <li class="mb-3">#}
+    {#                    {% endif %}#}
+    {#                {% if not genre.is_child_node %}#}
+    {#                    <div class="card">#}
+    {#                        <div class="card-body">#}
+    {#                            {% if genre.author.name %}#}
+    {#                                <h6>{{ genre.author.name }}</h6>#}
+    {#                            {% else %}#}
+    {#                                <h6>{{ genre.author.username }}</h6>#}
+    {#                            {% endif %}#}
+    {#                            <span class="comment-date">{{ genre.datetime_updated|to_jalali:'%Y/%m/%d' }}</span>#}
+    {#                            <p>{{ genre.text }}</p>#}
+    {#                            <button class="btn btn-sm btn-primary reply-btn"#}
+    {#                                    data-id="{{ genre.id }}"#}
+    {#                                    data-comment-text="{{ genre.text|truncatechars:15 }}"><i#}
+    {#                                    class="bi bi-reply"></i> Reply#}
+    {#                            </button>#}
+    {#                        </div>#}
+    {#                    </div>#}
+    {#                {% else %}#}
+    {#                    <ul class="list-unstyled" style="margin-left: {% widthratio genre.level 1 30 %}px;">#}
+    {#                        <li>#}
+    {#                            <div class="card">#}
+    {#                                <div class="card-body">#}
+    {#                                    {% if genre.author.name %}#}
+    {#                                        <h6>{{ genre.author.name }} {{ genre.level }}</h6>#}
+    {#                                    {% else %}#}
+    {#                                        <h6>{{ genre.author.username }} {{ genre.level }}</h6>#}
+    {#                                    {% endif %}#}
+    {#                                    <span class="comment-date">{{ genre.datetime_updated|to_jalali:'%Y/%m/%d' }}</span>#}
+    {#                                    <p>{{ genre.text }}</p>#}
+    {#                                    <button class="btn btn-sm btn-primary reply-btn"#}
+    {#                                            data-id="{{ genre.id }}"#}
+    {#                                            data-comment-text="{{ genre.text|truncatechars:15 }}"><i#}
+    {#                                            class="bi bi-reply"></i> Reply#}
+    {#                                    </button>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </li>#}
+    {#                    </ul>#}
+    {#                {% endif %}#}
+    {#                {% for level in structure.closed_levels %}#}
+    {#                    </li>#}
+    {#                    </ul>#}
+    {#                {% endfor %}#}
+    {#                {% endfor %}#}
+    {#                <p>No comments yet.</p>#}
+    {#                <hr>#}
+    {#                <h3>Add a Comment</h3>#}
+    {#                <form method="post" id="commentForm">#}
+    {#                    {% csrf_token %}#}
+    {#                    {{ form|crispy }}#}
+    {#                    <button type="submit" class="btn btn-primary">Submit</button>#}
+    {#                </form>#}
+    {#            </div>#}
+    {#            <div class="col-md-4">#}
+    {#                <h3>Related Posts</h3>#}
+    {#                <div class="list-group">#}
+    {#                    {% for related_post in related_posts %}#}
+    {#                        <a href="{{ related_post.get_absolute_url }}" class="list-group-item list-group-item-action">#}
+    {#                            <div class="row align-items-center">#}
+    {#                                <div class="col-3">#}
+    {#                                    <img src="{{ related_post.main_image_url }}"#}
+    {#                                         class="img-fluid" alt="Post Image">#}
+    {#                                </div>#}
+    {#                                <div class="col-9">#}
+    {#                                    <h6 class="mb-0">{{ related_post.title }}</h6>#}
+    {#                                    <p class="mb-0">Category: {{ related_post.category.name }}</p>#}
+    {#                                    <p class="mb-0">Last Updated: {{ related_post.datetime_updated|to_jalali:'%Y/%m/%d' }}</p>#}
+    {#                                </div>#}
+    {#                            </div>#}
+    {#                        </a>#}
+    {#                    {% endfor %}#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+    {#    #}
+
+    <!-- Home Start -->
+    <section class="bg-half d-table w-100"
+             style="background: url('{% static 'images/home/bg-blog-detail.jpg' %}')center center;">
+        <div class="bg-overlay bg-overlay-white"></div>
+        <div class="container">
+            <div class="row mt-5 justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="page-next-level">
+                        <h4 class="title"> {{ post.title }} </h4>
+                        <ul class="list-unstyled mt-3">
+                            <li class="list-inline-item me-3"><i class="mdi mdi-tag-outline me-1"></i><a
+                                    href="{{ post.category.get_absolute_url }}"
+                                    class="text-muted" style="color: #56667d !important;">{{ post.category.name }}</a></li>
+                            <li class="list-inline-item me-3"><i class="mdi mdi-account-heart me-1"></i><a
+                                    href="{% url 'portfolio:home_page' %}"
+                                    class="text-muted">{% trans 'Ali Sirjani' %}</a></li>
+                            <li class="list-inline-item"><i class="mdi mdi-calendar-edit me-1"></i><span
+                                    class="text-muted">{{ post.datetime_updated|to_jalali:'%Y/%m/%d' }}</span></li>
+                        </ul>
+                    </div>
+                </div>  <!--end col-->
+            </div><!--end row-->
+        </div> <!--end container-->
+    </section><!--end section-->
+    <!-- Home End -->
+
+    <!-- Blog STart -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-4">
+                    <div class="sticky-sidebar">
+                        {% for image in post.images.all %}
+                            {% if image.is_main %}
+                                <img src="{{ image.image.url }}" class="img-fluid rounded d-block"
+                                     alt="{{ post.title }}">
                             {% else %}
-                        </li>
-                        <li class="mb-3">
-                    {% endif %}
-                {% if not genre.is_child_node %}
-                    <div class="card">
-                        <div class="card-body">
-                            {% if genre.author.name %}
-                                <h6>{{ genre.author.name }}</h6>
-                            {% else %}
-                                <h6>{{ genre.author.username }}</h6>
+                                <img src="{{ image.image.url }}" class="img-fluid rounded mt-4" alt="{{ post.title }}">
                             {% endif %}
-                            <span class="comment-date">{{ genre.datetime_updated|to_jalali:'%Y/%m/%d' }}</span>
-                            <p>{{ genre.text }}</p>
-                            <button class="btn btn-sm btn-primary reply-btn"
-                                    data-id="{{ genre.id }}"
-                                    data-comment-text="{{ genre.text|truncatechars:15 }}"><i
-                                    class="bi bi-reply"></i> Reply
-                            </button>
+                        {% endfor %}
+                    </div>
+                </div>
+                <!-- BLog Start -->
+                <div class="col-lg-7 col-md-8 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    <div class="blog position-relative overflow-hidden shadow rounded">
+                        <div class="content p-4">
+                            <h6 class="font-weight-normal"><i class="mdi mdi-tag text-primary me-1"></i><a
+                                    href="{{ post.category.get_absolute_url }}"
+                                    class="text-primary">{{ post.category.name }}</a></h6>
+                            <p class="text-muted mt-3">{{ post.description|safe }}</p>
+                            <div class="post-meta mt-3">
+                                <ul class="list-unstyled mb-0">
+                                    {#                                    <li class="list-inline-item float-right">#}
+                                    {#                                        <ul class="list-unstyled">#}
+                                    {#                                            <li class="list-inline-item">Share :</li>#}
+                                    {#                                            <li class="list-inline-item"><a href="javascript:void(0)"#}
+                                    {#                                                                            class="text-muted"><i#}
+                                    {#                                                    class="mdi mdi-facebook"></i></a></li>#}
+                                    {#                                            <li class="list-inline-item"><a href="javascript:void(0)"#}
+                                    {#                                                                            class="text-muted"><i#}
+                                    {#                                                    class="mdi mdi-instagram"></i></a></li>#}
+                                    {#                                            <li class="list-inline-item"><a href="javascript:void(0)"#}
+                                    {#                                                                            class="text-muted"><i#}
+                                    {#                                                    class="mdi mdi-google-plus"></i></a></li>#}
+                                    {#                                            <li class="list-inline-item"><a href="javascript:void(0)"#}
+                                    {#                                                                            class="text-muted"><i#}
+                                    {#                                                    class="mdi mdi-twitter"></i></a></li>#}
+                                    {#                                        </ul>#}
+                                    {#                                    </li>#}
+                                    <li class="list-inline-item">
+                                        <a href="javascript:void(0)" class="text-muted comments">
+                                            <i class="mdi mdi-comment-outline me-1"></i>{{ comments|length }}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                {% else %}
-                    <ul class="list-unstyled" style="margin-left: {% widthratio genre.level 1 30 %}px;">
-                        <li>
-                            <div class="card">
-                                <div class="card-body">
-                                    {% if genre.author.name %}
-                                        <h6>{{ genre.author.name }} {{ genre.level }}</h6>
-                                    {% else %}
-                                        <h6>{{ genre.author.username }} {{ genre.level }}</h6>
-                                    {% endif %}
-                                    <span class="comment-date">{{ genre.datetime_updated|to_jalali:'%Y/%m/%d' }}</span>
-                                    <p>{{ genre.text }}</p>
-                                    <button class="btn btn-sm btn-primary reply-btn"
-                                            data-id="{{ genre.id }}"
-                                            data-comment-text="{{ genre.text|truncatechars:15 }}"><i
-                                            class="bi bi-reply"></i> Reply
-                                    </button>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                {% endif %}
-                {% for level in structure.closed_levels %}
-                    </li>
-                    </ul>
-                {% endfor %}
-                {% endfor %}
-                <p>No comments yet.</p>
-                <hr>
-                <h3>Add a Comment</h3>
-                <form method="post" id="commentForm">
-                    {% csrf_token %}
-                    {{ form|crispy }}
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-            <div class="col-md-4">
-                <h3>Related Posts</h3>
-                <div class="list-group">
-                    {% for related_post in related_posts %}
-                        <a href="{{ related_post.get_absolute_url }}" class="list-group-item list-group-item-action">
-                            <div class="row align-items-center">
-                                <div class="col-3">
-                                    <img src="{{ related_post.main_image_url }}"
-                                         class="img-fluid" alt="Post Image">
-                                </div>
-                                <div class="col-9">
-                                    <h6 class="mb-0">{{ related_post.title }}</h6>
-                                    <p class="mb-0">Category: {{ related_post.category.name }}</p>
-                                    <p class="mb-0">Last Updated: {{ related_post.datetime_updated|to_jalali:'%Y/%m/%d' }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    {% endfor %}
+
+                    <div class="mt-4 pt-2 comment-area ">
+                        <div class="p-4 shadow rounded">
+                            <h5 class="page-title pb-3">{% trans 'Comments' %} :</h5>
+
+                            <ul class="media-list list-unstyled mb-0">
+                                {% recursetree comments %}
+                                    <li class="d-flex mt-4">
+                                        <a class="float-left pe-3 mt-2" href="#">
+                                            <img class="img-fluid d-block mx-auto img-thumbnail rounded-circle"
+                                                 src="{% static 'images/logo-icon.png' %}" alt="img"
+                                                 style="width: 45px; height: 45px;">
+                                        </a>
+                                        <div class="flex-1" style="width: 100%">
+                                            <a class="float-right text-muted reply-btn" data-id="{{ node.id }}"
+                                               type="button" data-comment-text="{{ node.text|truncatechars:15 }}">
+                                                {% trans 'Reply' %} <i class="mdi mdi-reply"></i>&nbsp;
+                                            </a>
+                                            <h6 class="media-heading mb-0"><a href="javascript:void(0)"
+                                                                              class="text-dark">{{ node.author }}</a>
+                                            </h6>
+                                            <small class="text-muted">{{ node.datetime_updated|to_jalali:'%Y/%m/%d' }}</small>
+                                            <p class="mt-2 bg-light font-italic media-para text-muted rounded pt-3 pb-3 ps-4 pe-3 mb-0">
+                                                {{ node.text }}
+                                            </p>
+                                            {% if not node.is_leaf_node %}
+                                                <ul class="children list-unstyled">
+                                                    {{ children }}
+                                                </ul>
+                                            {% endif %}
+                                        </div>
+                                    </li>
+                                {% endrecursetree %}
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-2">
+                        <div class="p-4 shadow rounded">
+                            <h5 class="page-title pb-3">{% trans 'Leave A Comment' %} :</h5>
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <div class="col-md-12">
+                                    <div class="send">
+                                        <button type="submit" class="btn btn-primary rounded">Send comment</button>
+                                    </div>
+                                </div><!--end col-->
+                            </form><!--end form-->
+                        </div>
+                    </div>
                 </div>
+                <!-- BLog End -->
+            </div><!--end row-->
+        </div><!--end container-->
+
+        <div class="container mt-100 mt-60">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <div class="section-title">
+                        <div class="position-relative">
+                            <h4 class="title text-uppercase mb-4">{% trans 'Latest News & Blog' %}</h4>
+                            <div>
+                                <div class="title-box"></div>
+                                <div class="title-line"></div>
+                            </div>
+                        </div>
+                        <p class="text-muted mx-auto para-desc mt-5 mb-0">
+                            {% trans 'By getting information and familiarizing yourself with the benefits of the site, you will find a broader view of its facilities and benefits. This blog is the meeting point of ideas and effective solutions for your growth.' %}
+                        </p>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+
+            <div class="row">
+                {% for recent_post in recent_posts %}
+                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                        <div class="blog-post rounded shadow">
+                            <img src="{{ recent_post.main_image_url }}" class="img-fluid rounded-top" alt="">
+                            <div class="content pt-4 pb-4 p-3">
+                                <ul class="list-unstyled d-flex justify-content-between post-meta">
+                                    <li><i data-feather="user" class="fea icon-sm me-1"></i><a href="javascript:void(0)"
+                                                                                               class="text-dark">{% trans 'Ali' %}</a>
+                                    </li>
+                                    <li><i data-feather="tag" class="fea icon-sm me-1"></i><a
+                                            href="{{ recent_post.category.get_absolute_url }}"
+                                            class="text-dark">{{ recent_post.category.name }}</a>
+                                    </li>
+                                </ul>
+                                <h5 class="mb-3"><a href="{{ recent_post.get_absolute_url }}"
+                                                    class="title text-dark">{{ recent_post.title }}</a></h5>
+                                <ul class="list-unstyled mb-0 pt-3 border-top d-flex justify-content-between">
+                                    <li><a href="{{ recent_post.get_absolute_url }}"
+                                           class="text-dark">{% trans 'Read More' %}<i
+                                            data-feather="chevron-right" class="fea icon-sm"></i></a></li>
+                                    <li>
+                                        <i class="mdi mdi-calendar-edit me-1"></i>{{ recent_post.datetime_updated|to_jalali:"%Y/%m/%d" }}
+                                    </li>
+                                </ul>
+                            </div><!--end content-->
+                        </div><!--end blog post-->
+                    </div><!--end col-->
+                {% endfor %}
+            </div><!--end row-->
+        </div><!--end container-->
+    </section>
+    <!-- Blog -->
+
+<div class="overlay-form" id="overlay">
+    <div id="form-container" class="overlay-form-container mt-5 p-4">
+        <!-- Your form content goes here -->
+        <div id="close-btn" class="form-close-btn mb-4" onclick="hideForm()">&times;</div>
+        <h4 class="mb-3 mt-4">{% trans 'Reply To' %} :</h4>
+        <h5 class="title-2 mb-4" id="commentReplyText"></h5>
+        <form method="post" id="commentForm">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form|crispy }}
             </div>
-        </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit">
+                    {% trans 'Post Comment' %}
+                </button>
+            </div>
+        </form>
     </div>
+</div>
+
+
 {% endblock content %}
 
 {% block script %}
     <script>
-        var replyBtns = document.getElementsByClassName('reply-btn')
-
-        for (var i = 0; i < replyBtns.length; i++) {
-            replyBtns[i].addEventListener('click', function () {
-                var form = document.getElementById('commentForm')
-                console.log('this is id', this.dataset.id)
-                form.parent.value = this.dataset.id
-            })
+        function hideForm() {
+            document.getElementById('overlay').style.display = 'none';
         }
 
+        replyesBtns = document.getElementsByClassName('reply-btn')
+        console.log(replyesBtns.length)
+        for (var i = 0; i < replyesBtns.length; i++) {
+            replyesBtns[i].addEventListener('click', function () {
+                document.getElementById('overlay').style.display = 'flex';
+                console.log('this is log: ', this.dataset.commentText.toString())
+                document.getElementById('commentReplyText').innerText = this.dataset.commentText.toString();
+                var commentForm = document.getElementById('commentForm')
+                commentForm.elements['parent'].value = this.dataset.id;
+            })
+        }
     </script>
 {% endblock script %}
