@@ -20,12 +20,12 @@
  =======================*/
 
 // Preloader
-window.onload = function loader() { 
+window.onload = function loader() {
     setTimeout(() => {
         document.getElementById('preloader').style.visibility = 'hidden';
         document.getElementById('preloader').style.opacity = '0';
     }, 350);
-} 
+}
 
 
 // Menu sticky
@@ -51,6 +51,7 @@ var mybutton = document.getElementById("back-to-top");
 window.onscroll = function () {
     scrollFunction();
 };
+
 function scrollFunction() {
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
         console.log(document.body.scrollTop);
@@ -59,6 +60,7 @@ function scrollFunction() {
         mybutton.style.display = "none";
     }
 }
+
 function topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
@@ -73,4 +75,17 @@ var spy = new Gumshoe('#navbar-navlist a', {
     // navClass: 'active', // applied to the nav list item
     // contentClass: 'active', // applied to the content
     offset: 80
+});
+
+
+function stickMessage() {
+    var navbarHeight = document.getElementById('navbar').offsetHeight;
+    var messagesContainer = document.getElementById('messages-container');
+    messagesContainer.style.top = navbarHeight + 15 + 'px';
+}
+
+stickMessage()
+
+window.addEventListener('scroll', function () {
+    stickMessage()
 });
