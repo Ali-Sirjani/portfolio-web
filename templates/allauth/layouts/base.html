@@ -1,0 +1,214 @@
+{% load static %}
+{% load i18n %}
+{% load jalali_tags %}
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block head_title %}
+        {% endblock head_title %}
+    </title>
+    {% block extra_head %}
+    {% endblock extra_head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium Bootstrap 5 Landing Page Template">
+    <meta name="keywords" content="Bootstrap 5, premium, marketing, multipurpose">
+    <meta content="Shreethemes" name="author">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- Lightbox -->
+    <link href="{% static 'css/tobii.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- Icon -->
+    <link href="{% static 'css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- SLIDER -->
+    <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}"/>
+    <!-- Custom Css -->
+    <link href="{% static 'css/style-rtl.css' %}" rel="stylesheet" type="text/css" id="theme-opt">
+    <link href="{% static 'css/colors/default.css' %}" rel="stylesheet" id="color-opt">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+</head>
+
+<body>
+{% block body %}
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="logo">
+                <img src="{% static 'images/logo1.png' %}" height="60" width="200" class="d-block mx-auto" alt="">
+            </div>
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Loader -->
+
+    <!-- Navbar Start -->
+    {% if request.resolver_match.url_name == 'home_page' %}
+        {% include '_navbar_home_page.html' %}
+    {% else %}
+        {% include '_navbar_other_page.html' %}
+    {% endif %}
+    <!-- Navbar End -->
+
+    {% block content %}
+    {% endblock content %}
+{% endblock body %}
+{% block extra_body %}
+{% endblock extra_body %}
+
+<!-- Footer Start -->
+<footer class="footer bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-5">
+                <div class="footer-logo mb-2">
+                    <a href="#"><img src="{% static 'images/logo2-light-persian.png' %}" alt="Your Site Logo"></a>
+                </div>
+                <p class="footer-description d-inline"
+                   style="font-size: 17px;">{% trans 'Follow me on social networks' %}</p>
+                <ul class="list-unstyled mb-0 mt-1 social-icon">
+                    <li class="list-inline-item"><a href="https://github.com/Ali-Sirjani" target="_blank"><i
+                            class="mdi mdi-github"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.instagram.com/ali.django.dev/" target="_blank"><i
+                            class="mdi mdi-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.linkedin.com/in/ali-sirjani/" target="_blank"><i
+                            class="mdi mdi-linkedin"></i></a></li>
+                </ul>
+            </div><!-- .col-lg-4 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h3 class="footer-heading">{% trans 'Quick Links' %}</h3>
+                <ul class="list-unstyled footer-links">
+                    <li class="mb-1"><a href="{% url 'portfolio:home_page' %}"
+                                        class="footer-link">{% trans 'Home' %}</a></li>
+                    <li class="mb-1"><a href="{% url 'portfolio:home_page' %}#services"
+                                        class="footer-link">{% trans 'Services' %}</a></li>
+                    <li class="mb-1"><a href="{% url 'portfolio:project_list' %}"
+                                        class="footer-link">{% trans 'Projects' %}</a></li>
+                    <li class="mb-1"><a href="{% url 'portfolio:post_list' %}"
+                                        class="footer-link">{% trans 'Blog' %}</a></li>
+                </ul>
+            </div><!-- .col-lg-4 -->
+            <div class="col-lg-4">
+                <h3 class="footer-heading">{% trans 'Contact Me' %}</h3>
+                <ul class="list-unstyled contact-info">
+                    <li class=""><i class="mdi mdi-message"></i> <a href="{% url 'portfolio:home_page' %}#contact"
+                                                                    class="footer-link">{% trans 'leave a message' %}</a>
+                    </li>
+                    <li><i class="mdi mdi-email"></i>
+                        <p class="d-inline" style="font-size: 19px;">alisirjani.django@gmail.com</p></li>
+                </ul>
+            </div><!-- .col-lg-4 -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+</footer><!--end footer-->
+<footer class="footer footer-bar bg-dark">
+    <div class="container text-foot text-center">
+        <p class="mb-0" style="font-size: 19px;">©
+            <script>document.write("{% jalali_now "%Y" %}")</script>
+            {% trans 'Ali Sirjani' %}
+        </p>
+    </div><!--end container-->
+</footer><!--end footer-->
+<!-- Footer End -->
+
+<!-- Back to top -->
+<a href="#" onclick="topFunction()" class="back-to-top rounded text-center" id="back-to-top">
+    <i class="mdi mdi-chevron-up d-block"> </i>
+</a>
+<!-- Back to top -->
+
+<!-- Style switcher -->
+<div id="style-switcher" class="bg-light border p-3 pt-2 pb-2" onclick="toggleSwitcher()">
+    <div>
+        <h6 class="title text-center">Select Your Color</h6>
+        <ul class="pattern">
+            <li class="list-inline-item">
+                <a class="color1" href="javascript: void(0);" onclick="setColor('default')"></a>
+            </li>
+            <li class="list-inline-item">
+                <a class="color2" href="javascript: void(0);" onclick="setColor('blue')"></a>
+            </li>
+            <li class="list-inline-item">
+                <a class="color3" href="javascript: void(0);" onclick="setColor('light-green')"></a>
+            </li>
+            <li class="list-inline-item">
+                <a class="color4" href="javascript: void(0);" onclick="setColor('yellow')"></a>
+            </li>
+            <li class="list-inline-item">
+                <a class="color5" href="javascript: void(0);" onclick="setColor('light-yellow')"></a>
+            </li>
+            <li class="list-inline-item">
+                <a class="color6" href="javascript: void(0);" onclick="setColor('purple')"></a>
+            </li>
+        </ul>
+
+        <h6 class="title text-center pt-3 mb-0 border-top">Theme Option</h6>
+        <ul class="text-center list-unstyled mb-0">
+            <li class="d-grid"><a href="javascript:void(0)"
+                                  class="btn btn-sm btn-block btn-primary rtl-version t-rtl-light mt-2"
+                                  onclick="setTheme('style-rtl')">RTL</a></li>
+            <li class="d-grid"><a href="javascript:void(0)"
+                                  class="btn btn-sm btn-block btn-primary ltr-version t-ltr-light mt-2"
+                                  onclick="setTheme('style')">LTR</a></li>
+            <li class="d-grid"><a href="javascript:void(0)"
+                                  class="btn btn-sm btn-block btn-primary dark-rtl-version t-rtl-dark mt-2"
+                                  onclick="setTheme('style-dark-rtl')">RTL</a></li>
+            <li class="d-grid"><a href="javascript:void(0)"
+                                  class="btn btn-sm btn-block btn-primary dark-ltr-version t-ltr-dark mt-2"
+                                  onclick="setTheme('style-dark')">LTR</a></li>
+            <li class="d-grid"><a href="javascript:void(0)"
+                                  class="btn btn-sm btn-block btn-dark dark-version t-dark mt-2"
+                                  onclick="setTheme('style-dark')">Dark</a></li>
+            <li class="d-grid"><a href="javascript:void(0)"
+                                  class="btn btn-sm btn-block btn-dark light-version t-light mt-2"
+                                  onclick="setTheme('style')">Light</a></li>
+        </ul>
+
+        <h6 class="title text-center pt-3 mb-0 border-top">Download</h6>
+        <ul class="text-center list-unstyled mb-0">
+            <li><a href="https://1.envato.market/cristino" target="_blank"
+                   class="btn btn-sm btn-block btn-warning mt-2 w-100">Download</a></li>
+        </ul>
+    </div>
+    <div class="bottom p-0">
+        <a href="javascript: void(0);" class="settings bg-white shadow d-block"><i
+                class="mdi mdi-cog ms-1 mdi-24px position-absolute mdi-spin text-primary"></i></a>
+    </div>
+</div>
+<!-- end Style switcher -->
+
+<!-- javascript -->
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/gumshoe.js' %}"></script>
+<!-- SLIDER -->
+<script src="{% static 'js/tiny-slider.js' %} "></script>
+
+<!-- Lightbox -->
+<script src="{% static 'js/tobii.min.js' %}"></script>
+
+<script src="{% static 'js/shuffle.min.js' %}"></script>
+
+<!-- Feather icon -->
+<script src="{% static 'js/feather.min.js' %}"></script>
+<!--Partical js-->
+<script src="{% static 'js/particles.js' %}"></script>
+<!-- Typed -->
+<script src="{% static 'js/typed.js' %}"></script>
+
+<!-- Main Js -->
+<script src="{% static 'js/plugins.init.js' %}"></script>
+<script src="{% static 'js/app.js' %}"></script>
+
+</body>
+</html>
