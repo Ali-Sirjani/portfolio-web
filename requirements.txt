@@ -8,6 +8,7 @@ cryptography==42.0.3
 defusedxml==0.7.1
 Django==5.0.2
 django-allauth==0.61.1
+django-axes==6.3.0
 django-ckeditor==6.7.0
 django-crispy-forms==2.1
 django-cuser==2017.3.16

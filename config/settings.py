@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'axes',
     'debug_toolbar',
     'mptt',
     'ckeditor',
@@ -76,6 +77,20 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     # allauth
     'allauth.account.middleware.AccountMiddleware',
+
+    # AxesMiddleware should be the last middleware in the MIDDLEWARE list.
+    'axes.middleware.AxesMiddleware',
+]
+
+AUTHENTICATION_BACKENDS = [
+    # AxesStandaloneBackend should be the first backend in the AUTHENTICATION_BACKENDS list.
+    'axes.backends.AxesStandaloneBackend',
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -177,14 +192,6 @@ if DEBUG:
 AUTH_USER_MODEL = 'core.CustomUser'
 
 # config allauth
-AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-
-    # `allauth` specific authentication methods, such as login by email
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_USERNAME_REQUIRED = False
@@ -212,6 +219,14 @@ SOCIALACCOUNT_PROVIDERS = {
         'OAUTH_PKCE_ENABLED': True,
     }
 }
+
+# config django-axes
+AXES_FAILURE_LIMIT = 5  # Maximum allowed login failures before lockout.
+AXES_LOCK_OUT_AT_FAILURE = True  # Enable lockout after exceeding failure limit.
+AXES_COOLOFF_TIME = 0.1  # Time period (in days) for cooling off during lockout.
+AXES_RESET_COOL_OFF_ON_FAILURE_DURING_LOCKOUT = False  # Don't reset cool-off time on each failure during lockout.
+AXES_USERNAME_FORM_FIELD = 'login'  # Name of the form field for the username or identifier.
+AXES_LOCKOUT_CALLABLE = 'core.utils.custom_lockout_response'
 
 # config message
 MESSAGE_TAGS = {
