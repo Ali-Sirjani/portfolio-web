@@ -25,13 +25,14 @@
     color: #acb4bc !important;
     font-size: 19px;
 }
+
 .footer-link:hover {
     color: #e54b4b !important;
 }
 
 /* In your CSS file or within <style> tags */
 .no-posts-container {
-        width: 100%; /* Set the desired width */
+    width: 100%; /* Set the desired width */
     height: 449px; /* Set the desired height */
     position: relative;
     overflow: hidden;
@@ -66,32 +67,123 @@
 }
 
 .overlay-form {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      justify-content: center;
-      align-items: center;
-      z-index: 1;
-    }
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
 
 .overlay-form-container {
-      position: relative;
-      background-color: #fff;
-      padding: 35px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
+    position: relative;
+    background-color: #fff;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 
 .form-close-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 20px;
-      cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.messages-alert-container {
+    position: fixed;
+    bottom: 0;
+    right: 0; /* Adjusted to stick messages to the right */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.messages-alert-container .container {
+    max-width: 500px; /* Adjust as needed */
+    margin-left: auto; /* Center horizontally */
+}
+
+.alert {
+    /* Ensure long words wrap within the container */
+    overflow-wrap: break-word; /* Standard property */
+    word-wrap: break-word; /* For older browsers */
+    word-break: break-all; /* Break long words */
+}
+
+.auth-form-container {
+    width: 90%; /* Adjust the width as needed */
+    max-width: 500px; /* Set a maximum width to prevent it from becoming too wide */
+    margin: 140px auto 150px; /* Center the container horizontally and provide space from top and bottom */
+    padding: 20px; /* Add padding to create space inside the container */
+    border: 1px solid #ccc; /* Add a border for visual separation */
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+}
+
+/* Media query for smaller screens (phones) */
+@media screen and (max-width: 600px) {
+    .auth-form-container {
+        width: 90%; /* Adjust the width for smaller screens */
+        margin: 110px auto 60px; /* Center the container horizontally and provide space from top and bottom */
     }
+}
 
 
+/* Style for the form within the container */
+.auth-form {
+
+}
+
+/* Style for form buttons */
+.auth-form button {
+    width: 100%; /* Make the button fill the container width */
+    padding: 10px; /* Add padding to the button */
+    border: none; /* Remove the border */
+    border-radius: 3px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.auth-form a, p a{
+    color: #acb4bc !important;
+    font-size: 19px;
+}
+.auth-form a:hover, p a:hover{
+    color: #e54b4b !important;
+}
+
+.form-text-muted li {
+    color: #8492a6 !important;
+}
+
+.message-container {
+    width: 80%; /* Adjust as needed */
+    margin: 150px auto 150px; /* Center the container horizontally */
+    text-align: center; /* Center text inside container */
+    background-color: #f6f6f6; /* Light gray background color */
+    color: #333; /* Dark text color */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding around content */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow for depth */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+}
+
+.message-container:hover {
+    transform: translateY(-3px); /* Lift the container slightly on hover for interaction */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance box shadow on hover */
+}
+
+.message-container h1, h2 {
+    font-size: 2rem; /* Larger font size for title */
+    margin-bottom: 1rem; /* Space between title and content */
+}
+
+.message-container p {
+    font-size: 1.4rem; /* Larger font size for content */
+    margin-top: 0; /* Remove default top margin */
+    line-height: 1.6; /* Improved readability with increased line height */
+}

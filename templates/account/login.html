@@ -1,0 +1,36 @@
+{% extends "account/base_entrance.html" %}
+
+{% load i18n %}
+{% load allauth account socialaccount %}
+{% load crispy_forms_filters %}
+
+{% block head_title %}
+    {% trans "Sign In" %}
+{% endblock head_title %}
+
+{% block content %}
+    <div class="auth-form-container">
+        <h1 class="card-title mb-5 mt-3 text-center">{% trans "Sign In" %}</h1>
+        <p>
+            {% blocktrans %}If you have not created an account yet, then please
+                <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
+        </p>
+        {% url 'account_login' as login_url %}
+        <form action="{{ login_url }}" method="post" class="auth-form mb-4">
+            {% csrf_token %}
+            <div class="form-text-muted">
+                {{ form|crispy }}
+            </div>
+            {% if redirect_field_value %}
+                <input type="hidden"
+                       name="{{ redirect_field_name }}"
+                       value="{{ redirect_field_value }}"/>
+            {% endif %}
+            <div class="mt-4">
+                <button type="submit" tags="prominent,login"
+                        class="btn btn-primary btn-block">{% trans "Sign In" %}</button>
+            </div>
+            {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
+        </form>
+    </div>
+{% endblock content %}
