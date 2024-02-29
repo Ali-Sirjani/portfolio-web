@@ -1,0 +1,180 @@
+{% extends '_base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+    <div class="container mb-60">
+        <div class="row">
+            <div class="col-lg-3 profile-menu">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active" data-target="dashboard">
+                        {% trans "Dashboard" %} <i class="mdi mdi-home" style="font-size: 22px"></i>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" data-target="profile">
+                        {% trans "Profile Info" %} <i class="mdi mdi-card-account-details" style="font-size: 22px"></i>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" data-target="edit-profile">
+                        {% trans "Edit Profile" %} <i class="mdi mdi-account-edit" style="font-size: 22px"></i>
+                    </a>
+
+                    {% if user.has_usable_password %}
+                        <a href="#" class="list-group-item list-group-item-action" data-target="change-password">
+                            {% trans "Change Password" %} <i class="mdi mdi-key" style="font-size: 22px"></i>
+                        </a>
+                    {% else %}
+                        <a href="#" class="list-group-item list-group-item-action" data-target="set-password">
+                            {% trans "Set Password" %}
+                        </a>
+                    {% endif %}
+
+                    <a href="{% url 'account_logout' %}" class="list-group-item" style="color: #3e4856;font-size: 22px"
+                       onmouseover="this.style.color='black'" onmouseout="this.style.color='#3e4856'"
+                       data-target="logout">
+                        {% trans "Logout" %}  <i class="mdi mdi-logout"></i>
+                    </a>
+
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div id="dashboard" class="profile-section">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">{% trans "Dashboard" %}</h3>
+                            {% url 'account_logout' as logout_url %}
+                            {% with username=request.user.username %}
+                                {% blocktrans %}
+                                    <p class="text-muted">Hello <strong>{{ username }}</strong> (not
+                                        <strong>{{ username }}</strong>?
+                                        <small><a href="{{ logout_url }}">Log out</a></small> )</p>
+                                {% endblocktrans %}
+                            {% endwith %}
+                        </div>
+                    </div>
+                </div>
+                <div id="profile" class="profile-section" style="display: none;">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">{% trans "Profile Info" %}</h3>
+                            <div class="profile-picture">
+                                <img src="{{ profile.picture.url }}" alt="{% trans "Profile Picture" %}">
+                            </div>
+                            <p class="text-muted">{% trans "First name" %}: <span
+                                    class="text-dark">{{ profile.first_name|default:'-' }}</span></p>
+                            <p class="text-muted">{% trans "Last name" %}: <span
+                                    class="text-dark">{{ profile.last_name|default:'-' }}</span></p>
+                            <p class="text-muted">{% trans "Email" %}: <span
+                                    class="text-dark">{{ user.email|default:'-' }}</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div id="edit-profile" class="profile-section" style="display: none;">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">{% trans "Edit Profile" %}</h3>
+                            <form id="profile_form" method="post" enctype="multipart/form-data" class="mt-4">
+                                {% csrf_token %}
+                                <div class="alert alert-danger"
+                                     id="profile_error_container"
+                                     style="display: none; font-size: 18px;"></div>
+                                <div class="form-text-muted">
+                                    {% for field in form %}
+                                        {{ field|as_crispy_field }}
+                                        <div class="invalid-feedback text-block"
+                                             id="invalid-feedback-{{ field.name }}"
+                                             style="display: none; "></div>
+                                    {% endfor %}
+
+                                </div>
+                                <button type="button" class="btn btn-primary mt-2" id="updateProfileBtn"
+                                        onclick="updateProfileAjax()">{% trans "Save Changes" %}</button>
+                            </form>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="card-title">{% trans "Edit Username" %}</h3>
+                            <form id="set_username_form" method="post" class="mt-4">
+                                {% csrf_token %}
+                                <div class="alert alert-danger"
+                                     id="set_username_error_container"
+                                     style="display: none; font-size: 18px;"></div>
+                                <div class="form-text-muted">
+                                    {% for field in set_username_form %}
+                                        {{ field|as_crispy_field }}
+                                        <div class="invalid-feedback text-block"
+                                             id="invalid-feedback-{{ field.name }}"
+                                             style="display: none; "></div>
+                                    {% endfor %}
+
+                                </div>
+                                <button type="button" class="btn btn-primary mt-2" id="setUsernameBtn"
+                                        onclick="setUsernameAjax()">{% trans "Save Changes" %}</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="change-password" class="profile-section" style="display: none;">
+                    <div class="card">
+                        <div class="card-body">
+                            {% if user.has_usable_password %}
+                                <h3 class="card-title">{% trans "Change Password" %}</h3>
+                                <form id="change_password_form" method="post" class="mt-4">
+                                    {% csrf_token %}
+                                    <div class="alert alert-danger"
+                                         id="change_pass_error_container"
+                                         style="display: none; font-size: 18px;"></div>
+                                    <div class="form-text-muted">
+                                        {% for field in change_pass_form %}
+                                            {{ field|as_crispy_field }}
+                                            <div class="invalid-feedback text-block"
+                                                 id="invalid-feedback-{{ field.name }}"
+                                                 style="display: none; "></div>
+                                        {% endfor %}
+                                        <a class="text-muted"
+                                           href="{% url 'account_reset_password' %}">{% trans 'Forgot your password?' %}</a>
+                                    </div>
+                                    <button type="button" id="changePasswordBtn" onclick="changePassword()"
+                                            class="btn btn-primary mt-4">{% trans "Change Password" %}</button>
+                                </form>
+                            {% else %}
+                                <h3 class="card-title">{% trans "Set Password" %}</h3>
+                                <form id="set_password_form" method="post" class="mt-4">
+                                    {% csrf_token %}
+                                    <div class="alert alert-danger"
+                                         id="set_pass_error_container"
+                                         style="display: none; font-size: 18px;"></div>
+                                    <div class="form-text-muted">
+                                        {% for field in set_pass_form %}
+                                            {{ field|as_crispy_field }}
+                                            <div class="invalid-feedback text-block"
+                                                 id="invalid-feedback-{{ field.name }}"
+                                                 style="display: none; "></div>
+                                        {% endfor %}
+                                    </div>
+                                    <button type="button" id="setPasswordBtn" onclick="setPassword()"
+                                            class="btn btn-primary mt-2">{% trans "Set Password" %}</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript">
+        var setUsernameUrl = "{% url 'core:set_username' %}";
+        var changePasswordUrl = "{% url 'account_change_password' %}";
+        var setPasswordUrl = "{% url 'account_set_password' %}";
+        var profileUrd = "{% url 'core:profile_page' %}";
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    {#    <script src="https://cdnjs.cloudflare.com/ajax/libs/notyf/3.10.0/notyf.min.js"#}
+    {#            integrity="sha512-467grL09I/ffq86LVdwDzi86uaxuAhFZyjC99D6CC1vghMp1YAs+DqCgRvhEtZIKX+o9lR0F2bro6qniyeCMEQ=="#}
+    {#            crossorigin="anonymous" referrerpolicy="no-referrer"></script>#}
+    <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
+{% endblock script %}
