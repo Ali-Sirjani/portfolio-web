@@ -365,7 +365,9 @@ try {
     };
 
     function setTheme(theme) {
-        document.getElementById('theme-opt').href = '/static/css/' + theme + '.min.css';
+        var hrefPath = '/static/css/' + theme + '.min.css';
+        document.getElementById('theme-opt').href = hrefPath;
+        localStorage.setItem('theme', hrefPath)
         toggleSwitcher(false);
     };
 } catch (error) {

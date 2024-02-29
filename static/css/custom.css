@@ -111,7 +111,6 @@
     /* Ensure long words wrap within the container */
     overflow-wrap: break-word; /* Standard property */
     word-wrap: break-word; /* For older browsers */
-    word-break: break-all; /* Break long words */
 }
 
 .auth-form-container {
@@ -147,17 +146,15 @@
     cursor: pointer; /* Change cursor to pointer on hover */
 }
 
-.auth-form a, p a{
+.auth-form a, p a {
     color: #acb4bc !important;
     font-size: 19px;
 }
-.auth-form a:hover, p a:hover{
+
+.auth-form a:hover, p a:hover {
     color: #e54b4b !important;
 }
 
-.form-text-muted li {
-    color: #8492a6 !important;
-}
 
 .message-container {
     width: 80%; /* Adjust as needed */
@@ -186,4 +183,162 @@
     font-size: 1.4rem; /* Larger font size for content */
     margin-top: 0; /* Remove default top margin */
     line-height: 1.6; /* Improved readability with increased line height */
+}
+
+/* profile page styles */
+.profile-menu {
+    margin-top: 140px;
+    background-color: transparent; /* Light gray background */
+    border-left: 2px solid #dee2e6; /* Add left border */
+}
+
+.list-group-item {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: #3d4857; /* Blue text color */
+    font-weight: bold; /* Bold font weight */
+}
+
+.list-group-item:hover {
+    background-color: transparent /* Light gray background on hover */
+}
+
+.list-group-item.active {
+    background-color: #E24D4C; /* Active list item background color */
+    color: #ffffff; /* Text color for active list item */
+}
+
+.profile-section {
+    padding: 20px;
+    background-color: transparent;
+}
+
+.card {
+    margin-top: 120px;
+    background-color: transparent !important;
+    border: 1px solid #ccc; /* Add a border for visual separation */
+    margin-bottom: 20px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.35); /* Update box shadow */
+}
+
+.card-title {
+    color: #007bff; /* Blue text color */
+    font-size: 1.5rem; /* Larger font size */
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.btn-primary {
+    background-color: #007bff; /* Blue button background color */
+    border-color: #007bff; /* Blue button border color */
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3; /* Darker blue border on hover */
+}
+
+.profile-picture {
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-align: center; /* Center the content horizontally */
+}
+
+.profile-picture img {
+    width: 200px; /* Reduce the width of the image */
+    height: 200px; /* Reduce the height of the image */
+    object-fit: cover; /* Ensure the image covers the entire container */
+    border-radius: 50%; /* Make the image appear as a circle */
+    box-shadow: 0 12px 14px rgba(0, 0, 0, 0.4); /* Reduce the intensity of the shadow effect */
+    display: block; /* Ensure the image is centered within its container */
+    margin: 0 auto 10px auto; /* Center the image horizontally and add some bottom margin */
+}
+
+
+@media (max-width: 768px) {
+    .profile-menu {
+        border-left: none; /* Remove left border on mobile */
+    }
+
+    .list-group-item {
+        border-bottom: none; /* Remove bottom border from list items */
+    }
+
+    .profile-section {
+        padding: 10px; /* Decrease padding for profile sections */
+    }
+
+    .card {
+        margin-top: 45px;
+        margin-bottom: 10px; /* Decrease margin bottom for cards */
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Update box shadow for cards */
+    }
+
+    .card-title {
+        font-size: 1.2rem; /* Decrease font size for card titles */
+    }
+
+    .card-body {
+        padding: 15px; /* Update padding for card bodies */
+    }
+}
+
+/* Theme Switcher */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    margin-top: 8px !important;
+    margin-left: 60px !important;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch input:checked + .slider {
+    background-color: #476173;
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(20px);
+    background-color: transparent;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    box-shadow: inset -5px -3px 0 #d8e9ef;
+}
+
+.switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #7bb9f5;
+    transition: 0.4s;
+    border-radius: 20px;
+    box-shadow: 0 0 0.25em rgba(67, 71, 85, 0.27), 0.2px 0.2em 24px 0 rgba(1, 29, 77, 0.15);
+}
+
+.switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: yellow;
+    transition: 0.4s;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 16px;
 }
