@@ -1,0 +1,566 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-01 16:02+0330\n"
+"PO-Revision-Date: 2024-03-01 12:32+0000\n"
+"Last-Translator:   <alisirjani1234@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\abstract\time_abstract.py:6
+msgid "datetime created"
+msgstr "تاریخ ایجاد شد"
+
+#: .\abstract\time_abstract.py:7
+msgid "datetime updated"
+msgstr "تاریخ به روز شد"
+
+#: .\admin\blog_admin.py:49
+msgid "Post Information"
+msgstr "اطلاعات پست"
+
+#: .\admin\blog_admin.py:52 .\admin\project_admin.py:24
+msgid "Slug Settings"
+msgstr "تنظیمات اسلاگ"
+
+#: .\admin\blog_admin.py:56 .\admin\project_admin.py:28
+msgid "Date and Time"
+msgstr "تاریخ و زمان"
+
+#: .\admin\project_admin.py:21
+msgid "Project Information"
+msgstr "اطلاعات پروژه"
+
+#: .\forms\blog_forms.py:17 .\forms\project_forms.py:15
+msgid "Exactly one image should be marked as main."
+msgstr "دقیقاً یک تصویر باید به عنوان اصلی علامت گذاری شود."
+
+#: .\forms\blog_forms.py:37
+msgid "Enter your comment"
+msgstr "نظر خود را وارد کنید"
+
+#: .\models\blog_models.py:15
+msgid "name"
+msgstr "نام"
+
+#: .\models\blog_models.py:16 .\models\blog_models.py:68
+#: .\models\project_models.py:20
+msgid "slug change"
+msgstr "تغییر اسلاگ"
+
+#: .\models\blog_models.py:16 .\models\blog_models.py:68
+#: .\models\project_models.py:20
+msgid "If you want change the slug by name"
+msgstr "اگر می خواهید اسلاگ را با نام تغییر دهید"
+
+#: .\models\blog_models.py:17 .\models\blog_models.py:69
+#: .\models\project_models.py:21
+msgid "slug"
+msgstr "اسلاگ"
+
+#: .\models\blog_models.py:18
+msgid "If field be empty it's automatic change by name"
+msgstr "اگر فیلد خالی باشد، نام آن به صورت خودکار تغییر می کند"
+
+#: .\models\blog_models.py:21 .\models\blog_models.py:39
+#: .\models\blog_models.py:63
+msgid "category"
+msgstr "دسته بندی"
+
+#: .\models\blog_models.py:22
+msgid "categories"
+msgstr "دسته بندی ها"
+
+#: .\models\blog_models.py:42
+msgid "Levels are ordered from top to bottom, with 1 being the highest."
+msgstr "سطوح از بالا به پایین مرتب شده اند که 1 بالاترین است."
+
+#: .\models\blog_models.py:43
+msgid "level"
+msgstr "سطح"
+
+#: .\models\blog_models.py:49
+msgid "top category"
+msgstr "دسته بندی برتر"
+
+#: .\models\blog_models.py:50
+msgid "top categories"
+msgstr "دسته بندی های برتر"
+
+#: .\models\blog_models.py:65 .\models\project_models.py:14
+msgid "title"
+msgstr "عنوان"
+
+#: .\models\blog_models.py:66 .\models\project_models.py:15
+msgid "description"
+msgstr "شرح"
+
+#: .\models\blog_models.py:67
+msgid "can published"
+msgstr "می تواند منتشر شود"
+
+#: .\models\blog_models.py:70 .\models\project_models.py:22
+msgid "If field be empty it's automatic change by title"
+msgstr "اگر فیلد خالی باشد به صورت خودکار با عنوان تغییر می کند"
+
+#: .\models\blog_models.py:76 .\models\blog_models.py:94
+#: .\models\blog_models.py:111
+msgid "post"
+msgstr "پست"
+
+#: .\models\blog_models.py:77
+msgid "posts"
+msgstr "پست ها"
+
+#: .\models\blog_models.py:96 .\models\project_models.py:50
+msgid "image"
+msgstr "تصویر"
+
+#: .\models\blog_models.py:97 .\models\project_models.py:51
+msgid "main"
+msgstr "اصلی"
+
+#: .\models\blog_models.py:100
+msgid "post image"
+msgstr "تصویر پست"
+
+#: .\models\blog_models.py:101
+msgid "post images"
+msgstr "تصاویر پست"
+
+#: .\models\blog_models.py:113
+msgid "author"
+msgstr "نویسنده"
+
+#: .\models\blog_models.py:115
+msgid "text"
+msgstr "متن"
+
+#: .\models\blog_models.py:117
+msgid "confirmation"
+msgstr "تائیدیه"
+
+#: .\models\blog_models.py:120
+msgid "post comment"
+msgstr "نظر پست"
+
+#: .\models\blog_models.py:121
+msgid "post comments"
+msgstr "نظرات پست"
+
+#: .\models\general_models.py:8
+msgid "full name"
+msgstr "نام کامل"
+
+#: .\models\general_models.py:9
+msgid "email"
+msgstr "ایمیل"
+
+#: .\models\general_models.py:10
+msgid "subject"
+msgstr "موضوع"
+
+#: .\models\general_models.py:11
+msgid "message"
+msgstr "پیام"
+
+#: .\models\general_models.py:12
+msgid "answer"
+msgstr "پاسخ"
+
+#: .\models\general_models.py:15
+msgid "contact message"
+msgstr "پیام تماس"
+
+#: .\models\general_models.py:16
+msgid "contact messages"
+msgstr "پیام های تماس"
+
+#: .\models\project_models.py:16
+msgid "client"
+msgstr "مشتری"
+
+#: .\models\project_models.py:17
+msgid "link"
+msgstr "لینک"
+
+#: .\models\project_models.py:18
+msgid "location"
+msgstr "مکان"
+
+#: .\models\project_models.py:19
+msgid "start date"
+msgstr "تاریخ شروع"
+
+#: .\models\project_models.py:24
+msgid "active"
+msgstr "فعال"
+
+#: .\models\project_models.py:30 .\models\project_models.py:48
+msgid "project"
+msgstr "پروژه"
+
+#: .\models\project_models.py:31
+msgid "projects"
+msgstr "پروژه ها"
+
+#: .\models\project_models.py:54
+msgid "project image"
+msgstr "تصویر پروژه"
+
+#: .\models\project_models.py:55
+msgid "project images"
+msgstr "تصاویر پروژه"
+
+#: .\templates\portfolio\blog\_post_list_master.html:29
+#: .\templates\portfolio\blog\post_detail.html:276
+#: .\templates\portfolio\general\home_page.html:272
+#: .\templates\portfolio\project\project_detail.html:138
+msgid "Ali"
+msgstr "علی"
+
+#: .\templates\portfolio\blog\_post_list_master.html:42
+#: .\templates\portfolio\blog\post_detail.html:287
+#: .\templates\portfolio\general\home_page.html:283
+#: .\templates\portfolio\project\project_detail.html:149
+msgid "Read More"
+msgstr "ادامه مطلب"
+
+#: .\templates\portfolio\blog\_post_list_master.html:63
+msgid "Oops! Please enter a search query to find posts."
+msgstr "لطفاً یک عبارت جستجو برای یافتن پست ها وارد کنید."
+
+#: .\templates\portfolio\blog\_post_list_master.html:71
+#, python-format
+msgid ""
+"\n"
+"                                            Oops! There are no posts matching your search for '%(q)s'\n"
+"                                        "
+msgstr ""
+"\n"
+"هیچ پستی مطابق با جستجوی شما برای '%(q)s' وجود ندارد"
+
+#: .\templates\portfolio\blog\_post_list_master.html:76
+msgid "Oops! There are no posts available at the moment."
+msgstr "در حال حاضر هیچ پستی موجود نیست."
+
+#: .\templates\portfolio\blog\_post_list_master.html:90
+msgid "Author"
+msgstr "نویسنده"
+
+#: .\templates\portfolio\blog\_post_list_master.html:95
+#: .\templates\portfolio\blog\post_detail.html:127
+#: .\templates\portfolio\general\home_page.html:42
+msgid "Ali Sirjani"
+msgstr "علی سیرجانی"
+
+#: .\templates\portfolio\blog\_post_list_master.html:96
+msgid "web developer"
+msgstr "توسعه دهنده وب"
+
+#: .\templates\portfolio\blog\_post_list_master.html:117
+msgid "Search"
+msgstr "جستجو"
+
+#: .\templates\portfolio\blog\_post_list_master.html:123
+msgid "Search Keywords..."
+msgstr "جستجوی کلمات ..."
+
+#: .\templates\portfolio\blog\_post_list_master.html:136
+msgid "Categories"
+msgstr "دسته بندی ها"
+
+#: .\templates\portfolio\blog\_post_list_master.html:151
+msgid "Recent Post"
+msgstr "پست های اخیر"
+
+#: .\templates\portfolio\blog\post_detail.html:193
+msgid "Comments"
+msgstr "نظرات"
+
+#: .\templates\portfolio\blog\post_detail.html:206
+msgid "Reply"
+msgstr "پاسخ"
+
+#: .\templates\portfolio\blog\post_detail.html:230
+msgid "Leave A Comment"
+msgstr "یک نظر بگذارید"
+
+#: .\templates\portfolio\blog\post_detail.html:236
+#| msgid "post comment"
+msgid "Send comment"
+msgstr "ارسال نظر"
+
+#: .\templates\portfolio\blog\post_detail.html:252
+#: .\templates\portfolio\general\home_page.html:248
+#: .\templates\portfolio\project\project_detail.html:114
+msgid "Latest News & Blog"
+msgstr "آخرین اخبار و بلاگ"
+
+#: .\templates\portfolio\blog\post_detail.html:259
+#: .\templates\portfolio\general\home_page.html:255
+#: .\templates\portfolio\project\project_detail.html:121
+msgid ""
+"By getting information and familiarizing yourself with the benefits of the "
+"site, you will find a broader view of its facilities and benefits. This blog"
+" is the meeting point of ideas and effective solutions for your growth."
+msgstr ""
+"با کسب اطلاعات و آشنایی با فواید سایت، دیدگاه گسترده‌تری نسبت به امکانات و "
+"مزایای آن پیدا خواهید کرد. این بلاگ نقطه  به هم رسیدن ایده‌ها و راهکارهای "
+"موثر برای رشد شماست."
+
+#: .\templates\portfolio\blog\post_detail.html:306
+msgid "Reply To"
+msgstr "پاسخ دادن به"
+
+#: .\templates\portfolio\blog\post_detail.html:315
+msgid "Post Comment"
+msgstr "ارسال نظر"
+
+#: .\templates\portfolio\blog\post_list.html:5
+msgid "blog"
+msgstr "بلاگ"
+
+#: .\templates\portfolio\blog\search_page.html:6
+#: .\templates\portfolio\blog\search_q_none.html:6
+msgid "Search Results"
+msgstr "نتایج جستجو"
+
+#: .\templates\portfolio\general\home_page.html:7
+#: .\templates\portfolio\project\project_detail.html:98
+msgid "Home"
+msgstr "خانه"
+
+#: .\templates\portfolio\general\home_page.html:20
+msgid "I Am"
+msgstr "من"
+
+#: .\templates\portfolio\general\home_page.html:23
+msgid "Web Developer"
+msgstr "توسعه دهنده وب هستم"
+
+#: .\templates\portfolio\general\home_page.html:23
+msgid "Backend Developer"
+msgstr "توسعه دهنده بک اند هستم"
+
+#: .\templates\portfolio\general\home_page.html:25
+msgid ""
+"As a web development programmer specializing in Python-based technologies "
+"including the Django Framework and Django REST, I find it challenging and "
+"fascinating to create innovative websites."
+msgstr ""
+"به عنوان یک برنامه‌نویس در زمینه‌ی توسعه وب، با تخصص در فناوری‌های مبتنی بر "
+"پایتون از جمله فریم‌ورک جنگو و جنگو رست، ایجاد وب‌سایت‌های نوآورانه برایم "
+"چالش‌آفرین و جذاب است."
+
+#: .\templates\portfolio\general\home_page.html:43
+msgid ""
+"I'm a Passionate\n"
+"                            <span class=\"text-primary\">Web Developer</span>"
+msgstr "من یک <span class=\"text-primary\">توسعه‌دهنده وب پرشور هستم</span>"
+
+#: .\templates\portfolio\general\home_page.html:46
+msgid ""
+"Hello! I am a young back-end web developer, specializing in Django and "
+"Django REST frameworks. I love creating powerful websites and implementing "
+"efficient solutions. Since I entered the world of programming, my goal has "
+"always been to improve people's lives and improve processes with my creative"
+" ideas. From user experience to performance optimization, I strive to "
+"provide solutions that not only meet the needs of users but also add value "
+"to them. Join me to achieve our goals and start new innovations in the world"
+" of technology with energy and enthusiasm."
+msgstr ""
+"سلام! من علی سیرجانی هستم، یک توسعه‌دهنده جوان در زمینه‌ی بک اند وب، با تخصص"
+" در فریم‌ورک جنگو(Django ) و جنگو رست(Django REST). عاشق ایجاد وب‌سایت‌های "
+"قدرتمند و پیاده‌سازی راه‌حل‌های کارآمد هستم. از زمانی که به دنیای "
+"برنامه‌نویسی وارد شدم، هدفم همیشه این بوده تا با ایده‌های خلاقانه‌ام، بهبودی"
+" در زندگی مردم و بهبود فرایندها بوجود بیاورم. از زمینه‌ی تجربه کاربری گرفته "
+"تا بهینه‌سازی عملکرد، تلاش می‌کنم تا راه‌حل‌هایی ارائه دهم که نه تنها "
+"نیازهای کاربران را برطرف کنند بلکه ارزش افزوده‌ای به آنها ارائه دهند. با من "
+"همراه باشید تا در دنیای فناوری، با انرژی و اشتیاق، به هدف‌هایمان برسیم و "
+"نوآوری‌های جدیدی را آغاز کنیم."
+
+#: .\templates\portfolio\general\home_page.html:48
+msgid "View Portfolio"
+msgstr "مشاهده نمونه کارها"
+
+#: .\templates\portfolio\general\home_page.html:65
+msgid "What Do I Offer?"
+msgstr "من چه چیزی ارائه می دهم؟"
+
+#: .\templates\portfolio\general\home_page.html:84
+msgid "Database Design"
+msgstr "طراحی دیتابیس"
+
+#: .\templates\portfolio\general\home_page.html:85
+msgid ""
+"Designing efficient and scalable database schemas for web applications."
+msgstr "طراحی طرح های دیتابیس کارآمد و مقیاس پذیر برای برنامه های کاربردی وب"
+
+#: .\templates\portfolio\general\home_page.html:100
+msgid "Backend Development"
+msgstr "توسعه بک اند"
+
+#: .\templates\portfolio\general\home_page.html:101
+msgid ""
+"Building robust backend logic and APIs using Django and Django REST "
+"framework."
+msgstr "ساخت منطق بک اند قوی با استفاده از چارچوب جنگو."
+
+#: .\templates\portfolio\general\home_page.html:116
+msgid "API Development"
+msgstr "توسعه API"
+
+#: .\templates\portfolio\general\home_page.html:117
+msgid ""
+"Creating RESTful APIs to facilitate communication between frontend and "
+"backend systems."
+msgstr "ایجاد API ها برای تسهیل ارتباط بین سیستم های فرانت اند و بک اند."
+
+#: .\templates\portfolio\general\home_page.html:132
+msgid "Authentication and Authorization"
+msgstr "احراز هویت و مجوز"
+
+#: .\templates\portfolio\general\home_page.html:133
+msgid ""
+"Implementing secure user authentication and authorization mechanisms using "
+"Django's authentication system."
+msgstr ""
+"پیاده سازی مکانیسم های احراز هویت و مجوز کاربر امن با استفاده از سیستم احراز"
+" هویت جنگو."
+
+#: .\templates\portfolio\general\home_page.html:148
+msgid "Performance Optimization"
+msgstr "بهینه سازی عملکرد"
+
+#: .\templates\portfolio\general\home_page.html:149
+msgid ""
+"Identifying and resolving performance bottlenecks for improved scalability "
+"and responsiveness of web applications."
+msgstr ""
+"شناسایی و رفع مشکل عملکرد برای بهبود مقیاس پذیری و پاسخگویی برنامه های "
+"کاربردی وب."
+
+#: .\templates\portfolio\general\home_page.html:164
+msgid "Unit Testing and Test-Driven Development (TDD)"
+msgstr "تست واحد و توسعه آزمایش محور (TDD)"
+
+#: .\templates\portfolio\general\home_page.html:165
+msgid ""
+"Ensuring code reliability and maintainability through comprehensive unit "
+"testing and test-driven development practices."
+msgstr ""
+"اطمینان از قابلیت و نگهداری کد از طریق تست جامع و شیوه‌های توسعه مبتنی بر "
+"آزمایش."
+
+#: .\templates\portfolio\general\home_page.html:185
+msgid "My Portfolio"
+msgstr "نمونه کارهای من"
+
+#: .\templates\portfolio\general\home_page.html:191
+msgid "My portfolio in different styles andcategories."
+msgstr "نمونه کارهای من در انواع سبک ها و دسته‌بندی‌های مختلف."
+
+#: .\templates\portfolio\general\home_page.html:231
+msgid "More works"
+msgstr "کارهای بیشتر"
+
+#: .\templates\portfolio\general\home_page.html:305
+msgid "Contact Me"
+msgstr "ارتباط با من"
+
+#: .\templates\portfolio\general\home_page.html:311
+msgid ""
+"I'm here to help you bring your ideas to life. You can contact me if you "
+"need any help"
+msgstr ""
+"من اینجا هستم تا به شما کمک کنم تا ایده هایتان را زنده کنید. در صورت نیاز به"
+" کمک می توانید با من تماس بگیرید"
+
+#: .\templates\portfolio\general\home_page.html:323
+msgid "Email"
+msgstr "ایمیل"
+
+#: .\templates\portfolio\general\home_page.html:351
+msgid "Full Name"
+msgstr "نام کامل"
+
+#: .\templates\portfolio\general\home_page.html:361
+msgid "Your Email"
+msgstr "ایمیل شما"
+
+#: .\templates\portfolio\general\home_page.html:371
+msgid "Your Subject"
+msgstr "موضوع شما"
+
+#: .\templates\portfolio\general\home_page.html:383
+msgid "Your Message"
+msgstr "پیام شما"
+
+#: .\templates\portfolio\general\home_page.html:391
+msgid "Send Message"
+msgstr "ارسال پیام"
+
+#: .\templates\portfolio\project\project_detail.html:53
+msgid "Project Info"
+msgstr "اطلاعات پروژه"
+
+#: .\templates\portfolio\project\project_detail.html:56
+msgid "Client"
+msgstr "مشتری"
+
+#: .\templates\portfolio\project\project_detail.html:60
+msgid "Date"
+msgstr "تاریخ"
+
+#: .\templates\portfolio\project\project_detail.html:64
+msgid "Website"
+msgstr "وب سایت"
+
+#: .\templates\portfolio\project\project_detail.html:68
+msgid "Location"
+msgstr "مکان"
+
+#: .\templates\portfolio\project\project_detail.html:93
+msgid "Prev"
+msgstr "قبلی"
+
+#: .\templates\portfolio\project\project_detail.html:101
+msgid "Next"
+msgstr "بعدی"
+
+#: .\templates\portfolio\project\project_list.html:6
+msgid "Project List"
+msgstr "لیست پروژه ها"
+
+#: .\views\blog_views.py:116
+msgid "You comment after confirmation will show in comments."
+msgstr "نظر شما پس از تایید در نظرات نشان داده می شود."
+
+#: .\views\blog_views.py:120
+msgid "Your comment have problem please try again!"
+msgstr "نظر شما مشکلی دارد لطفا دوباره امتحان کنید!"
+
+#: .\views\general_views.py:27
+msgid ""
+"Your message has been sent successfully. I will get back to you shortly."
+msgstr "پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهم گرفت."
+
+#~ msgid ""
+#~ "As a Junior Backend Developer specializing in Django framework and Django "
+#~ "REST framework, I offer the following services:"
+#~ msgstr ""
+#~ "من به عنوان یک توسعه دهنده متخصص در چارچوب جنگو و چارچوب جنگو رست، خدمات زیر"
+#~ " را ارائه می دهم:"
