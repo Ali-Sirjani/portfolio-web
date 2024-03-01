@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-02-29 22:54+0330\n"
+"PO-Revision-Date: 2024-02-29 19:33+0000\n"
+"Last-Translator:   <alisirjani1234@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: .\forms.py:29
+msgid "username"
+msgstr "نام کاربری"
+
+#: .\forms.py:34
+msgid "This username is already taken. Please choose a different one."
+msgstr "این نام کاربری از قبل وجود دارد. لطفا یکی دیگر را انتخاب کنید."
+
+#: .\models.py:10
+msgid "email"
+msgstr "ایمیل"
+
+#: .\models.py:15
+msgid "user"
+msgstr "کاربر"
+
+#: .\models.py:17 .\templates\core\profile.html:63
+msgid "First name"
+msgstr "نام"
+
+#: .\models.py:18 .\templates\core\profile.html:65
+msgid "Last name"
+msgstr "نام خانوادگی"
+
+#: .\models.py:21
+msgid "picture"
+msgstr "تصویر"
+
+#: .\models.py:24
+msgid "profile"
+msgstr "پروفایل"
+
+#: .\models.py:25
+msgid "profiles"
+msgstr "پروفایل ها"
+
+#: .\templates\core\profile.html:13 .\templates\core\profile.html:44
+msgid "Dashboard"
+msgstr "داشبورد"
+
+#: .\templates\core\profile.html:16 .\templates\core\profile.html:59
+msgid "Profile Info"
+msgstr "اطلاعات پروفایل"
+
+#: .\templates\core\profile.html:19 .\templates\core\profile.html:75
+msgid "Edit Profile"
+msgstr "ویرایش پروفایل"
+
+#: .\templates\core\profile.html:24 .\templates\core\profile.html:120
+#: .\templates\core\profile.html:137
+msgid "Change Password"
+msgstr "تغییر رمز عبور"
+
+#: .\templates\core\profile.html:28 .\templates\core\profile.html:140
+#: .\templates\core\profile.html:155
+msgid "Set Password"
+msgstr "تنظیم رمز عبور"
+
+#: .\templates\core\profile.html:35
+msgid "Logout"
+msgstr "خروج"
+
+#: .\templates\core\profile.html:47
+#, python-format
+msgid ""
+"\n"
+"                                    <p class=\"text-muted\">Hello <strong>%(username)s</strong> (not\n"
+"                                        <strong>%(username)s</strong>?\n"
+"                                        <small><a href=\"%(logout_url)s\">Log out</a></small> )</p>\n"
+"                                "
+msgstr ""
+"\n"
+"<p class=\"text-muted\">سلام <strong>%(username)s</strong> (<strong>%(username)s</strong> نیستید؟ <small><a href=\"%(logout_url) s\">خروج از سیستم</a></small> )</p>"
+
+#: .\templates\core\profile.html:61
+msgid "Profile Picture"
+msgstr "تصویر پروفایل"
+
+#: .\templates\core\profile.html:67
+msgid "Email"
+msgstr "ایمیل"
+
+#: .\templates\core\profile.html:91 .\templates\core\profile.html:111
+msgid "Save Changes"
+msgstr "ذخیره تغییرات"
+
+#: .\templates\core\profile.html:95
+msgid "Edit Username"
+msgstr "ویرایش نام کاربری"
+
+#: .\templates\core\profile.html:134
+msgid "Forgot your password?"
+msgstr "رمز عبور خود را فراموش کرده اید؟"
+
+#: .\utils.py:23
+#, python-format
+msgid "You are locked for too many requests. Please wait for %(wait_time)s"
+msgstr ""
+"شما به دلیل درخواست های زیاد قفل شده اید. لطفاً برای %(wait_time)s صبر کنید"
+
+#: .\views.py:31
+msgid "profile successfully updated"
+msgstr "پروفایل با موفقیت به روز شد"
+
+#: .\views.py:63
+msgid "You are already using this username. Choose a different one."
+msgstr ""
+"شما در حال حاضر از این نام کاربری استفاده می کنید. یک متفاوت را انتخاب کنید."
+
+#: .\views.py:70
+msgid "Username successfully changed."
+msgstr "نام کاربری با موفقیت تغییر کرد."
