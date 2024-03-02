@@ -3,6 +3,7 @@
 {% load static %}
 {% load i18n %}
 {% load jalali_tags %}
+{% load trans_fa %}
 
 {% block title %}
     {{ project.title }}
@@ -58,7 +59,7 @@
                                     </li>
                                     <li class="mt-3">
                                         <b>{% trans 'Date' %} :</b>
-                                        <span>{{ project.start_date|to_jalali:'%Y/%m/%d'|default:'' }}</span>
+                                        <span>{{ project.start_date|to_jalali:'%Y/%m/%d'|num_fa|default:'' }}</span>
                                     </li>
                                     <li class="mt-3">
                                         <b>{% trans 'Website' %} :</b>
@@ -88,9 +89,11 @@
                 <div class="col-12">
                     <ul class="pagination justify-content-center">
                         {% if previous_project_slug %}
-                            <li class="page-item"><a class="page-link"
-                                                     href="{% url 'portfolio:project_detail' previous_project_slug %}"> <i
-                                    class="mdi mdi-chevron-right"></i>{% trans 'Prev' %}</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="{% url 'portfolio:project_detail' previous_project_slug %}">
+                                    <i class="mdi mdi-chevron-right"></i>{% trans 'Prev' %}
+                                </a>
+                            </li>
                         {% endif %}
                         <li class="page-item"><a class="page-link" href="{% url 'portfolio:home_page' %}"> <i
                                 class="mdi mdi-home"></i> {% trans 'Home' %}</a></li>
@@ -104,55 +107,10 @@
             </div>
         </div><!--end container-->
 
-        <div class="container mt-100 mt-60">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <div class="section-title">
-                        <div class="position-relative">
-                            <h4 class="title text-uppercase mb-4">{% trans 'Latest News & Blog' %}</h4>
-                            <div>
-                                <div class="title-box"></div>
-                                <div class="title-line"></div>
-                            </div>
-                        </div>
-                        <p class="text-muted mx-auto para-desc mt-5 mb-0">
-                            {% trans 'By getting information and familiarizing yourself with the benefits of the site, you will find a broader view of its facilities and benefits. This blog is the meeting point of ideas and effective solutions for your growth.' %}
-                        </p>
-                    </div>
-                </div><!--end col-->
-            </div><!--end row-->
+        <div class="mt-100 mt-60">
+            {% include 'portfolio/_recent_or_related_posts.html' with blog_entries=recent_posts %}
+        </div>
 
-            <div class="row">
-                {% for recent_post in recent_posts %}
-                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                        <div class="blog-post rounded shadow">
-                            <img src="{{ recent_post.main_image_url }}" class="img-fluid rounded-top" alt="">
-                            <div class="content pt-4 pb-4 p-3">
-                                <ul class="list-unstyled d-flex justify-content-between post-meta">
-                                    <li><i data-feather="user" class="fea icon-sm me-1"></i><a href="javascript:void(0)"
-                                                                                               class="text-dark">{% trans 'Ali' %}</a>
-                                    </li>
-                                    <li><i data-feather="tag" class="fea icon-sm me-1"></i><a
-                                            href="{{ recent_post.category.get_absolute_url }}"
-                                            class="text-dark">{{ recent_post.category.name }}</a>
-                                    </li>
-                                </ul>
-                                <h5 class="mb-3"><a href="{{ recent_post.get_absolute_url }}"
-                                                    class="title text-dark">{{ recent_post.title }}</a></h5>
-                                <ul class="list-unstyled mb-0 pt-3 border-top d-flex justify-content-between">
-                                    <li><a href="{{ recent_post.get_absolute_url }}"
-                                           class="text-dark">{% trans 'Read More' %}<i
-                                            data-feather="chevron-right" class="fea icon-sm"></i></a></li>
-                                    <li>
-                                        <i class="mdi mdi-calendar-edit me-1"></i>{{ recent_post.datetime_updated|to_jalali:"%Y/%m/%d" }}
-                                    </li>
-                                </ul>
-                            </div><!--end content-->
-                        </div><!--end blog post-->
-                    </div><!--end col-->
-                {% endfor %}
-            </div><!--end row-->
-        </div><!--end container-->
     </section><!--end section-->
     <!-- Contact End -->
 
