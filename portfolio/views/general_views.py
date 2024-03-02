@@ -23,7 +23,11 @@ class ContactMeView(JSONResponseMixin, generic.CreateView):
     http_method_names = ('post', )
 
     def form_valid(self, form):
-        contact_obj = form.save()
+        contact_obj = form.save(commit=False)
+        if self.request.user.is_authenticated:
+            contact_obj.user = self.request.user
+        contact_obj.save()
+
         messages.success(self.request, _('Your message has been sent successfully. I will get back to you shortly.'))
         response_data = {'success': True, 'message': 'message created successfully.'}
         return self.render_to_json_response(response_data)
