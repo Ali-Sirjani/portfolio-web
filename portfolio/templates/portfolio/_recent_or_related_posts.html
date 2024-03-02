@@ -1,0 +1,66 @@
+{% load i18n %}
+{% load trans_fa %}
+{% load jalali_tags %}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center">
+            <div class="section-title">
+                <div class="position-relative">
+                    <h4 class="title text-uppercase mb-4">
+                        {% if is_related %}
+                            {% trans 'Related Posts' %}
+                        {% else %}
+                            {% trans 'Latest News & Blog' %}
+                        {% endif %}
+                    </h4>
+                    <div>
+                        <div class="title-box"></div>
+                        <div class="title-line"></div>
+                    </div>
+                </div>
+                <p class="text-muted mx-auto para-desc mt-5 mb-0">
+                    {% if is_related %}
+                        {% trans 'Explore more related articles and information and expand your knowledge.' %}
+                    {% else %}
+                        {% trans 'By getting information and familiarizing yourself with the benefits of the site, you will find a broader view of its facilities and benefits. This blog is the meeting point of ideas and effective solutions for your growth.' %}
+                    {% endif %}
+                </p>
+            </div>
+        </div><!--end col-->
+    </div><!--end row-->
+
+    <div class="row">
+        {% for post in blog_entries %}
+            <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                <div class="blog-post rounded shadow">
+                    <a href="{{ post.get_absolute_url }}">
+                        <img src="{{ post.main_image_url }}" class="img-fluid rounded-top"
+                             alt="{{ post.title }}">
+                    </a>
+                    <div class="content pt-4 pb-4 p-3">
+                        <ul class="list-unstyled d-flex justify-content-between post-meta">
+                            <li><i data-feather="user" class="fea icon-sm me-1"></i><a href="javascript:void(0)"
+                                                                                       class="text-dark">{% trans 'Ali' %}</a>
+                            </li>
+                            <li><i data-feather="tag" class="fea icon-sm me-1"></i><a
+                                    href="{{ post.category.get_absolute_url }}"
+                                    class="text-dark">{{ post.category.name }}</a>
+                            </li>
+                        </ul>
+                        <h5 class="mb-3"><a href="{{ post.get_absolute_url }}"
+                                            class="title text-dark">{{ post.title }}</a></h5>
+                        <ul class="list-unstyled mb-0 pt-3 border-top d-flex justify-content-between">
+                            <li><a href="{{ post.get_absolute_url }}"
+                                   class="text-dark">{% trans 'Read More' %}<i
+                                    data-feather="chevron-left" class="fea icon-md-sm"></i></a></li>
+                            <li>
+                                <i class="mdi mdi-calendar-edit me-1"></i>{{ post.datetime_updated|to_jalali:"%Y/%m/%d"|num_fa }}
+                            </li>
+                        </ul>
+                    </div><!--end content-->
+                </div><!--end blog post-->
+            </div><!--end col-->
+        {% endfor %}
+    </div><!--end row-->
+</div><!--end container-->
