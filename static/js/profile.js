@@ -60,7 +60,11 @@ document.addEventListener('DOMContentLoaded', function () {
     menuItems.forEach(item => {
         item.addEventListener('click', event => {
             event.preventDefault();
-            const target = event.target.getAttribute('data-target');
+            // Find the closest parent <a> tag
+            const closestAnchor = event.target.closest('a');
+
+            // Get the data-target attribute of the closest <a> tag
+            const target = closestAnchor.getAttribute('data-target');
 
             if (target === 'logout') {
                 // Show a confirmation dialog
@@ -93,6 +97,33 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+function preview_image(event) {
+    var file = event.target.files[0];
+
+    // Check if the file type starts with 'image/'
+    if (file.type.startsWith('image/')) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('preview');
+            output.src = reader.result;
+            output.style.display = 'block';
+        }
+        reader.onerror = function () {
+            var output = document.getElementById('preview');
+            output.style.display = 'none';
+        }
+        reader.readAsDataURL(file);
+    } else {
+        // If it's not an image, hide the preview
+        var output = document.getElementById('preview');
+        output.style.display = 'none';
+        // You might want to inform the user that only image files are accepted
+        // Here you can display an error message or perform other actions
+    }
+}
+
+document.getElementById('id_picture').onchange = preview_image;
 
 function setUsernameAjax() {
     let myForm = document.getElementById('set_username_form');

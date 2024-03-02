@@ -1,10 +1,11 @@
 {% load static %}
 {% load i18n %}
 {% load jalali_tags %}
+{% load trans_fa %}
 
 <!-- Home Start -->
 <section class="bg-half d-table w-100" style="background: url('{% static 'images/home/bg-blog.png' %}')center center;">
-    <div class="bg-overlay bg-overlay-white" style="opacity: 0.5"></div>
+    <div class="bg-overlay bg-overlay-white" style="opacity: 0.55"></div>
 </section><!--end section-->
 <!-- Home End -->
 
@@ -40,10 +41,10 @@
                                         <ul class="list-unstyled mb-0 pt-3 border-top d-flex justify-content-between">
                                             <li><a href="{{ post.get_absolute_url }}"
                                                    class="text-dark">{% trans 'Read More' %}<i
-                                                    data-feather="chevron-right" class="fea icon-sm"></i></a></li>
+                                                    data-feather="chevron-left" class="fea icon-md-sm"></i></a></li>
                                             <li>
                                                 <i4 class="mdi mdi-calendar-edit me-1"></i4>
-                                                {{ post.datetime_updated|to_jalali:"%Y/%m/%d" }}
+                                                {{ post.datetime_updated|to_jalali:"%Y/%m/%d"|num_fa }}
                                             </li>
                                         </ul>
                                     </div><!--end content-->
@@ -114,7 +115,7 @@
                     <!-- SEARCH -->
                     <div class="widget mt-4 pt-2">
                         <div class="p-4 rounded shadow">
-                            <h6 class="widget-title font-weight-bold pt-2 pb-2 bg-light rounded text-center">Search</h6>
+                            <h6 class="widget-title font-weight-bold pt-2 pb-2 bg-light rounded text-center">{% trans 'Search' %}</h6>
                             <div id="search2" class="widget-search mt-4 mb-0">
                                 <form role="search" method="get" action="{% url 'portfolio:post_search' %}"
                                       id="searchform" class="searchform">
@@ -137,7 +138,7 @@
                             <ul class="list-unstyled mt-4 mb-0 catagories">
                                 {% for category in top_categories %}
                                     <li class="d-flex justify-content-between"><a
-                                            href="{{ category.get_absolute_url }}">{{ category.name }}</a><span>{{ category.post_count }}</span>
+                                            href="{{ category.get_absolute_url }}">{{ category.name }}</a><span>{{ category.post_count|num_fa }}</span>
                                     </li>
                                 {% endfor %}
                             </ul>
@@ -159,7 +160,7 @@
                                         </div>
                                         <div class="post-recent-content"><a
                                                 href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a><span
-                                                class="text-muted">{{ recent_post.datetime_updated|to_jalali:"%Y/%m/%d" }}</span>
+                                                class="text-muted">{{ recent_post.datetime_updated|to_jalali:"%Y/%m/%d"|num_fa }}</span>
                                         </div>
                                     </div>
                                 {% endfor %}

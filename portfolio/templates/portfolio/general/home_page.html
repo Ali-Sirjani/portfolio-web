@@ -3,6 +3,7 @@
 {% load static %}
 {% load i18n %}
 {% load jalali_tags %}
+{% load trans_fa %}
 
 {% block title %} {% trans 'Home' %} {% endblock title %}
 
@@ -16,7 +17,8 @@
                 <div class="col-lg-12 text-center">
                     <div class="title-heading">
                         <img src="{% static 'images/home/profile.png' %}" class="img-fluid rounded-circle" alt="">
-                        <h3 class="heading text-light title-dark mt-3">{% trans 'I Am' %} <span
+                        <h3 class="heading text-light title-dark mt-3"><span
+                                style="color: white !important;">{% trans 'I Am' %}</span> <span
                                 class="typewrite text-primary"
                                 data-period="2000"
                                 data-type='[ "{% trans 'Web Developer' %}", "{% trans 'Backend Developer' %}"]'></span>
@@ -67,7 +69,6 @@
                                 <div class="title-line"></div>
                             </div>
                         </div>
-                        <p class="text-muted mx-auto para-desc mt-5 mb-0">{% trans 'As a Junior Backend Developer specializing in Django framework and Django REST framework, I offer the following services:' %}</p>
                     </div>
                 </div><!--end col-->
             </div><!--end row-->
@@ -218,7 +219,6 @@
                                 <h5><a href="{{ project.get_absolute_url }}"
                                        class="title text-dark">{{ project.title }}</a>
                                 </h5>
-                                <span>Branding</span>
                             </div>
                         </div>
                     </div>
@@ -229,7 +229,7 @@
             <div class="row">
                 <div class="col-lg-12 mt-4 pt-2">
                     <div class="text-center">
-                        <a href="{% url 'portfolio:project_list' %}" class="btn btn-outline-primary">More works <i
+                        <a href="{% url 'portfolio:project_list' %}" class="btn btn-outline-primary">{% trans 'More works' %} <i
                                 data-feather="refresh-cw" class="fea icon-sm"></i></a>
                     </div>
                 </div><!--end col-->
@@ -241,55 +241,7 @@
 
     <!-- Blog Start -->
     <section class="section bg-light pb-3" id="news">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 text-center">
-                    <div class="section-title">
-                        <div class="position-relative">
-                            <h4 class="title text-uppercase mb-4">{% trans 'Latest News & Blog' %}</h4>
-                            <div>
-                                <div class="title-box"></div>
-                                <div class="title-line"></div>
-                            </div>
-                        </div>
-                        <p class="text-muted mx-auto para-desc mt-5 mb-0">
-                            {% trans 'By getting information and familiarizing yourself with the benefits of the site, you will find a broader view of its facilities and benefits. This blog is the meeting point of ideas and effective solutions for your growth.' %}
-                        </p>
-                    </div>
-                </div><!--end col-->
-            </div><!--end row-->
-
-            <div class="row">
-                {% for recent_post in recent_posts %}
-                    <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                        <div class="blog-post rounded shadow">
-                            <img src="{{ recent_post.main_image_url }}" class="img-fluid rounded-top" alt="">
-                            <div class="content pt-4 pb-4 p-3">
-                                <ul class="list-unstyled d-flex justify-content-between post-meta">
-                                    <li><i data-feather="user" class="fea icon-sm me-1"></i><a href="javascript:void(0)"
-                                                                                               class="text-dark">{% trans 'Ali' %}</a>
-                                    </li>
-                                    <li><i data-feather="tag" class="fea icon-sm me-1"></i><a
-                                            href="{{ recent_post.category.get_absolute_url }}"
-                                            class="text-dark">{{ recent_post.category.name }}</a>
-                                    </li>
-                                </ul>
-                                <h5 class="mb-3"><a href="{{ recent_post.get_absolute_url }}"
-                                                    class="title text-dark">{{ recent_post.title }}</a></h5>
-                                <ul class="list-unstyled mb-0 pt-3 border-top d-flex justify-content-between">
-                                    <li><a href="{{ recent_post.get_absolute_url }}"
-                                           class="text-dark">{% trans 'Read More' %}<i
-                                            data-feather="chevron-right" class="fea icon-sm"></i></a></li>
-                                    <li>
-                                        <i class="mdi mdi-calendar-edit me-1"></i>{{ recent_post.datetime_updated|to_jalali:"%Y/%m/%d" }}
-                                    </li>
-                                </ul>
-                            </div><!--end content-->
-                        </div><!--end blog post-->
-                    </div><!--end col-->
-                {% endfor %}
-            </div><!--end row-->
-        </div><!--end container-->
+        {% include 'portfolio/_recent_or_related_posts.html' with blog_entries=recent_posts %}
     </section><!--end section-->
     <!-- Blog Start -->
 
@@ -340,24 +292,28 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="row">
-                                        <div class="col-lg-12 col-md-6">
-                                            <div class="form-group">
-                                                <input name="full_name" id="id_full_name" type="text"
-                                                       class="form-control border rounded"
-                                                       placeholder="{% trans 'Full Name' %} :">
-                                                <div class="invalid-feedback" style="font-size: 16px"
-                                                     id="invalid-feedback-full_name"></div>
-                                            </div>
-                                        </div><!--end col-->
-                                        <div class="col-lg-12 col-md-6">
-                                            <div class="form-group">
-                                                <input name="email" id="id_email" type="email"
-                                                       class="form-control border rounded"
-                                                       placeholder="{% trans 'Your Email' %} :">
-                                                <div class="invalid-feedback" style="font-size: 16px"
-                                                     id="invalid-feedback-email"></div>
-                                            </div>
-                                        </div><!--end col-->
+                                        {% with fist_name=user.profile.first_name last_name=user.profile.last_name email=user.email %}
+                                            <div class="col-lg-12 col-md-6">
+                                                <div class="form-group">
+                                                    <input name="full_name" id="id_full_name" type="text"
+                                                           class="form-control border rounded"
+                                                           value="{% if last_name %}{{ fist_name|default:'' }} {{ last_name|default:'' }}{% else %}{{ fist_name|default:'' }}{% endif %}"
+                                                           placeholder="{% trans 'Full Name' %} :">
+                                                    <div class="invalid-feedback" style="font-size: 16px"
+                                                         id="invalid-feedback-full_name"></div>
+                                                </div>
+                                            </div><!--end col-->
+                                            <div class="col-lg-12 col-md-6">
+                                                <div class="form-group">
+                                                    <input name="email" id="id_email" type="email"
+                                                           class="form-control border rounded"
+                                                           value="{{ email|default:'' }}"
+                                                           placeholder="{% trans 'Your Email' %} :">
+                                                    <div class="invalid-feedback" style="font-size: 16px"
+                                                         id="invalid-feedback-email"></div>
+                                                </div>
+                                            </div><!--end col-->
+                                        {% endwith %}
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <input name="subject" id="id_subject"

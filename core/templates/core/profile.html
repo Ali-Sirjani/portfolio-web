@@ -29,10 +29,11 @@
                         </a>
                     {% endif %}
 
-                    <a href="{% url 'account_logout' %}" class="list-group-item" style="color: #3e4856;font-size: 22px"
+                    <a href="{% url 'account_logout' %}" class="list-group-item" style="color: #3e4856;"
                        onmouseover="this.style.color='black'" onmouseout="this.style.color='#3e4856'"
                        data-target="logout">
-                        {% trans "Logout" %}  <i class="mdi mdi-logout"></i>
+                        <span style="font-size: 18px">{% trans "Logout" %}</span> <i class="mdi mdi-logout"
+                                                                                     style="font-size: 22px"></i>
                     </a>
 
                 </div>
@@ -81,9 +82,14 @@
                                 <div class="form-text-muted">
                                     {% for field in form %}
                                         {{ field|as_crispy_field }}
-                                        <div class="invalid-feedback text-block"
-                                             id="invalid-feedback-{{ field.name }}"
-                                             style="display: none; "></div>
+                                        {% if field.name == 'picture' %}
+                                            <div class="profile-picture">
+                                                <img id="preview" src="{{ field.value }}" alt="Preview"
+                                                     style="max-width: 100px; max-height: 100px; display: none">
+                                            </div>
+                                        {% endif %}
+                                        <div class="invalid-feedback text-block" id="invalid-feedback-{{ field.name }}"
+                                             style="display: none;"></div>
                                     {% endfor %}
 
                                 </div>
@@ -165,16 +171,14 @@
 {% endblock %}
 
 {% block script %}
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
     <script type="text/javascript">
         var setUsernameUrl = "{% url 'core:set_username' %}";
         var changePasswordUrl = "{% url 'account_change_password' %}";
         var setPasswordUrl = "{% url 'account_set_password' %}";
         var profileUrd = "{% url 'core:profile_page' %}";
     </script>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    {#    <script src="https://cdnjs.cloudflare.com/ajax/libs/notyf/3.10.0/notyf.min.js"#}
-    {#            integrity="sha512-467grL09I/ffq86LVdwDzi86uaxuAhFZyjC99D6CC1vghMp1YAs+DqCgRvhEtZIKX+o9lR0F2bro6qniyeCMEQ=="#}
-    {#            crossorigin="anonymous" referrerpolicy="no-referrer"></script>#}
     <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
 {% endblock script %}
