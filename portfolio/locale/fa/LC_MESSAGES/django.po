@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-01 16:02+0330\n"
-"PO-Revision-Date: 2024-03-01 12:32+0000\n"
+"POT-Creation-Date: 2024-03-02 16:43+0330\n"
+"PO-Revision-Date: 2024-03-02 21:00+0000\n"
 "Last-Translator:   <alisirjani1234@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -160,31 +160,35 @@ msgstr "نظر پست"
 msgid "post comments"
 msgstr "نظرات پست"
 
-#: .\models\general_models.py:8
+#: .\models\general_models.py:10
+msgid "user"
+msgstr "کاربر"
+
+#: .\models\general_models.py:12
 msgid "full name"
 msgstr "نام کامل"
 
-#: .\models\general_models.py:9
+#: .\models\general_models.py:13
 msgid "email"
 msgstr "ایمیل"
 
-#: .\models\general_models.py:10
+#: .\models\general_models.py:14
 msgid "subject"
 msgstr "موضوع"
 
-#: .\models\general_models.py:11
+#: .\models\general_models.py:15
 msgid "message"
 msgstr "پیام"
 
-#: .\models\general_models.py:12
+#: .\models\general_models.py:16
 msgid "answer"
 msgstr "پاسخ"
 
-#: .\models\general_models.py:15
+#: .\models\general_models.py:19
 msgid "contact message"
 msgstr "پیام تماس"
 
-#: .\models\general_models.py:16
+#: .\models\general_models.py:20
 msgid "contact messages"
 msgstr "پیام های تماس"
 
@@ -224,17 +228,37 @@ msgstr "تصویر پروژه"
 msgid "project images"
 msgstr "تصاویر پروژه"
 
+#: .\templates\portfolio\_recent_posts.html:12
+#| msgid "Recent Post"
+msgid "Related Posts"
+msgstr "پست های مرتبط"
+
+#: .\templates\portfolio\_recent_posts.html:14
+msgid "Latest News & Blog"
+msgstr "آخرین اخبار و بلاگ"
+
+#: .\templates\portfolio\_recent_posts.html:24
+msgid ""
+"Explore more related articles and information and expand your knowledge."
+msgstr "مقالات و اطلاعات مرتبط را بیشتر کاوش کنید و دانش خود را گسترش دهید."
+
+#: .\templates\portfolio\_recent_posts.html:26
+msgid ""
+"By getting information and familiarizing yourself with the benefits of the "
+"site, you will find a broader view of its facilities and benefits. This blog"
+" is the meeting point of ideas and effective solutions for your growth."
+msgstr ""
+"با کسب اطلاعات و آشنایی با فواید سایت، دیدگاه گسترده‌تری نسبت به امکانات و "
+"مزایای آن پیدا خواهید کرد. این بلاگ نقطه  به هم رسیدن ایده‌ها و راهکارهای "
+"موثر برای رشد شماست."
+
+#: .\templates\portfolio\_recent_posts.html:44
 #: .\templates\portfolio\blog\_post_list_master.html:29
-#: .\templates\portfolio\blog\post_detail.html:276
-#: .\templates\portfolio\general\home_page.html:272
-#: .\templates\portfolio\project\project_detail.html:138
 msgid "Ali"
 msgstr "علی"
 
+#: .\templates\portfolio\_recent_posts.html:55
 #: .\templates\portfolio\blog\_post_list_master.html:42
-#: .\templates\portfolio\blog\post_detail.html:287
-#: .\templates\portfolio\general\home_page.html:283
-#: .\templates\portfolio\project\project_detail.html:149
 msgid "Read More"
 msgstr "ادامه مطلب"
 
@@ -262,7 +286,7 @@ msgstr "نویسنده"
 
 #: .\templates\portfolio\blog\_post_list_master.html:95
 #: .\templates\portfolio\blog\post_detail.html:127
-#: .\templates\portfolio\general\home_page.html:42
+#: .\templates\portfolio\general\home_page.html:43
 msgid "Ali Sirjani"
 msgstr "علی سیرجانی"
 
@@ -298,34 +322,15 @@ msgstr "پاسخ"
 msgid "Leave A Comment"
 msgstr "یک نظر بگذارید"
 
-#: .\templates\portfolio\blog\post_detail.html:236
-#| msgid "post comment"
+#: .\templates\portfolio\blog\post_detail.html:237
 msgid "Send comment"
 msgstr "ارسال نظر"
 
-#: .\templates\portfolio\blog\post_detail.html:252
-#: .\templates\portfolio\general\home_page.html:248
-#: .\templates\portfolio\project\project_detail.html:114
-msgid "Latest News & Blog"
-msgstr "آخرین اخبار و بلاگ"
-
 #: .\templates\portfolio\blog\post_detail.html:259
-#: .\templates\portfolio\general\home_page.html:255
-#: .\templates\portfolio\project\project_detail.html:121
-msgid ""
-"By getting information and familiarizing yourself with the benefits of the "
-"site, you will find a broader view of its facilities and benefits. This blog"
-" is the meeting point of ideas and effective solutions for your growth."
-msgstr ""
-"با کسب اطلاعات و آشنایی با فواید سایت، دیدگاه گسترده‌تری نسبت به امکانات و "
-"مزایای آن پیدا خواهید کرد. این بلاگ نقطه  به هم رسیدن ایده‌ها و راهکارهای "
-"موثر برای رشد شماست."
-
-#: .\templates\portfolio\blog\post_detail.html:306
 msgid "Reply To"
 msgstr "پاسخ دادن به"
 
-#: .\templates\portfolio\blog\post_detail.html:315
+#: .\templates\portfolio\blog\post_detail.html:268
 msgid "Post Comment"
 msgstr "ارسال نظر"
 
@@ -338,24 +343,24 @@ msgstr "بلاگ"
 msgid "Search Results"
 msgstr "نتایج جستجو"
 
-#: .\templates\portfolio\general\home_page.html:7
+#: .\templates\portfolio\general\home_page.html:8
 #: .\templates\portfolio\project\project_detail.html:98
 msgid "Home"
 msgstr "خانه"
 
-#: .\templates\portfolio\general\home_page.html:20
+#: .\templates\portfolio\general\home_page.html:21
 msgid "I Am"
 msgstr "من"
 
-#: .\templates\portfolio\general\home_page.html:23
+#: .\templates\portfolio\general\home_page.html:24
 msgid "Web Developer"
 msgstr "توسعه دهنده وب هستم"
 
-#: .\templates\portfolio\general\home_page.html:23
+#: .\templates\portfolio\general\home_page.html:24
 msgid "Backend Developer"
 msgstr "توسعه دهنده بک اند هستم"
 
-#: .\templates\portfolio\general\home_page.html:25
+#: .\templates\portfolio\general\home_page.html:26
 msgid ""
 "As a web development programmer specializing in Python-based technologies "
 "including the Django Framework and Django REST, I find it challenging and "
@@ -365,13 +370,13 @@ msgstr ""
 "پایتون از جمله فریم‌ورک جنگو و جنگو رست، ایجاد وب‌سایت‌های نوآورانه برایم "
 "چالش‌آفرین و جذاب است."
 
-#: .\templates\portfolio\general\home_page.html:43
+#: .\templates\portfolio\general\home_page.html:44
 msgid ""
 "I'm a Passionate\n"
 "                            <span class=\"text-primary\">Web Developer</span>"
 msgstr "من یک <span class=\"text-primary\">توسعه‌دهنده وب پرشور هستم</span>"
 
-#: .\templates\portfolio\general\home_page.html:46
+#: .\templates\portfolio\general\home_page.html:47
 msgid ""
 "Hello! I am a young back-end web developer, specializing in Django and "
 "Django REST frameworks. I love creating powerful websites and implementing "
@@ -382,58 +387,58 @@ msgid ""
 "to them. Join me to achieve our goals and start new innovations in the world"
 " of technology with energy and enthusiasm."
 msgstr ""
-"سلام! من علی سیرجانی هستم، یک توسعه‌دهنده جوان در زمینه‌ی بک اند وب، با تخصص"
-" در فریم‌ورک جنگو(Django ) و جنگو رست(Django REST). عاشق ایجاد وب‌سایت‌های "
-"قدرتمند و پیاده‌سازی راه‌حل‌های کارآمد هستم. از زمانی که به دنیای "
-"برنامه‌نویسی وارد شدم، هدفم همیشه این بوده تا با ایده‌های خلاقانه‌ام، بهبودی"
-" در زندگی مردم و بهبود فرایندها بوجود بیاورم. از زمینه‌ی تجربه کاربری گرفته "
-"تا بهینه‌سازی عملکرد، تلاش می‌کنم تا راه‌حل‌هایی ارائه دهم که نه تنها "
-"نیازهای کاربران را برطرف کنند بلکه ارزش افزوده‌ای به آنها ارائه دهند. با من "
-"همراه باشید تا در دنیای فناوری، با انرژی و اشتیاق، به هدف‌هایمان برسیم و "
-"نوآوری‌های جدیدی را آغاز کنیم."
+"سلام! من یک توسعه‌دهنده جوان در زمینه‌ی بک اند وب، با تخصص در فریم‌ورک "
+"جنگو(Django ) و جنگو رست(Django REST) هستم. عاشق ایجاد وب‌سایت‌های قدرتمند و"
+" پیاده‌سازی راه‌حل‌های کارآمد هستم. از زمانی که به دنیای برنامه‌نویسی وارد "
+"شدم، هدفم همیشه این بوده تا با ایده‌های خلاقانه‌ام، بهبودی در زندگی مردم و "
+"بهبود فرایندها بوجود بیاورم. از زمینه‌ی تجربه کاربری گرفته تا بهینه‌سازی "
+"عملکرد، تلاش می‌کنم تا راه‌حل‌هایی ارائه دهم که نه تنها نیازهای کاربران را "
+"برطرف کنند بلکه ارزش افزوده‌ای به آنها ارائه دهند. با من همراه باشید تا در "
+"دنیای فناوری، با انرژی و اشتیاق، به هدف‌هایمان برسیم و نوآوری‌های جدیدی را "
+"آغاز کنیم."
 
-#: .\templates\portfolio\general\home_page.html:48
+#: .\templates\portfolio\general\home_page.html:49
 msgid "View Portfolio"
 msgstr "مشاهده نمونه کارها"
 
-#: .\templates\portfolio\general\home_page.html:65
+#: .\templates\portfolio\general\home_page.html:66
 msgid "What Do I Offer?"
 msgstr "من چه چیزی ارائه می دهم؟"
 
-#: .\templates\portfolio\general\home_page.html:84
+#: .\templates\portfolio\general\home_page.html:85
 msgid "Database Design"
 msgstr "طراحی دیتابیس"
 
-#: .\templates\portfolio\general\home_page.html:85
+#: .\templates\portfolio\general\home_page.html:86
 msgid ""
 "Designing efficient and scalable database schemas for web applications."
 msgstr "طراحی طرح های دیتابیس کارآمد و مقیاس پذیر برای برنامه های کاربردی وب"
 
-#: .\templates\portfolio\general\home_page.html:100
+#: .\templates\portfolio\general\home_page.html:101
 msgid "Backend Development"
 msgstr "توسعه بک اند"
 
-#: .\templates\portfolio\general\home_page.html:101
+#: .\templates\portfolio\general\home_page.html:102
 msgid ""
 "Building robust backend logic and APIs using Django and Django REST "
 "framework."
 msgstr "ساخت منطق بک اند قوی با استفاده از چارچوب جنگو."
 
-#: .\templates\portfolio\general\home_page.html:116
+#: .\templates\portfolio\general\home_page.html:117
 msgid "API Development"
 msgstr "توسعه API"
 
-#: .\templates\portfolio\general\home_page.html:117
+#: .\templates\portfolio\general\home_page.html:118
 msgid ""
 "Creating RESTful APIs to facilitate communication between frontend and "
 "backend systems."
 msgstr "ایجاد API ها برای تسهیل ارتباط بین سیستم های فرانت اند و بک اند."
 
-#: .\templates\portfolio\general\home_page.html:132
+#: .\templates\portfolio\general\home_page.html:133
 msgid "Authentication and Authorization"
 msgstr "احراز هویت و مجوز"
 
-#: .\templates\portfolio\general\home_page.html:133
+#: .\templates\portfolio\general\home_page.html:134
 msgid ""
 "Implementing secure user authentication and authorization mechanisms using "
 "Django's authentication system."
@@ -441,11 +446,11 @@ msgstr ""
 "پیاده سازی مکانیسم های احراز هویت و مجوز کاربر امن با استفاده از سیستم احراز"
 " هویت جنگو."
 
-#: .\templates\portfolio\general\home_page.html:148
+#: .\templates\portfolio\general\home_page.html:149
 msgid "Performance Optimization"
 msgstr "بهینه سازی عملکرد"
 
-#: .\templates\portfolio\general\home_page.html:149
+#: .\templates\portfolio\general\home_page.html:150
 msgid ""
 "Identifying and resolving performance bottlenecks for improved scalability "
 "and responsiveness of web applications."
@@ -453,11 +458,11 @@ msgstr ""
 "شناسایی و رفع مشکل عملکرد برای بهبود مقیاس پذیری و پاسخگویی برنامه های "
 "کاربردی وب."
 
-#: .\templates\portfolio\general\home_page.html:164
+#: .\templates\portfolio\general\home_page.html:165
 msgid "Unit Testing and Test-Driven Development (TDD)"
 msgstr "تست واحد و توسعه آزمایش محور (TDD)"
 
-#: .\templates\portfolio\general\home_page.html:165
+#: .\templates\portfolio\general\home_page.html:166
 msgid ""
 "Ensuring code reliability and maintainability through comprehensive unit "
 "testing and test-driven development practices."
@@ -465,23 +470,23 @@ msgstr ""
 "اطمینان از قابلیت و نگهداری کد از طریق تست جامع و شیوه‌های توسعه مبتنی بر "
 "آزمایش."
 
-#: .\templates\portfolio\general\home_page.html:185
+#: .\templates\portfolio\general\home_page.html:186
 msgid "My Portfolio"
 msgstr "نمونه کارهای من"
 
-#: .\templates\portfolio\general\home_page.html:191
+#: .\templates\portfolio\general\home_page.html:192
 msgid "My portfolio in different styles andcategories."
 msgstr "نمونه کارهای من در انواع سبک ها و دسته‌بندی‌های مختلف."
 
-#: .\templates\portfolio\general\home_page.html:231
+#: .\templates\portfolio\general\home_page.html:232
 msgid "More works"
 msgstr "کارهای بیشتر"
 
-#: .\templates\portfolio\general\home_page.html:305
+#: .\templates\portfolio\general\home_page.html:255
 msgid "Contact Me"
 msgstr "ارتباط با من"
 
-#: .\templates\portfolio\general\home_page.html:311
+#: .\templates\portfolio\general\home_page.html:261
 msgid ""
 "I'm here to help you bring your ideas to life. You can contact me if you "
 "need any help"
@@ -489,27 +494,27 @@ msgstr ""
 "من اینجا هستم تا به شما کمک کنم تا ایده هایتان را زنده کنید. در صورت نیاز به"
 " کمک می توانید با من تماس بگیرید"
 
-#: .\templates\portfolio\general\home_page.html:323
+#: .\templates\portfolio\general\home_page.html:273
 msgid "Email"
 msgstr "ایمیل"
 
-#: .\templates\portfolio\general\home_page.html:351
+#: .\templates\portfolio\general\home_page.html:301
 msgid "Full Name"
 msgstr "نام کامل"
 
-#: .\templates\portfolio\general\home_page.html:361
+#: .\templates\portfolio\general\home_page.html:311
 msgid "Your Email"
 msgstr "ایمیل شما"
 
-#: .\templates\portfolio\general\home_page.html:371
+#: .\templates\portfolio\general\home_page.html:321
 msgid "Your Subject"
 msgstr "موضوع شما"
 
-#: .\templates\portfolio\general\home_page.html:383
+#: .\templates\portfolio\general\home_page.html:333
 msgid "Your Message"
 msgstr "پیام شما"
 
-#: .\templates\portfolio\general\home_page.html:391
+#: .\templates\portfolio\general\home_page.html:341
 msgid "Send Message"
 msgstr "ارسال پیام"
 
@@ -553,7 +558,7 @@ msgstr "نظر شما پس از تایید در نظرات نشان داده م�
 msgid "Your comment have problem please try again!"
 msgstr "نظر شما مشکلی دارد لطفا دوباره امتحان کنید!"
 
-#: .\views\general_views.py:27
+#: .\views\general_views.py:31
 msgid ""
 "Your message has been sent successfully. I will get back to you shortly."
 msgstr "پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهم گرفت."
