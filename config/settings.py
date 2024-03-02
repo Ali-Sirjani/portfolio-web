@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'axes',
+    'rosetta',
     'debug_toolbar',
     'mptt',
     'ckeditor',
