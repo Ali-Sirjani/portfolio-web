@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'axes',
+    'dbbackup',
     'rosetta',
     'debug_toolbar',
     'mptt',
@@ -240,3 +241,7 @@ LOCALE_PATHS = (str(BASE_DIR.joinpath('templates/locale')),)
 # config crispy
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+# config dbbackup
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': BASE_DIR / 'backup'}

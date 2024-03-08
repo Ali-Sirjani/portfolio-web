@@ -1,4 +1,3 @@
-failed to get console mode for stdout: The handle is invalid.
 asgiref==3.7.2
 certifi==2024.2.2
 cffi==1.16.0
