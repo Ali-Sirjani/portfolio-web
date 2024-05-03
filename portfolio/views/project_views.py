@@ -8,7 +8,7 @@ class ProjectListView(generic.ListView):
     queryset = Project.active_objs.prefetch_related('images').order_by('-datetime_updated')
     context_object_name = 'projects'
     template_name = 'portfolio/project/project_list.html'
-    paginate_by = 1
+    paginate_by = 6
 
 
 class ProjectDetailView(generic.DetailView):
