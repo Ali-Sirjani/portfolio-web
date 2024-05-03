@@ -26,6 +26,13 @@
     <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}"/>
     <!-- Custom Css -->
     <link href="{% static 'css/style-rtl.min.css' %}" rel="stylesheet" type="text/css" id="theme-opt">
+    <script>
+        var savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.getElementById('theme-opt').href = "{% static 'css/style-dark-rtl.min.css' %}";
+            console.log(document.getElementById('logoImage'))
+        }
+    </script>
     <link href="{% static 'css/colors/default.min.css' %}" rel="stylesheet" id="color-opt">
     <link rel="stylesheet" href="{% static 'css/custom.min.css' %}">
 
@@ -38,7 +45,13 @@
 <div id="preloader">
     <div id="status">
         <div class="logo">
-            <img src="{% static 'images/logo1.png' %}" height="60" width="200" class="d-block mx-auto" alt="">
+            <img id="logoImage" src="{% static 'images/logo1.png' %}" height="60" width="200" class="d-block mx-auto"
+                 alt="logo">
+            <script>
+                if (savedTheme === 'dark') {
+                    document.getElementById('logoImage').src = "{% static 'images/logo1-dark.png' %}"
+                }
+            </script>
         </div>
         <div class="spinner">
             <div class="bounce1"></div>
@@ -66,7 +79,8 @@
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-5">
                 <div class="footer-logo mb-2">
-                    <a href="javascript: void(0);"><img src="{% static 'images/logo2-light-persian.png' %}" alt="Your Site Logo"></a>
+                    <a href="javascript: void(0);"><img src="{% static 'images/logo2-light-persian.png' %}"
+                                                        alt="Site Logo"></a>
                 </div>
                 <p class="footer-description d-inline"
                    style="font-size: 17px;">{% trans 'Follow me on social networks' %}</p>
@@ -108,7 +122,7 @@
 <footer class="footer footer-bar bg-dark">
     <div class="container text-foot text-center">
         <p class="mb-0" style="font-size: 19px;">
-             {% trans 'Ali Sirjani' %} {% jalali_now "%Y" as jalali_time %} {{ jalali_time|num_fa }} ©
+            {% trans 'Ali Sirjani' %} {% jalali_now "%Y" as jalali_time %} {{ jalali_time|num_fa }} ©
         </p>
     </div><!--end container-->
 </footer><!--end footer-->

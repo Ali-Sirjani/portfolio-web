@@ -15,7 +15,7 @@ class PostListView(generic.ListView):
     model = Post
     context_object_name = 'posts'
     template_name = 'portfolio/blog/post_list.html'
-    paginate_by = 1
+    paginate_by = 6
 
     def get_queryset(self):
         category_slug = self.kwargs.get('slug')
@@ -41,7 +41,7 @@ class PostSearchView(generic.ListView):
     model = Post
     context_object_name = 'posts'
     template_name = 'portfolio/blog/search_page.html'
-    paginate_by = 1
+    paginate_by = 6
 
     def get_queryset(self):
         queryset = []
@@ -53,6 +53,7 @@ class PostSearchView(generic.ListView):
                 q = form.cleaned_data['q']
                 queryset = Post.active_objs.filter(
                     Q(title__icontains=q) | Q(category__name__icontains=q)).order_by('-datetime_updated').distinct()
+                queryset = queryset.select_related('category').prefetch_related('images').order_by('-datetime_updated')
 
                 self.q = q
 
@@ -82,7 +83,7 @@ class PostDetailView(generic.edit.FormMixin, generic.DetailView):
     form_class = PostCommentForm
     template_name = 'portfolio/blog/post_detail.html'
     context_object_name = 'post'
-    queryset = Post.active_objs
+    queryset = Post.active_objs.select_related('category').prefetch_related('images')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -99,9 +100,9 @@ class PostDetailView(generic.edit.FormMixin, generic.DetailView):
         if is_related_posts_empty:
             context['related_posts'] = Post.active_objs.all().exclude(pk=obj.pk).order_by('?').distinct()[0:3]
 
-        context['comments'] = PostComment.objects.filter(confirmation=True, post_id=obj.pk).order_by('-tree_id',
-                                                                                                     'level',
-                                                                                                     'datetime_created')
+        context['comments'] = PostComment.objects.filter(confirmation=True, post_id=obj.pk).select_related(
+            'author__profile').order_by('-tree_id', 'level', 'datetime_created')
+
         return context
 
     def post(self, *args, **kwargs):

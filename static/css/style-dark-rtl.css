@@ -972,7 +972,7 @@ button:not(:disabled) {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: linear-gradient(45deg, #f9fafd, #f9fafd);
+    background-image: linear-gradient(45deg, #161c2c, #161c2c);
     z-index: 9999999;
     transition: all 0.5s ease;
     visibility: visible;
@@ -3204,10 +3204,6 @@ a.text-light-yellow:hover, a.text-light-yellow:focus {
     color: #ffffff;
     background: #e54b4b !important;
     border-color: #e54b4b;
-}
-
-#preloader {
-    background-image: linear-gradient(45deg, #ffffff, #ffffff);
 }
 
 .social-icon li a {

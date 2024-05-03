@@ -95,23 +95,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const darkPath = "/static/css/style-dark-rtl.min.css";
     const lightPath = "/static/css/style-rtl.min.css";
 
-    // Check the saved theme from localStorage and set the checkbox state
-    if (savedTheme === 'dark') {
-        document.getElementById('theme-opt').href = darkPath;
-        themeSwitcher.checked = true;
-    } else {
-        document.getElementById('theme-opt').href = lightPath;
-        themeSwitcher.checked = false;
-        // slider
+    // Function to apply the theme after a short delay
+    function applyTheme(theme) {
+            if (theme === 'dark') {
+                document.getElementById('theme-opt').href = darkPath;
+                themeSwitcher.checked = true;
+            } else {
+                document.getElementById('theme-opt').href = lightPath;
+                themeSwitcher.checked = false;
+            }
     }
+
+    // Check the saved theme from localStorage and set the checkbox state
+    themeSwitcher.checked = savedTheme === 'dark';
 
     // Handle toggle switch
     themeSwitcher.addEventListener('change', function () {
         if (this.checked) {
-            document.getElementById('theme-opt').href = darkPath;
+            applyTheme('dark');
             localStorage.setItem('theme', 'dark');
         } else {
-            document.getElementById('theme-opt').href = lightPath;
+            applyTheme('light');
             localStorage.setItem('theme', 'light');
         }
     });
