@@ -1,0 +1,363 @@
+{% extends '_base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% load jalali_tags %}
+{% load trans_fa %}
+
+{% block title %} {% trans 'Home' %} {% endblock title %}
+
+{% block content %}
+
+    <!-- HOME START-->
+    <section class="bg-home d-table w-100" style="background-image:url('{% static 'images/home/02.jpg' %}')" id="home">
+        <div class="bg-overlay" id="particles-js"></div>
+        <div class="container position-relative" style="z-index: 1;">
+            <div class="row mt-5 mt-sm-0 justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="title-heading">
+                        <img src="{% static 'images/home/profile.png' %}" class="img-fluid rounded-circle" alt="">
+                        <h3 class="heading text-light title-dark mt-3"><span
+                                style="color: white !important;">{% trans 'I Am' %}</span> <span
+                                class="typewrite text-primary"
+                                data-period="2000"
+                                data-type='[ "{% trans 'Web Developer' %}", "{% trans 'Backend Developer' %}"]'></span>
+                        </h3>
+                        <p class="para-desc mx-auto text-white-50">{% trans 'As a web development programmer specializing in Python-based technologies including the Django Framework and Django REST, I find it challenging and fascinating to create innovative websites.' %}</p>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+        <a href="#about" data-scroll-nav="1" class="mouse-icon mouse-icon-white rounded-pill bg-transparent mouse-down">
+            <span class="wheel position-relative d-block mover"></span>
+        </a>
+    </section><!--end section-->
+    <!-- HOME END-->
+
+    <!-- About Start -->
+    <section class="section pb-3" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 col-md-7 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                    <div class="section-title mb-0 ms-lg-5 ms-md-3">
+                        <h3 class="title text-primary mb-3">{% trans 'Ali Sirjani' %}</h3>
+                        <h5 class="designation mb-3">{% blocktrans %}I'm a Passionate
+                            <span class="text-primary">Web Developer</span>{% endblocktrans %}
+                        </h5>
+                        <p class="text-muted">{% trans "Hello! I am a young back-end web developer, specializing in Django and Django REST frameworks. I love creating powerful websites and implementing efficient solutions. Since I entered the world of programming, my goal has always been to improve people's lives and improve processes with my creative ideas. From user experience to performance optimization, I strive to provide solutions that not only meet the needs of users but also add value to them. Join me to achieve our goals and start new innovations in the world of technology with energy and enthusiasm." %}</p>
+                        <div class="mt-4">
+                            <a href="#projects" class="btn btn-primary mouse-down">{% trans 'View Portfolio' %}</a>
+                        </div>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+
+    </section>
+    <!-- About end -->
+
+    <!-- Services Start -->
+    <section class="section bg-light" id="services">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <div class="section-title">
+                        <div class="position-relative">
+                            <h4 class="title text-uppercase mb-4">{% trans 'What Do I Offer?' %}</h4>
+                            <div>
+                                <div class="title-box"></div>
+                                <div class="title-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+
+            <div class="row align-items-stretch"><!-- Use align-items-stretch to make all items same height -->
+                <!-- Database Design -->
+                <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                    <div class="service-wrapper rounded position-relative text-center border border-footer p-4 pt-5 pb-5 h-100">
+                        <!-- Add h-100 to make each item full height -->
+                        <div class="icon text-primary">
+                            <i data-feather="database" class="fea icon-md"></i>
+                        </div>
+                        <div class="content mt-4">
+                            <h5 class="title">{% trans 'Database Design' %}</h5>
+                            <p class="text-muted mt-3 mb-0">{% trans 'Designing efficient and scalable database schemas for web applications.' %}</p>
+                        </div>
+                        <div class="big-icon">
+                            <i data-feather="database" class="fea icons"></i>
+                        </div>
+                    </div>
+                </div><!--end col-->
+
+                <!-- Backend Development -->
+                <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                    <div class="service-wrapper rounded position-relative text-center border border-footer p-4 pt-5 pb-5 h-100">
+                        <div class="icon text-primary">
+                            <i data-feather="code" class="fea icon-md"></i>
+                        </div>
+                        <div class="content mt-4">
+                            <h5 class="title">{% trans 'Backend Development' %}</h5>
+                            <p class="text-muted mt-3 mb-0">{% trans 'Building robust backend logic and APIs using Django and Django REST framework.' %}</p>
+                        </div>
+                        <div class="big-icon">
+                            <i data-feather="code" class="fea icons"></i>
+                        </div>
+                    </div>
+                </div><!--end col-->
+
+                <!-- API Development -->
+                <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                    <div class="service-wrapper rounded position-relative text-center border border-footer p-4 pt-5 pb-5 h-100">
+                        <div class="icon text-primary">
+                            <i data-feather="server" class="fea icon-md"></i>
+                        </div>
+                        <div class="content mt-4">
+                            <h5 class="title">{% trans 'API Development' %}</h5>
+                            <p class="text-muted mt-3 mb-0">{% trans 'Creating RESTful APIs to facilitate communication between frontend and backend systems.' %}</p>
+                        </div>
+                        <div class="big-icon">
+                            <i data-feather="server" class="fea icons"></i>
+                        </div>
+                    </div>
+                </div><!--end col-->
+
+                <!-- Authentication and Authorization -->
+                <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                    <div class="service-wrapper rounded position-relative text-center border border-footer p-4 pt-5 pb-5 h-100">
+                        <div class="icon text-primary">
+                            <i data-feather="lock" class="fea icon-md"></i>
+                        </div>
+                        <div class="content mt-4">
+                            <h5 class="title">{% trans 'Authentication and Authorization' %}</h5>
+                            <p class="text-muted mt-3 mb-0">{% trans "Implementing secure user authentication and authorization mechanisms using Django's authentication system." %}</p>
+                        </div>
+                        <div class="big-icon">
+                            <i data-feather="lock" class="fea icons"></i>
+                        </div>
+                    </div>
+                </div><!--end col-->
+
+                <!-- Performance Optimization -->
+                <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                    <div class="service-wrapper rounded position-relative text-center border border-footer p-4 pt-5 pb-5 h-100">
+                        <div class="icon text-primary">
+                            <i data-feather="trending-up" class="fea icon-md"></i>
+                        </div>
+                        <div class="content mt-4">
+                            <h5 class="title">{% trans 'Performance Optimization' %}</h5>
+                            <p class="text-muted mt-3 mb-0">{% trans 'Identifying and resolving performance bottlenecks for improved scalability and responsiveness of web applications.' %}</p>
+                        </div>
+                        <div class="big-icon">
+                            <i data-feather="trending-up" class="fea icons"></i>
+                        </div>
+                    </div>
+                </div><!--end col-->
+
+                <!-- Unit Testing and TDD -->
+                <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+                    <div class="service-wrapper rounded position-relative text-center border border-footer p-4 pt-5 pb-5 h-100">
+                        <div class="icon text-primary">
+                            <i data-feather="check-circle" class="fea icon-md"></i>
+                        </div>
+                        <div class="content mt-4">
+                            <h5 class="title">{% trans 'Unit Testing and Test-Driven Development (TDD)' %}</h5>
+                            <p class="text-muted mt-3 mb-0">{% trans 'Ensuring code reliability and maintainability through comprehensive unit testing and test-driven development practices.' %}</p>
+                        </div>
+                        <div class="big-icon">
+                            <i data-feather="check-circle" class="fea icons"></i>
+                        </div>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+    </section>
+    <!-- Services End -->
+
+
+    <!-- Projects End -->
+    <section class="section bg-light" id="projects">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <div class="section-title">
+                        <div class="position-relative">
+                            <h4 class="title text-uppercase mb-4">{% trans 'My Portfolio' %}</h4>
+                            <div>
+                                <div class="title-box"></div>
+                                <div class="title-line"></div>
+                            </div>
+                        </div>
+                        <p class="text-muted mx-auto para-desc mt-5 mb-0">{% trans 'My portfolio in different styles andcategories.' %}</p>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+
+
+        <div class="container">
+            <!-- Gallary -->
+            <!-- Gallary -->
+            <div id="grid" class="row">
+                {% for project in projects %}
+                    <div class="col-lg-4 col-md-6 mt-4 pt-2 picture-item" data-groups='["branding", "designing"]'>
+                        <div class="item-box portfolio-box rounded shadow bg-white overflow-hidden">
+                            <div class="portfolio-box-img position-relative overflow-hidden">
+                                <img class="item-container img-fluid mx-auto"
+                                     src="{{ project.main_image_url }}"
+                                     alt="{{ project.title }}">
+                                <div class="overlay-work">
+                                    <div class="work-content text-center">
+                                        <a href="{{ project.main_image_url }}"
+                                           class="lightbox text-light work-icon bg-dark d-inline-block rounded-pill "><i
+                                                data-feather="camera" class="fea icon-sm image-icon"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gallary-title py-4 text-center">
+                                <h5><a href="{{ project.get_absolute_url }}"
+                                       class="title text-dark">{{ project.title }}</a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12 mt-4 pt-2">
+                    <div class="text-center">
+                        <a href="{% url 'portfolio:project_list' %}" class="btn btn-outline-primary">{% trans 'More works' %} <i
+                                data-feather="refresh-cw" class="fea icon-sm"></i></a>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+    </section><!--end section-->
+    <!-- Projects End -->
+
+
+    <!-- Blog Start -->
+    <section class="section bg-light pb-3" id="news">
+        {% include 'portfolio/_recent_or_related_posts.html' with blog_entries=recent_posts %}
+    </section><!--end section-->
+    <!-- Blog Start -->
+
+    <!-- Contact Start -->
+    <section class="section pb-0" id="contact">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 text-center">
+                    <div class="section-title">
+                        <div class="position-relative">
+                            <h4 class="title text-uppercase mb-4">{% trans 'Contact Me' %}</h4>
+                            <div>
+                                <div class="title-box"></div>
+                                <div class="title-line"></div>
+                            </div>
+                        </div>
+                        <p class="text-muted mx-auto para-desc mt-5 mb-0">{% trans "I'm here to help you bring your ideas to life. You can contact me if you need any help" %}</p>
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-4 mt-4 pt-2">
+                    <div class="contact-detail text-center">
+                        <div class="icon">
+                            <i data-feather="mail" class="fea icon-md"></i>
+                        </div>
+                        <div class="content mt-4">
+                            <h5 class="title text-uppercase">{% trans 'Email' %}</h5>
+                            <a href="mailto:alisirjani.django@gmail.com" class="text-primary">alisirjani.django@gmail.com</a>
+                        </div>
+                    </div>
+                </div><!--end col-->
+
+            </div><!--end row-->
+        </div><!--end container-->
+    </section><!--end section-->
+
+    <section class="section pt-5 mt-3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="custom-form mb-sm-30">
+                        <form id="contact_form">
+                            {% csrf_token %}
+                            <p id="error-msg"></p>
+                            <div id="simple-msg"></div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="row">
+                                        {% with fist_name=user.profile.first_name last_name=user.profile.last_name email=user.email %}
+                                            <div class="col-lg-12 col-md-6">
+                                                <div class="form-group">
+                                                    <input name="full_name" id="id_full_name" type="text"
+                                                           class="form-control border rounded"
+                                                           value="{% if last_name %}{{ fist_name|default:'' }} {{ last_name|default:'' }}{% else %}{{ fist_name|default:'' }}{% endif %}"
+                                                           placeholder="{% trans 'Full Name' %} :">
+                                                    <div class="invalid-feedback" style="font-size: 16px"
+                                                         id="invalid-feedback-full_name"></div>
+                                                </div>
+                                            </div><!--end col-->
+                                            <div class="col-lg-12 col-md-6">
+                                                <div class="form-group">
+                                                    <input name="email" id="id_email" type="email"
+                                                           class="form-control border rounded"
+                                                           value="{{ email|default:'' }}"
+                                                           placeholder="{% trans 'Your Email' %} :">
+                                                    <div class="invalid-feedback" style="font-size: 16px"
+                                                         id="invalid-feedback-email"></div>
+                                                </div>
+                                            </div><!--end col-->
+                                        {% endwith %}
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <input name="subject" id="id_subject"
+                                                       class="form-control border rounded"
+                                                       placeholder="{% trans 'Your Subject' %} :">
+                                                <div class="invalid-feedback" style="font-size: 16px"
+                                                     id="invalid-feedback-subject"></div>
+                                            </div>
+                                        </div><!--end col-->
+                                    </div><!--end row-->
+                                </div><!--end col-->
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <textarea name="message" id="id_message" rows="4"
+                                                  class="form-control border rounded"
+                                                  placeholder="{% trans 'Your Message' %} :"></textarea>
+                                        <div class="invalid-feedback" style="font-size: 16px"
+                                             id="invalid-feedback-message"></div>
+                                    </div>
+                                </div><!--end col-->
+
+                                <div class="col-sm-12 text-end">
+                                    <button type="button" id="id_contact_form_btn" name="contact_form_btn"
+                                            class="btn btn-primary" onclick="createMessage()">{% trans 'Send Message' %}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!--end custom-form-->
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+    </section><!--end section-->
+    <!-- Contact End -->
+
+{% endblock content %}
+
+{% block script %}
+
+    <script>
+        var createMessageUrl = "{% url 'portfolio:create_contact_message' %}"
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="{% static 'js/contact.js' %}"></script>
+
+{% endblock script %}

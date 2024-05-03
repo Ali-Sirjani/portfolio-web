@@ -1,0 +1,45 @@
+{% extends '_base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans 'Project List' %}{% endblock title %}
+
+{% block content %}
+    <!-- Projects End -->
+    <section class="section mt-5">
+        <div class="container">
+            <!-- Gallary -->
+            <!-- Gallary -->
+            <div id="grid" class="row">
+                {% for project in projects %}
+                    <div class="col-lg-4 col-md-6 mt-4 pt-2 picture-item">
+                        <div class="item-box portfolio-box rounded shadow bg-white overflow-hidden">
+                            <div class="portfolio-box-img position-relative overflow-hidden">
+                                <img class="item-container img-fluid mx-auto" src="{{ project.main_image_url }}"
+                                     alt="{{ project.title }}">
+                                <div class="overlay-work">
+                                    <div class="work-content text-center">
+                                        <a href="{{ project.main_image_url }}"
+                                           class="lightbox text-light work-icon bg-dark d-inline-block rounded-pill "><i
+                                                data-feather="camera" class="fea icon-sm image-icon"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gallary-title py-4 text-center">
+                                <h5><a href="{{ project.get_absolute_url }}"
+                                       class="title text-dark">{{ project.title }}</a>
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div><!-- End row -->
+        <div class="mt-5">
+        {% include 'portfolio/project/_pagination.html' %}
+            </div>
+        </div><!--end container-->
+
+    </section><!--end section-->
+    <!-- Contact End -->
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+
+{% load i18n %}
+
+{% block title %}
+    {% trans 'Search Results' %}
+{% endblock title %}
+
+{% block content %}
+
+    {% include 'portfolio/blog/_post_list_master.html' with posts=posts %}
+
+{% endblock content %}

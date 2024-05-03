@@ -1,5 +1,7 @@
 venv/
 db.sqlite3
 .idea/
-portfolio/migrations
 staticfiles
+media
+portfolio/migrations
+core/migrations

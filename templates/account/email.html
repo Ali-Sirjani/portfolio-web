@@ -1,0 +1,90 @@
+{% extends "account/base_manage_email.html" %}
+
+{% load allauth i18n %}
+{% load crispy_forms_filters %}
+
+{% block head_title %}
+    {% trans "Email Addresses" %}
+{% endblock head_title %}
+
+{% block content %}
+    <style>
+        .button-choice {
+            font-size: 15px !important;
+            width: auto !important; /* Reset width to auto */
+        }
+    </style>
+
+    <div class="auth-form-container">
+        <h2 class="card-title mb-5 mt-3 text-center">{% trans "Email Addresses" %}</h2>
+        {% if emailaddresses %}
+            <p>{% trans 'The following email addresses are associated with your account:' %}</p>
+            {% url 'account_email' as email_url %}
+            <form action="{{ email_url }}" method="post" class="auth-form mb-4">
+                {% csrf_token %}
+                {% for radio in emailaddress_radios %}
+                    {% with emailaddress=radio.emailaddress %}
+                        {% element field type="radio" checked=radio.checked name="email" value=emailaddress.email id=radio.id %}
+                            {% slot label %}
+                                {{ emailaddress.email }}
+                                {% if emailaddress.verified %}
+                                    {% element badge tags="success,email,verified" %}
+                                        {% translate "Verified" %}
+                                    {% endelement %}
+                                {% else %}
+                                    {% element badge tags="warning,email,unverified" %}
+                                        {% translate "Unverified" %}
+                                    {% endelement %}
+                                {% endif %}
+                                {% if emailaddress.primary %}
+                                    {% element badge tags="email,primary" %}
+                                        {% translate "Primary" %}
+                                    {% endelement %}
+                                {% endif %}
+                            {% endslot %}
+                        {% endelement %}
+                    {% endwith %}
+                {% endfor %}
+                <button type="submit" name="action_primary" role="button"
+                        class="button-choice btn btn-primary btn-block">{% trans 'Make Primary' %}</button>
+
+                <button tags="secondary" type="submit" name="action_send" role="button"
+                        class="button-choice btn btn-primary btn-block">{% trans 'Re-send Verification' %}</button>
+
+                <button tags="danger,delete" type="submit" name="action_remove" role="button"
+                        class="button-choice btn btn-primary btn-block">{% trans 'Remove' %}</button>
+            </form>
+        {% else %}
+            {% include "account/snippets/warn_no_email.html" %}
+        {% endif %}
+        {% if can_add_email %}
+            <h2 class="card-title mb-5 mt-5 text-center">{% trans "Add Email Address" %}</h2>
+            {% url 'account_email' as action_url %}
+            <form action="{{ action_url }}" method="post" class="auth-form mb-4">
+
+                {% csrf_token %}
+                <div class="form-text-muted">
+                    {{ form|crispy }}
+                </div>
+                <button name="action_add" type="submit"
+                        class="btn btn-primary btn-block">{% trans "Add Email" %}</button>
+            </form>
+        {% endif %}
+    </div>
+{% endblock content %}
+
+{% block extra_body %}
+    <script type="text/javascript">
+        (function () {
+            var message = "{% trans 'Do you really want to remove the selected email address?' %}";
+            var actions = document.getElementsByName('action_remove');
+            if (actions.length) {
+                actions[0].addEventListener("click", function (e) {
+                    if (!confirm(message)) {
+                        e.preventDefault();
+                    }
+                });
+            }
+        })();
+    </script>
+{% endblock extra_body %}
