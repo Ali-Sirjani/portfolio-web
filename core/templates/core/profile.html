@@ -88,7 +88,7 @@
                                                      style="max-width: 100px; max-height: 100px; display: none">
                                             </div>
                                         {% endif %}
-                                        <div class="invalid-feedback text-block" id="invalid-feedback-{{ field.name }}"
+                                        <div class="invalid-feedback text-block mb-3" id="invalid-feedback-{{ field.name }}"
                                              style="display: none;"></div>
                                     {% endfor %}
 
@@ -107,7 +107,7 @@
                                 <div class="form-text-muted">
                                     {% for field in set_username_form %}
                                         {{ field|as_crispy_field }}
-                                        <div class="invalid-feedback text-block"
+                                        <div class="invalid-feedback text-block mb-3"
                                              id="invalid-feedback-{{ field.name }}"
                                              style="display: none; "></div>
                                     {% endfor %}
@@ -132,7 +132,7 @@
                                     <div class="form-text-muted">
                                         {% for field in change_pass_form %}
                                             {{ field|as_crispy_field }}
-                                            <div class="invalid-feedback text-block"
+                                            <div class="invalid-feedback text-block mb-3"
                                                  id="invalid-feedback-{{ field.name }}"
                                                  style="display: none; "></div>
                                         {% endfor %}
@@ -152,7 +152,7 @@
                                     <div class="form-text-muted">
                                         {% for field in set_pass_form %}
                                             {{ field|as_crispy_field }}
-                                            <div class="invalid-feedback text-block"
+                                            <div class="invalid-feedback text-block mb-3"
                                                  id="invalid-feedback-{{ field.name }}"
                                                  style="display: none; "></div>
                                         {% endfor %}
@@ -171,9 +171,6 @@
 {% endblock %}
 
 {% block script %}
-    <script src="https://code.jquery.com/jquery-3.7.1.js"
-            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-
     <script type="text/javascript">
         var setUsernameUrl = "{% url 'core:set_username' %}";
         var changePasswordUrl = "{% url 'account_change_password' %}";
