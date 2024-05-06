@@ -2,11 +2,14 @@
 {% load jalali_tags %}
 {% load i18n %}
 {% load trans_fa %}
+{% load meta %}
 
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head {% meta_namespaces %}>
+    {% include "meta/meta.html" %}
+
     <meta charset="utf-8">
     <title>{% block title %}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
