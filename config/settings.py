@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'jalali_date',
     'crispy_forms',
     'crispy_bootstrap5',
+    'meta',
 
     # local apps
     'core',
@@ -246,3 +247,19 @@ LOCALE_PATHS = (str(BASE_DIR.joinpath('templates/locale')),)
 # config crispy
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+# config meta
+META_SITE_PROTOCOL = 'https'
+META_SITE_DOMAIN = 'alisirjani.me'
+META_SITE_TYPE = 'website'
+META_SITE_NAME = 'Ali Sirjani'
+META_DEFAULT_KEYWORDS = ['علی سیرجانی', 'ali sirjani', 'برنامه نویس جنگو', 'توسعه وب', 'نمونه کارها', 'Python',
+                         'Django Framework', 'Django', 'طراحی وب', 'Backend Development', 'توسعه بک اند', ]
+META_INCLUDE_KEYWORDS = ['علی سیرجانی', 'ali sirjani', 'برنامه نویس جنگو', 'توسعه وب', 'نمونه کارها', 'Python',
+                         'Django Framework', 'Django', 'طراحی وب', 'Backend Development', 'توسعه بک اند', ]
+META_DEFAULT_IMAGE = '/static/images/home/profile.png'
+META_USE_OG_PROPERTIES = True
+META_USE_TWITTER_PROPERTIES = True
+META_USE_SCHEMAORG_PROPERTIES = False
+META_USE_TITLE_TAG = True
+META_USE_SITES = True
