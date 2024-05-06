@@ -1,10 +1,13 @@
 from django.db import models
+from django.template.defaultfilters import truncatewords
+from django.utils.html import strip_tags
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 from django.shortcuts import reverse
 
 from mptt.models import MPTTModel, TreeForeignKey
 from ckeditor.fields import RichTextField
+from meta.models import ModelMeta
 
 from ..abstract import TimestampedModel
 
@@ -58,19 +61,36 @@ class ActivePostManager(models.Manager):
         return super().get_queryset().filter(can_published=True)
 
 
-class Post(TimestampedModel):
+class Post(ModelMeta, TimestampedModel):
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='posts', null=True, blank=True,
                                  verbose_name=_('category'))
 
     title = models.CharField(max_length=250, verbose_name=_('title'))
     description = RichTextField(verbose_name=_('description'))
     can_published = models.BooleanField(default=True, verbose_name=_('can published'))
+    keywords = models.CharField(max_length=250, blank=True, verbose_name=_('keywords'),
+                                help_text=_(
+                                    'Keywords for SEO (separated by #). Category name will be automatically added.'
+                                ))
+
     slug_change = models.BooleanField(verbose_name=_('slug change'), help_text=_('If you want change the slug by name'))
     slug = models.SlugField(unique=True, allow_unicode=True, blank=True, max_length=300, verbose_name=_('slug'),
                             help_text=_('If field be empty it\'s automatic change by title'))
 
     objects = models.Manager()
     active_objs = ActivePostManager()
+
+    _metadata = {
+        'title': 'title',
+        'description': 'get_description_metadata',
+        'keywords': 'get_keywords_as_list',
+        'image': 'main_image_url',
+        'image_width': 600,
+        'image_height': 600,
+        'url': 'get_absolute_url',
+        'modified_time': 'datetime_updated',
+        'locale': 'fa_IR',
+    }
 
     class Meta:
         verbose_name = _('post')
@@ -88,6 +108,17 @@ class Post(TimestampedModel):
                 return image.image.url
 
         return None
+
+    def get_description_metadata(self):
+        return truncatewords(strip_tags(self.description), 20)
+
+    def get_keywords_as_list(self):
+        keywords_list = [keyword.strip() for keyword in self.keywords.split('#') if keyword.strip()]
+
+        if self.category:
+            keywords_list.append(self.category.name)
+
+        return keywords_list
 
 
 class PostImage(TimestampedModel):
