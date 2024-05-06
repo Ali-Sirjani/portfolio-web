@@ -7,6 +7,7 @@ cryptography==42.0.3
 defusedxml==0.7.1
 Django==5.0.2
 django-allauth==0.61.1
+django-appconf==1.0.6
 django-axes==6.3.0
 django-ckeditor==6.7.0
 django-crispy-forms==2.1
@@ -15,6 +16,7 @@ django-debug-toolbar==4.3.0
 django-environ==0.11.2
 django-jalali-date==1.1.0
 django-js-asset==2.2.0
+django-meta==2.4.2
 django-mptt==0.16.0
 django-rosetta==0.10.0
 django-tinymce==3.7.1
@@ -29,8 +31,10 @@ pycparser==2.21
 PyJWT==2.8.0
 python3-openid==3.2.0
 pytz==2024.1
+rcssmin==1.1.1
 requests==2.31.0
 requests-oauthlib==1.3.1
+rjsmin==1.2.1
 sqlparse==0.4.4
 tzdata==2023.4
 urllib3==2.2.1

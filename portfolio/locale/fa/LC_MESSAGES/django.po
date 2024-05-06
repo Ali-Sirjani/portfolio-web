@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-02 16:43+0330\n"
-"PO-Revision-Date: 2024-03-02 21:00+0000\n"
+"POT-Creation-Date: 2024-05-05 00:38+0330\n"
+"PO-Revision-Date: 2024-05-04 21:09+0000\n"
 "Last-Translator:   <alisirjani1234@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -51,112 +51,124 @@ msgstr "دقیقاً یک تصویر باید به عنوان اصلی علام�
 msgid "Enter your comment"
 msgstr "نظر خود را وارد کنید"
 
-#: .\models\blog_models.py:15
+#: .\models\blog_models.py:18
 msgid "name"
 msgstr "نام"
 
-#: .\models\blog_models.py:16 .\models\blog_models.py:68
-#: .\models\project_models.py:20
+#: .\models\blog_models.py:19 .\models\blog_models.py:83
+#: .\models\project_models.py:28
 msgid "slug change"
 msgstr "تغییر اسلاگ"
 
-#: .\models\blog_models.py:16 .\models\blog_models.py:68
-#: .\models\project_models.py:20
+#: .\models\blog_models.py:19 .\models\blog_models.py:83
+#: .\models\project_models.py:28
 msgid "If you want change the slug by name"
 msgstr "اگر می خواهید اسلاگ را با نام تغییر دهید"
 
-#: .\models\blog_models.py:17 .\models\blog_models.py:69
-#: .\models\project_models.py:21
+#: .\models\blog_models.py:20 .\models\blog_models.py:84
+#: .\models\project_models.py:29
 msgid "slug"
 msgstr "اسلاگ"
 
-#: .\models\blog_models.py:18
+#: .\models\blog_models.py:21
 msgid "If field be empty it's automatic change by name"
 msgstr "اگر فیلد خالی باشد، نام آن به صورت خودکار تغییر می کند"
 
-#: .\models\blog_models.py:21 .\models\blog_models.py:39
-#: .\models\blog_models.py:63
+#: .\models\blog_models.py:31 .\models\blog_models.py:49
+#: .\models\blog_models.py:73
 msgid "category"
 msgstr "دسته بندی"
 
-#: .\models\blog_models.py:22
+#: .\models\blog_models.py:32
 msgid "categories"
 msgstr "دسته بندی ها"
 
-#: .\models\blog_models.py:42
+#: .\models\blog_models.py:52
 msgid "Levels are ordered from top to bottom, with 1 being the highest."
 msgstr "سطوح از بالا به پایین مرتب شده اند که 1 بالاترین است."
 
-#: .\models\blog_models.py:43
+#: .\models\blog_models.py:53
 msgid "level"
 msgstr "سطح"
 
-#: .\models\blog_models.py:49
+#: .\models\blog_models.py:59
 msgid "top category"
 msgstr "دسته بندی برتر"
 
-#: .\models\blog_models.py:50
+#: .\models\blog_models.py:60
 msgid "top categories"
 msgstr "دسته بندی های برتر"
 
-#: .\models\blog_models.py:65 .\models\project_models.py:14
+#: .\models\blog_models.py:75 .\models\project_models.py:17
 msgid "title"
 msgstr "عنوان"
 
-#: .\models\blog_models.py:66 .\models\project_models.py:15
+#: .\models\blog_models.py:76 .\models\project_models.py:18
 msgid "description"
 msgstr "شرح"
 
-#: .\models\blog_models.py:67
+#: .\models\blog_models.py:77
 msgid "can published"
 msgstr "می تواند منتشر شود"
 
-#: .\models\blog_models.py:70 .\models\project_models.py:22
+#: .\models\blog_models.py:78 .\models\project_models.py:23
+msgid "keywords"
+msgstr "کلمات کلیدی"
+
+#: .\models\blog_models.py:80 .\models\project_models.py:25
+msgid ""
+"Keywords for SEO (separated by #). Category name will be automatically "
+"added."
+msgstr ""
+"کلمات کلیدی برای سئو (با # از هم جدا می شوند). نام دسته بندی به طور خودکار "
+"اضافه خواهد شد."
+
+#: .\models\blog_models.py:85 .\models\project_models.py:30
 msgid "If field be empty it's automatic change by title"
 msgstr "اگر فیلد خالی باشد به صورت خودکار با عنوان تغییر می کند"
 
-#: .\models\blog_models.py:76 .\models\blog_models.py:94
-#: .\models\blog_models.py:111
+#: .\models\blog_models.py:104 .\models\blog_models.py:133
+#: .\models\blog_models.py:150
 msgid "post"
 msgstr "پست"
 
-#: .\models\blog_models.py:77
+#: .\models\blog_models.py:105
 msgid "posts"
 msgstr "پست ها"
 
-#: .\models\blog_models.py:96 .\models\project_models.py:50
+#: .\models\blog_models.py:135 .\models\project_models.py:77
 msgid "image"
 msgstr "تصویر"
 
-#: .\models\blog_models.py:97 .\models\project_models.py:51
+#: .\models\blog_models.py:136 .\models\project_models.py:78
 msgid "main"
 msgstr "اصلی"
 
-#: .\models\blog_models.py:100
+#: .\models\blog_models.py:139
 msgid "post image"
 msgstr "تصویر پست"
 
-#: .\models\blog_models.py:101
+#: .\models\blog_models.py:140
 msgid "post images"
 msgstr "تصاویر پست"
 
-#: .\models\blog_models.py:113
+#: .\models\blog_models.py:152
 msgid "author"
 msgstr "نویسنده"
 
-#: .\models\blog_models.py:115
+#: .\models\blog_models.py:154
 msgid "text"
 msgstr "متن"
 
-#: .\models\blog_models.py:117
+#: .\models\blog_models.py:156
 msgid "confirmation"
 msgstr "تائیدیه"
 
-#: .\models\blog_models.py:120
+#: .\models\blog_models.py:159
 msgid "post comment"
 msgstr "نظر پست"
 
-#: .\models\blog_models.py:121
+#: .\models\blog_models.py:160
 msgid "post comments"
 msgstr "نظرات پست"
 
@@ -192,57 +204,56 @@ msgstr "پیام تماس"
 msgid "contact messages"
 msgstr "پیام های تماس"
 
-#: .\models\project_models.py:16
+#: .\models\project_models.py:19
 msgid "client"
 msgstr "مشتری"
 
-#: .\models\project_models.py:17
+#: .\models\project_models.py:20
 msgid "link"
 msgstr "لینک"
 
-#: .\models\project_models.py:18
+#: .\models\project_models.py:21
 msgid "location"
 msgstr "مکان"
 
-#: .\models\project_models.py:19
+#: .\models\project_models.py:22
 msgid "start date"
 msgstr "تاریخ شروع"
 
-#: .\models\project_models.py:24
+#: .\models\project_models.py:32
 msgid "active"
 msgstr "فعال"
 
-#: .\models\project_models.py:30 .\models\project_models.py:48
+#: .\models\project_models.py:51 .\models\project_models.py:75
 msgid "project"
 msgstr "پروژه"
 
-#: .\models\project_models.py:31
+#: .\models\project_models.py:52 .\views\project_views.py:20
 msgid "projects"
 msgstr "پروژه ها"
 
-#: .\models\project_models.py:54
+#: .\models\project_models.py:81
 msgid "project image"
 msgstr "تصویر پروژه"
 
-#: .\models\project_models.py:55
+#: .\models\project_models.py:82
 msgid "project images"
 msgstr "تصاویر پروژه"
 
-#: .\templates\portfolio\_recent_posts.html:12
-#| msgid "Recent Post"
+#: .\templates\portfolio\_recent_or_related_posts.html:12
 msgid "Related Posts"
 msgstr "پست های مرتبط"
 
-#: .\templates\portfolio\_recent_posts.html:14
+#: .\templates\portfolio\_recent_or_related_posts.html:14
 msgid "Latest News & Blog"
 msgstr "آخرین اخبار و بلاگ"
 
-#: .\templates\portfolio\_recent_posts.html:24
+#: .\templates\portfolio\_recent_or_related_posts.html:24
 msgid ""
 "Explore more related articles and information and expand your knowledge."
 msgstr "مقالات و اطلاعات مرتبط را بیشتر کاوش کنید و دانش خود را گسترش دهید."
 
-#: .\templates\portfolio\_recent_posts.html:26
+#: .\templates\portfolio\_recent_or_related_posts.html:26
 msgid ""
 "By getting information and familiarizing yourself with the benefits of the "
 "site, you will find a broader view of its facilities and benefits. This blog"
@@ -252,21 +263,21 @@ msgstr ""
 "مزایای آن پیدا خواهید کرد. این بلاگ نقطه  به هم رسیدن ایده‌ها و راهکارهای "
 "موثر برای رشد شماست."
 
-#: .\templates\portfolio\_recent_posts.html:44
-#: .\templates\portfolio\blog\_post_list_master.html:29
+#: .\templates\portfolio\_recent_or_related_posts.html:44
+#: .\templates\portfolio\blog\_post_list_master.html:30
 msgid "Ali"
 msgstr "علی"
 
-#: .\templates\portfolio\_recent_posts.html:55
-#: .\templates\portfolio\blog\_post_list_master.html:42
+#: .\templates\portfolio\_recent_or_related_posts.html:55
+#: .\templates\portfolio\blog\_post_list_master.html:43
 msgid "Read More"
 msgstr "ادامه مطلب"
 
-#: .\templates\portfolio\blog\_post_list_master.html:63
+#: .\templates\portfolio\blog\_post_list_master.html:64
 msgid "Oops! Please enter a search query to find posts."
 msgstr "لطفاً یک عبارت جستجو برای یافتن پست ها وارد کنید."
 
-#: .\templates\portfolio\blog\_post_list_master.html:71
+#: .\templates\portfolio\blog\_post_list_master.html:72
 #, python-format
 msgid ""
 "\n"
@@ -276,61 +287,61 @@ msgstr ""
 "\n"
 "هیچ پستی مطابق با جستجوی شما برای '%(q)s' وجود ندارد"
 
-#: .\templates\portfolio\blog\_post_list_master.html:76
+#: .\templates\portfolio\blog\_post_list_master.html:77
 msgid "Oops! There are no posts available at the moment."
 msgstr "در حال حاضر هیچ پستی موجود نیست."
 
-#: .\templates\portfolio\blog\_post_list_master.html:90
+#: .\templates\portfolio\blog\_post_list_master.html:91
 msgid "Author"
 msgstr "نویسنده"
 
-#: .\templates\portfolio\blog\_post_list_master.html:95
-#: .\templates\portfolio\blog\post_detail.html:127
+#: .\templates\portfolio\blog\_post_list_master.html:96
+#: .\templates\portfolio\blog\post_detail.html:32
 #: .\templates\portfolio\general\home_page.html:43
 msgid "Ali Sirjani"
 msgstr "علی سیرجانی"
 
-#: .\templates\portfolio\blog\_post_list_master.html:96
+#: .\templates\portfolio\blog\_post_list_master.html:97
 msgid "web developer"
 msgstr "توسعه دهنده وب"
 
-#: .\templates\portfolio\blog\_post_list_master.html:117
+#: .\templates\portfolio\blog\_post_list_master.html:118
 msgid "Search"
 msgstr "جستجو"
 
-#: .\templates\portfolio\blog\_post_list_master.html:123
+#: .\templates\portfolio\blog\_post_list_master.html:124
 msgid "Search Keywords..."
 msgstr "جستجوی کلمات ..."
 
-#: .\templates\portfolio\blog\_post_list_master.html:136
+#: .\templates\portfolio\blog\_post_list_master.html:137
 msgid "Categories"
 msgstr "دسته بندی ها"
 
-#: .\templates\portfolio\blog\_post_list_master.html:151
+#: .\templates\portfolio\blog\_post_list_master.html:152
 msgid "Recent Post"
 msgstr "پست های اخیر"
 
-#: .\templates\portfolio\blog\post_detail.html:193
+#: .\templates\portfolio\blog\post_detail.html:81
 msgid "Comments"
 msgstr "نظرات"
 
-#: .\templates\portfolio\blog\post_detail.html:206
+#: .\templates\portfolio\blog\post_detail.html:94
 msgid "Reply"
 msgstr "پاسخ"
 
-#: .\templates\portfolio\blog\post_detail.html:230
+#: .\templates\portfolio\blog\post_detail.html:118
 msgid "Leave A Comment"
 msgstr "یک نظر بگذارید"
 
-#: .\templates\portfolio\blog\post_detail.html:237
+#: .\templates\portfolio\blog\post_detail.html:125
 msgid "Send comment"
 msgstr "ارسال نظر"
 
-#: .\templates\portfolio\blog\post_detail.html:259
+#: .\templates\portfolio\blog\post_detail.html:147
 msgid "Reply To"
 msgstr "پاسخ دادن به"
 
-#: .\templates\portfolio\blog\post_detail.html:268
+#: .\templates\portfolio\blog\post_detail.html:156
 msgid "Post Comment"
 msgstr "ارسال نظر"
 
@@ -344,7 +355,7 @@ msgid "Search Results"
 msgstr "نتایج جستجو"
 
 #: .\templates\portfolio\general\home_page.html:8
-#: .\templates\portfolio\project\project_detail.html:98
+#: .\templates\portfolio\project\project_detail.html:99
 msgid "Home"
 msgstr "خانه"
 
@@ -518,31 +529,31 @@ msgstr "پیام شما"
 msgid "Send Message"
 msgstr "ارسال پیام"
 
-#: .\templates\portfolio\project\project_detail.html:53
+#: .\templates\portfolio\project\project_detail.html:54
 msgid "Project Info"
 msgstr "اطلاعات پروژه"
 
-#: .\templates\portfolio\project\project_detail.html:56
+#: .\templates\portfolio\project\project_detail.html:57
 msgid "Client"
 msgstr "مشتری"
 
-#: .\templates\portfolio\project\project_detail.html:60
+#: .\templates\portfolio\project\project_detail.html:61
 msgid "Date"
 msgstr "تاریخ"
 
-#: .\templates\portfolio\project\project_detail.html:64
+#: .\templates\portfolio\project\project_detail.html:65
 msgid "Website"
 msgstr "وب سایت"
 
-#: .\templates\portfolio\project\project_detail.html:68
+#: .\templates\portfolio\project\project_detail.html:69
 msgid "Location"
 msgstr "مکان"
 
-#: .\templates\portfolio\project\project_detail.html:93
+#: .\templates\portfolio\project\project_detail.html:94
 msgid "Prev"
 msgstr "قبلی"
 
-#: .\templates\portfolio\project\project_detail.html:101
+#: .\templates\portfolio\project\project_detail.html:102
 msgid "Next"
 msgstr "بعدی"
 
@@ -550,18 +561,38 @@ msgstr "بعدی"
 msgid "Project List"
 msgstr "لیست پروژه ها"
 
-#: .\views\blog_views.py:116
+#: .\views\blog_views.py:15
+msgid "Explore my latest blog posts and stay updated with my insights."
+msgstr "آخرین پست‌های وبلاگ من را کاوش کنید و با دیدگاه‌های من بروز باشید."
+
+#: .\views\blog_views.py:128
 msgid "You comment after confirmation will show in comments."
 msgstr "نظر شما پس از تایید در نظرات نشان داده می شود."
 
-#: .\views\blog_views.py:120
+#: .\views\blog_views.py:132
 msgid "Your comment have problem please try again!"
 msgstr "نظر شما مشکلی دارد لطفا دوباره امتحان کنید!"
 
-#: .\views\general_views.py:31
+#: .\views\general_views.py:25
+msgid ""
+"Discover the projects and expertise of a freelance website developer with "
+"Django passionate about delivering quality work."
+msgstr ""
+"پروژه ها و تخصص یک توسعه دهنده وب سایت را با جنگو که مشتاق ارائه کار با "
+"کیفیت است، کشف کنید."
+
+#: .\views\general_views.py:42
 msgid ""
 "Your message has been sent successfully. I will get back to you shortly."
 msgstr "پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهم گرفت."
+
+#: .\views\project_views.py:19
+msgid "Explore my latest projects."
+msgstr "آخرین پروژه های من را کاوش کنید."
+
+#, fuzzy
+#~ msgid "website project"
+#~ msgstr "پروژه"
 
 #~ msgid ""
 #~ "As a Junior Backend Developer specializing in Django framework and Django "

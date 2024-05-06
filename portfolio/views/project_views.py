@@ -1,4 +1,7 @@
 from django.views import generic
+from django.utils.translation import gettext_lazy as _
+
+from meta.views import Meta
 
 from ..models import Project
 
@@ -10,6 +13,14 @@ class ProjectListView(generic.ListView):
     template_name = 'portfolio/project/project_list.html'
     paginate_by = 6
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['meta'] = Meta(title=_('projects'), description=_('Explore my latest projects.'),
+                               keywords=[_('projects'), ])
+
+        return context
+
 
 class ProjectDetailView(generic.DetailView):
     model = Project
@@ -19,6 +30,8 @@ class ProjectDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+
+        context['meta'] = self.object.as_meta(self.request)
 
         project_slug_list = list(self.queryset.values_list('slug', flat=True).order_by('-datetime_updated'))
         index_obj = project_slug_list.index(self.object.slug)

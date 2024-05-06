@@ -2,6 +2,8 @@ from django.views import generic
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 
+from meta.views import Meta
+
 from ..models import ContactMe, Project
 from ..forms import ContactMeForm
 from ..mixins import JSONResponseMixin
@@ -16,11 +18,20 @@ class HomePageView(generic.ListView):
         queryset = Project.active_objs.all().prefetch_related('images').order_by('-datetime_updated')[:6]
         return queryset
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['meta'] = Meta(description=_(
+            'Discover the projects and expertise of a freelance website developer with Django passionate about delivering quality work.'
+        ), )
+
+        return context
+
 
 class ContactMeView(JSONResponseMixin, generic.CreateView):
     model = ContactMe
     form_class = ContactMeForm
-    http_method_names = ('post', )
+    http_method_names = ('post',)
 
     def form_valid(self, form):
         contact_obj = form.save(commit=False)
