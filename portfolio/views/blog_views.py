@@ -1,14 +1,19 @@
 from django.views import generic
-from django.db.models import Q, Count
-from django.shortcuts import render, redirect
+from django.db.models import Q
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.utils.translation import gettext_lazy as _
 
-from ..models import Post, PostComment
+from meta.views import Meta
+
+from ..models import Post, Category, PostComment
 from ..forms import PostSearchForm, PostCommentForm
 from ..utils import top_category_query
+
+meta_obj = Meta(title=_('blog'), description=_('Explore my latest blog posts and stay updated with my insights.'),
+                keywords=['blog', 'articles', 'posts', 'insights'])
 
 
 class PostListView(generic.ListView):
@@ -20,7 +25,9 @@ class PostListView(generic.ListView):
     def get_queryset(self):
         category_slug = self.kwargs.get('slug')
         if category_slug:
-            queryset = Post.active_objs.filter(category__slug=category_slug)
+            category_obj = get_object_or_404(Category, slug=category_slug)
+            category_descendants = category_obj.get_descendants(True).values_list('pk', flat=True)
+            queryset = Post.active_objs.filter(category__in=category_descendants).distinct()
 
         else:
             queryset = Post.active_objs.all()
@@ -33,6 +40,7 @@ class PostListView(generic.ListView):
         context = super().get_context_data(**kwargs)
 
         context['top_categories'] = top_category_query()
+        context['meta'] = meta_obj
 
         return context
 
@@ -67,6 +75,7 @@ class PostSearchView(generic.ListView):
             context['q'] = None
 
         context['top_categories'] = top_category_query()
+        context['meta'] = meta_obj
 
         return context
 
@@ -88,6 +97,8 @@ class PostDetailView(generic.edit.FormMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         obj = self.object
+
+        context['meta'] = obj.as_meta(self.request)
 
         is_related_posts_empty = True
         if obj.category:
