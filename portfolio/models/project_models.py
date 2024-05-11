@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.core.validators import FileExtensionValidator
 from django.shortcuts import reverse
 from django.template.defaultfilters import truncatewords
 
@@ -20,6 +21,16 @@ class Project(ModelMeta, TimestampedModel):
     link = models.URLField(blank=True, verbose_name=_('link'))
     location = models.TextField(blank=True, verbose_name=_('location'))
     start_date = models.DateField(verbose_name=_('start date'))
+    video = models.FileField(upload_to='project_videos/', null=True, blank=True,
+                             validators=[
+                                 FileExtensionValidator(
+                                     allowed_extensions=['mov', 'avi', 'mp4', 'webm', 'mkv'],
+                                     message=_(
+                                         'Unsupported file format. Please upload a .MOV, .AVI, .MP4, .WEBM, or .MKV file.')
+                                 ),
+                             ],
+                             verbose_name=_('video')
+                             )
     keywords = models.CharField(max_length=250, blank=True, verbose_name=_('keywords'),
                                 help_text=_(
                                     'Keywords for SEO (separated by #). Category name will be automatically added.'

@@ -47,7 +47,7 @@ class PostImageTabu(admin.TabularInline):
 class PostAdmin(admin.ModelAdmin):
     fieldsets = (
         (_('Post Information'), {
-            'fields': ('title', 'description', 'category', 'can_published')
+            'fields': ('title', 'description', 'category', 'keywords', 'can_published')
         }),
         (_('Slug Settings'), {
             'classes': ('collapse',),

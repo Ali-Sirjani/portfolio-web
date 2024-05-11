@@ -19,7 +19,7 @@
 {% endblock style %}
 
 {% block content %}
-    <!-- Home Start -->
+
     <section class="bg-half d-table w-100"
              style="background: url('{% static 'images/home/bg-pages.jpg' %}')center center;">
         <div class="bg-overlay bg-overlay-white"></div>
@@ -33,7 +33,6 @@
             </div><!--end row-->
         </div> <!--end container-->
     </section><!--end section-->
-    <!-- Home End -->
 
     <!-- Work Start -->
     <section class="section">
@@ -75,14 +74,27 @@
                     </div><!--end row-->
                 </div><!--end col-->
 
+                <!-- Project Video Section -->
                 <div class="col-lg-5 col-md-6 order-1 order-md-2 mb-4">
                     <div class="port-images sticky-sidebar">
+                        {% if project.video %}
+                            <div class="video-container">
+                                <video controls class="img-fluid mx-auto d-block rounded mt-4">
+                                    <source src="{{ project.video.url }}" type="video/mp4">
+                                    <!-- Add other video formats if necessary -->
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        {% endif %}
+
+                        <!-- Project Images -->
                         {% for image in project.images.all %}
                             <img src="{{ image.image.url }}" class="img-fluid mx-auto d-block rounded mt-4"
                                  alt="{{ project.title }}">
                         {% endfor %}
                     </div>
                 </div><!--end col-->
+
             </div><!--end row-->
 
             <div class="row mt-4 pt-2 mt-5">

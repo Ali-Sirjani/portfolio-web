@@ -92,8 +92,6 @@ window.addEventListener('scroll', function () {
 document.addEventListener("DOMContentLoaded", function () {
     const themeSwitcher = document.getElementById('theme-switcher');
     const savedTheme = localStorage.getItem('theme');
-    const darkPath = "/static/css/style-dark-rtl.min.css";
-    const lightPath = "/static/css/style-rtl.min.css";
 
     // Function to apply the theme after a short delay
     function applyTheme(theme) {

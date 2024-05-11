@@ -19,7 +19,9 @@ class ProjectImageTabu(admin.TabularInline):
 class ProjectAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
     fieldsets = (
         (_('Project Information'), {
-            'fields': ('title', 'description', 'client', 'link', 'location', 'start_date', 'is_active')
+            'fields': (
+                'title', 'description', 'client', 'link', 'location', 'start_date', 'video', 'keywords', 'is_active'
+            )
         }),
         (_('Slug Settings'), {
             'classes': ('collapse',),
@@ -31,8 +33,8 @@ class ProjectAdmin(ModelAdminJalaliMixin, admin.ModelAdmin):
         }),
     )
     readonly_fields = ('datetime_created', 'datetime_updated')
-    inlines = (ProjectImageTabu, )
+    inlines = (ProjectImageTabu,)
     search_fields = ('title', 'client')
     list_filter = ('is_active', 'start_date')
-    ordering = ('-datetime_updated', )
+    ordering = ('-datetime_updated',)
     list_display = ('title', 'client', 'start_date', 'is_active', 'datetime_updated')
