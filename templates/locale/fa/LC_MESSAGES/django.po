@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-29 23:46+0330\n"
-"PO-Revision-Date: 2024-02-29 20:39+0000\n"
-"Last-Translator:   <alisirjani1234@gmail.com>\n"
+"POT-Creation-Date: 2024-05-12 02:39+0330\n"
+"PO-Revision-Date: 2024-05-11 23:16+0000\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -19,44 +19,120 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\_base.html:71 .\allauth\layouts\base.html:79
+#: .\400.html:5
+msgid "400 - Bad Request"
+msgstr "400 - درخواست بد"
+
+#: .\400.html:12
+msgid "400"
+msgstr "400"
+
+#: .\400.html:13
+msgid "The request could not be understood by the server."
+msgstr "درخواست توسط سرور قابل درک نیست."
+
+#: .\400.html:14 .\403.html:14 .\404.html:14 .\500.html:15 .\503.html:15
+msgid "Go to Homepage"
+msgstr "برو به صفحه اصلی"
+
+#: .\403.html:5
+msgid "403 - Forbidden"
+msgstr "403 - ممنوع"
+
+#: .\403.html:12
+msgid "403"
+msgstr "403"
+
+#: .\403.html:13
+msgid "Access to this resource is forbidden."
+msgstr "شما دسترسی به این منبع را ندارید."
+
+#: .\404.html:5
+msgid "404 - Page Not Found"
+msgstr "404 - صفحه یافت نشد"
+
+#: .\404.html:12
+msgid "404"
+msgstr "404"
+
+#: .\404.html:13
+msgid "The page you are looking for could not be found!"
+msgstr "صفحه مورد نظر شما پیدا نشد!"
+
+#: .\500.html:5
+msgid "500 - Internal Server Error"
+msgstr "500 - خطای سرور داخلی"
+
+#: .\500.html:12
+msgid "500"
+msgstr "500"
+
+#: .\500.html:13
+msgid "Oops! Something went wrong on the server."
+msgstr "مشکلی در سرور رخ داده است."
+
+#: .\500.html:14
+msgid "Please try again later."
+msgstr "لطفا بعدا دوباره امتحان کنید."
+
+#: .\503.html:5
+msgid "503 - Service Unavailable"
+msgstr "503 - خدمات در دسترس نیست"
+
+#: .\503.html:12
+msgid "503"
+msgstr "503"
+
+#: .\503.html:13
+msgid "Service Unavailable"
+msgstr "سرویس در دسترس نیست"
+
+#: .\503.html:14
+msgid ""
+"We apologize for the inconvenience. Our service is temporarily unavailable. "
+"Please try again later."
+msgstr ""
+"با عرض پوزش، سرویس ما به طور موقت در دسترس نیست. لطفا بعدا دوباره امتحان "
+"کنید."
+
+#: .\_base.html:90 .\allauth\layouts\base.html:81
 msgid "Follow me on social networks"
 msgstr "من را در شبکه های اجتماعی دنبال کنید"
 
-#: .\_base.html:82 .\allauth\layouts\base.html:90
+#: .\_base.html:101 .\allauth\layouts\base.html:92
 msgid "Quick Links"
 msgstr "لینک های سریع"
 
-#: .\_base.html:85 .\_navbar_home_page.html:25 .\_navbar_other_page.html:25
-#: .\allauth\layouts\base.html:93
+#: .\_base.html:104 .\_navbar_home_page.html:25 .\_navbar_other_page.html:25
+#: .\allauth\layouts\base.html:95
 msgid "Home"
 msgstr "خانه"
 
-#: .\_base.html:87 .\_navbar_home_page.html:28 .\_navbar_other_page.html:28
-#: .\allauth\layouts\base.html:95
+#: .\_base.html:106 .\_navbar_home_page.html:28 .\_navbar_other_page.html:28
+#: .\allauth\layouts\base.html:97
 msgid "Services"
 msgstr "خدمات"
 
-#: .\_base.html:89 .\_navbar_home_page.html:31 .\_navbar_other_page.html:31
-#: .\allauth\layouts\base.html:97
+#: .\_base.html:108 .\_navbar_home_page.html:31 .\_navbar_other_page.html:31
+#: .\allauth\layouts\base.html:99
 msgid "Projects"
 msgstr "پروژه ها"
 
-#: .\_base.html:91 .\_navbar_home_page.html:34 .\_navbar_other_page.html:34
-#: .\allauth\layouts\base.html:99
+#: .\_base.html:110 .\_navbar_home_page.html:34 .\_navbar_other_page.html:34
+#: .\allauth\layouts\base.html:101
 msgid "Blog"
 msgstr "بلاگ"
 
-#: .\_base.html:95 .\_navbar_home_page.html:37 .\_navbar_other_page.html:37
-#: .\allauth\layouts\base.html:103
+#: .\_base.html:114 .\_navbar_home_page.html:37 .\_navbar_other_page.html:37
+#: .\allauth\layouts\base.html:105
 msgid "Contact Me"
 msgstr "ارتباط با من"
 
-#: .\_base.html:98 .\allauth\layouts\base.html:106
+#: .\_base.html:117 .\allauth\layouts\base.html:108
 msgid "leave a message"
 msgstr "یک پیام بگذارید"
 
-#: .\_base.html:111 .\allauth\layouts\base.html:119
+#: .\_base.html:129 .\allauth\layouts\base.html:120
 msgid "Ali Sirjani"
 msgstr "علی سیرجانی"
 

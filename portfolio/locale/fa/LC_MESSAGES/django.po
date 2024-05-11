@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-05 00:38+0330\n"
-"PO-Revision-Date: 2024-05-04 21:09+0000\n"
-"Last-Translator:   <alisirjani1234@gmail.com>\n"
+"POT-Creation-Date: 2024-05-12 02:39+0330\n"
+"PO-Revision-Date: 2024-05-11 23:10+0000\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -31,11 +31,11 @@ msgstr "تاریخ به روز شد"
 msgid "Post Information"
 msgstr "اطلاعات پست"
 
-#: .\admin\blog_admin.py:52 .\admin\project_admin.py:24
+#: .\admin\blog_admin.py:52 .\admin\project_admin.py:26
 msgid "Slug Settings"
 msgstr "تنظیمات اسلاگ"
 
-#: .\admin\blog_admin.py:56 .\admin\project_admin.py:28
+#: .\admin\blog_admin.py:56 .\admin\project_admin.py:30
 msgid "Date and Time"
 msgstr "تاریخ و زمان"
 
@@ -55,18 +55,18 @@ msgstr "نظر خود را وارد کنید"
 msgid "name"
 msgstr "نام"
 
-#: .\models\blog_models.py:19 .\models\blog_models.py:83
-#: .\models\project_models.py:28
+#: .\models\blog_models.py:19 .\models\blog_models.py:76
+#: .\models\project_models.py:39
 msgid "slug change"
 msgstr "تغییر اسلاگ"
 
-#: .\models\blog_models.py:19 .\models\blog_models.py:83
-#: .\models\project_models.py:28
+#: .\models\blog_models.py:19 .\models\blog_models.py:76
+#: .\models\project_models.py:39
 msgid "If you want change the slug by name"
 msgstr "اگر می خواهید اسلاگ را با نام تغییر دهید"
 
-#: .\models\blog_models.py:20 .\models\blog_models.py:84
-#: .\models\project_models.py:29
+#: .\models\blog_models.py:20 .\models\blog_models.py:77
+#: .\models\project_models.py:40
 msgid "slug"
 msgstr "اسلاگ"
 
@@ -74,48 +74,48 @@ msgstr "اسلاگ"
 msgid "If field be empty it's automatic change by name"
 msgstr "اگر فیلد خالی باشد، نام آن به صورت خودکار تغییر می کند"
 
-#: .\models\blog_models.py:31 .\models\blog_models.py:49
-#: .\models\blog_models.py:73
+#: .\models\blog_models.py:24 .\models\blog_models.py:42
+#: .\models\blog_models.py:66
 msgid "category"
 msgstr "دسته بندی"
 
-#: .\models\blog_models.py:32
+#: .\models\blog_models.py:25
 msgid "categories"
 msgstr "دسته بندی ها"
 
-#: .\models\blog_models.py:52
+#: .\models\blog_models.py:45
 msgid "Levels are ordered from top to bottom, with 1 being the highest."
 msgstr "سطوح از بالا به پایین مرتب شده اند که 1 بالاترین است."
 
-#: .\models\blog_models.py:53
+#: .\models\blog_models.py:46
 msgid "level"
 msgstr "سطح"
 
-#: .\models\blog_models.py:59
+#: .\models\blog_models.py:52
 msgid "top category"
 msgstr "دسته بندی برتر"
 
-#: .\models\blog_models.py:60
+#: .\models\blog_models.py:53
 msgid "top categories"
 msgstr "دسته بندی های برتر"
 
-#: .\models\blog_models.py:75 .\models\project_models.py:17
+#: .\models\blog_models.py:68 .\models\project_models.py:18
 msgid "title"
 msgstr "عنوان"
 
-#: .\models\blog_models.py:76 .\models\project_models.py:18
+#: .\models\blog_models.py:69 .\models\project_models.py:19
 msgid "description"
 msgstr "شرح"
 
-#: .\models\blog_models.py:77
+#: .\models\blog_models.py:70
 msgid "can published"
 msgstr "می تواند منتشر شود"
 
-#: .\models\blog_models.py:78 .\models\project_models.py:23
+#: .\models\blog_models.py:71 .\models\project_models.py:34
 msgid "keywords"
 msgstr "کلمات کلیدی"
 
-#: .\models\blog_models.py:80 .\models\project_models.py:25
+#: .\models\blog_models.py:73 .\models\project_models.py:36
 msgid ""
 "Keywords for SEO (separated by #). Category name will be automatically "
 "added."
@@ -123,52 +123,52 @@ msgstr ""
 "کلمات کلیدی برای سئو (با # از هم جدا می شوند). نام دسته بندی به طور خودکار "
 "اضافه خواهد شد."
 
-#: .\models\blog_models.py:85 .\models\project_models.py:30
+#: .\models\blog_models.py:78 .\models\project_models.py:41
 msgid "If field be empty it's automatic change by title"
 msgstr "اگر فیلد خالی باشد به صورت خودکار با عنوان تغییر می کند"
 
-#: .\models\blog_models.py:104 .\models\blog_models.py:133
-#: .\models\blog_models.py:150
+#: .\models\blog_models.py:96 .\models\blog_models.py:125
+#: .\models\blog_models.py:142
 msgid "post"
 msgstr "پست"
 
-#: .\models\blog_models.py:105
+#: .\models\blog_models.py:97
 msgid "posts"
 msgstr "پست ها"
 
-#: .\models\blog_models.py:135 .\models\project_models.py:77
+#: .\models\blog_models.py:127 .\models\project_models.py:87
 msgid "image"
 msgstr "تصویر"
 
-#: .\models\blog_models.py:136 .\models\project_models.py:78
+#: .\models\blog_models.py:128 .\models\project_models.py:88
 msgid "main"
 msgstr "اصلی"
 
-#: .\models\blog_models.py:139
+#: .\models\blog_models.py:131
 msgid "post image"
 msgstr "تصویر پست"
 
-#: .\models\blog_models.py:140
+#: .\models\blog_models.py:132
 msgid "post images"
 msgstr "تصاویر پست"
 
-#: .\models\blog_models.py:152
+#: .\models\blog_models.py:144
 msgid "author"
 msgstr "نویسنده"
 
-#: .\models\blog_models.py:154
+#: .\models\blog_models.py:146
 msgid "text"
 msgstr "متن"
 
-#: .\models\blog_models.py:156
+#: .\models\blog_models.py:148
 msgid "confirmation"
 msgstr "تائیدیه"
 
-#: .\models\blog_models.py:159
+#: .\models\blog_models.py:151
 msgid "post comment"
 msgstr "نظر پست"
 
-#: .\models\blog_models.py:160
+#: .\models\blog_models.py:152
 msgid "post comments"
 msgstr "نظرات پست"
 
@@ -204,39 +204,52 @@ msgstr "پیام تماس"
 msgid "contact messages"
 msgstr "پیام های تماس"
 
-#: .\models\project_models.py:19
+#: .\models\project_models.py:20
 msgid "client"
 msgstr "مشتری"
 
-#: .\models\project_models.py:20
+#: .\models\project_models.py:21
 msgid "link"
 msgstr "لینک"
 
-#: .\models\project_models.py:21
+#: .\models\project_models.py:22
 msgid "location"
 msgstr "مکان"
 
-#: .\models\project_models.py:22
+#: .\models\project_models.py:23
 msgid "start date"
 msgstr "تاریخ شروع"
 
+#: .\models\project_models.py:29
+msgid ""
+"Unsupported file format. Please upload a .MOV, .AVI, .MP4, .WEBM, or .MKV "
+"file."
+msgstr ""
+"فرمت فایل پشتیبانی نشده لطفاً یک فایل با فرمت MOV، .AVI، .MP4 .WEBM یا MKV. "
+"آپلود کنید."
+
 #: .\models\project_models.py:32
+msgid "video"
+msgstr "ویدئو"
+
+#: .\models\project_models.py:43
 msgid "active"
 msgstr "فعال"
 
-#: .\models\project_models.py:51 .\models\project_models.py:75
+#: .\models\project_models.py:61 .\models\project_models.py:85
 msgid "project"
 msgstr "پروژه"
 
-#: .\models\project_models.py:52 .\views\project_views.py:20
+#: .\models\project_models.py:62 .\views\project_views.py:19
+#: .\views\project_views.py:20
 msgid "projects"
 msgstr "پروژه ها"
 
-#: .\models\project_models.py:81
+#: .\models\project_models.py:91
 msgid "project image"
 msgstr "تصویر پروژه"
 
-#: .\models\project_models.py:82
+#: .\models\project_models.py:92
 msgid "project images"
 msgstr "تصاویر پروژه"
 
@@ -345,7 +358,8 @@ msgstr "پاسخ دادن به"
 msgid "Post Comment"
 msgstr "ارسال نظر"
 
-#: .\templates\portfolio\blog\post_list.html:5
+#: .\templates\portfolio\blog\post_list.html:5 .\views\blog_views.py:40
+#: .\views\blog_views.py:77
 msgid "blog"
 msgstr "بلاگ"
 
@@ -355,7 +369,7 @@ msgid "Search Results"
 msgstr "نتایج جستجو"
 
 #: .\templates\portfolio\general\home_page.html:8
-#: .\templates\portfolio\project\project_detail.html:99
+#: .\templates\portfolio\project\project_detail.html:111
 msgid "Home"
 msgstr "خانه"
 
@@ -529,31 +543,31 @@ msgstr "پیام شما"
 msgid "Send Message"
 msgstr "ارسال پیام"
 
-#: .\templates\portfolio\project\project_detail.html:54
+#: .\templates\portfolio\project\project_detail.html:53
 msgid "Project Info"
 msgstr "اطلاعات پروژه"
 
-#: .\templates\portfolio\project\project_detail.html:57
+#: .\templates\portfolio\project\project_detail.html:56
 msgid "Client"
 msgstr "مشتری"
 
-#: .\templates\portfolio\project\project_detail.html:61
+#: .\templates\portfolio\project\project_detail.html:60
 msgid "Date"
 msgstr "تاریخ"
 
-#: .\templates\portfolio\project\project_detail.html:65
+#: .\templates\portfolio\project\project_detail.html:64
 msgid "Website"
 msgstr "وب سایت"
 
-#: .\templates\portfolio\project\project_detail.html:69
+#: .\templates\portfolio\project\project_detail.html:68
 msgid "Location"
 msgstr "مکان"
 
-#: .\templates\portfolio\project\project_detail.html:94
+#: .\templates\portfolio\project\project_detail.html:106
 msgid "Prev"
 msgstr "قبلی"
 
-#: .\templates\portfolio\project\project_detail.html:102
+#: .\templates\portfolio\project\project_detail.html:114
 msgid "Next"
 msgstr "بعدی"
 
@@ -561,15 +575,15 @@ msgstr "بعدی"
 msgid "Project List"
 msgstr "لیست پروژه ها"
 
-#: .\views\blog_views.py:15
+#: .\views\blog_views.py:41 .\views\blog_views.py:78
 msgid "Explore my latest blog posts and stay updated with my insights."
 msgstr "آخرین پست‌های وبلاگ من را کاوش کنید و با دیدگاه‌های من بروز باشید."
 
-#: .\views\blog_views.py:128
+#: .\views\blog_views.py:129
 msgid "You comment after confirmation will show in comments."
 msgstr "نظر شما پس از تایید در نظرات نشان داده می شود."
 
-#: .\views\blog_views.py:132
+#: .\views\blog_views.py:133
 msgid "Your comment have problem please try again!"
 msgstr "نظر شما مشکلی دارد لطفا دوباره امتحان کنید!"
 
