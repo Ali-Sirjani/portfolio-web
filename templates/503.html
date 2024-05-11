@@ -1,0 +1,20 @@
+{% extends '_base.html' %}
+
+{% load i18n %}
+
+{% block title %}{% trans '503 - Service Unavailable' %}{% endblock title %}
+
+{% block content %}
+    <section class="section mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h1 class="display-1">{% trans '503' %}</h1>
+                    <h4 class="mb-3">{% trans 'Service Unavailable' %}</h4>
+                    <p>{% trans 'We apologize for the inconvenience. Our service is temporarily unavailable. Please try again later.' %}</p>
+                    <a href="{% url 'portfolio:home_page' %}" class="btn btn-primary">{% trans 'Go to Homepage' %}</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
