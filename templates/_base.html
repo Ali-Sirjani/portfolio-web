@@ -30,10 +30,11 @@
     <!-- Custom Css -->
     <link href="{% static 'css/style-rtl.min.css' %}" rel="stylesheet" type="text/css" id="theme-opt">
     <script>
+        var darkPath = "{% static 'css/style-dark-rtl.min.css' %}";
+        var lightPath = "{% static 'css/style-rtl.min.css' %}";
         var savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
-            document.getElementById('theme-opt').href = "{% static 'css/style-dark-rtl.min.css' %}";
-            console.log(document.getElementById('logoImage'))
+            document.getElementById('theme-opt').href = darkPath;
         }
     </script>
     <link href="{% static 'css/colors/default.min.css' %}" rel="stylesheet" id="color-opt">
