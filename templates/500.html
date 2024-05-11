@@ -1,0 +1,20 @@
+{% extends '_base.html' %}
+
+{% load i18n %}
+
+{% block title %}{% trans '500 - Internal Server Error' %}{% endblock title %}
+
+{% block content %}
+    <section class="section mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h1 class="display-1">{% trans '500' %}</h1>
+                    <h4 class="mb-3">{% trans 'Oops! Something went wrong on the server.' %}</h4>
+                    <p>{% trans 'Please try again later.' %}</p>
+                    <a href="{% url 'portfolio:home_page' %}" class="btn btn-primary">{% trans 'Go to Homepage' %}</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
