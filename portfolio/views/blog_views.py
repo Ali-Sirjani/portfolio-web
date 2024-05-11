@@ -12,9 +12,6 @@ from ..models import Post, Category, PostComment
 from ..forms import PostSearchForm, PostCommentForm
 from ..utils import top_category_query
 
-meta_obj = Meta(title=_('blog'), description=_('Explore my latest blog posts and stay updated with my insights.'),
-                keywords=['blog', 'articles', 'posts', 'insights'])
-
 
 class PostListView(generic.ListView):
     model = Post
@@ -40,7 +37,9 @@ class PostListView(generic.ListView):
         context = super().get_context_data(**kwargs)
 
         context['top_categories'] = top_category_query()
-        context['meta'] = meta_obj
+        context['meta'] = Meta(title=_('blog'),
+                               description=_('Explore my latest blog posts and stay updated with my insights.'),
+                               keywords=['blog', 'articles', 'posts', 'insights'])
 
         return context
 
@@ -75,7 +74,9 @@ class PostSearchView(generic.ListView):
             context['q'] = None
 
         context['top_categories'] = top_category_query()
-        context['meta'] = meta_obj
+        context['meta'] = Meta(title=_('blog'),
+                               description=_('Explore my latest blog posts and stay updated with my insights.'),
+                               keywords=['blog', 'articles', 'posts', 'insights'])
 
         return context
 
