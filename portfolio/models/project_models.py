@@ -2,8 +2,9 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import FileExtensionValidator
 from django.shortcuts import reverse
-from django.template.defaultfilters import truncatewords
+from django.template.defaultfilters import truncatechars
 
+from urllib.parse import urlparse
 from meta.models import ModelMeta
 
 from ..abstract import TimestampedModel
@@ -31,7 +32,7 @@ class Project(ModelMeta, TimestampedModel):
                              ],
                              verbose_name=_('video')
                              )
-    keywords = models.CharField(max_length=250, blank=True, verbose_name=_('keywords'),
+    keywords = models.CharField(max_length=500, blank=True, verbose_name=_('keywords'),
                                 help_text=_(
                                     'Keywords for SEO (separated by #). Category name will be automatically added.'
                                 ))
@@ -75,10 +76,14 @@ class Project(ModelMeta, TimestampedModel):
         return None
 
     def get_description_metadata(self):
-        return truncatewords(self.description, 20)
+        return truncatechars(self.description, 155)
 
     def get_keywords_as_list(self):
         return [keyword.strip() for keyword in self.keywords.split('#') if keyword.strip()]
+
+    def display_domain_link(self):
+        parsed_url = urlparse(self.link)
+        return parsed_url.netloc
 
 
 class ProjectImage(TimestampedModel):

@@ -21,9 +21,11 @@ class HomePageView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        context['meta'] = Meta(description=_(
-            'Discover the projects and expertise of a freelance website developer with Django passionate about delivering quality work.'
-        ), )
+        context['meta'] = Meta(title=_('Ali Sirjani - Freelance Website Developer with Django Expertise'),
+                               description=_(
+                                   'Discover the projects and expertise of a freelance website developer with Django passionate about delivering quality work.'
+                               ),
+                               )
 
         return context
 

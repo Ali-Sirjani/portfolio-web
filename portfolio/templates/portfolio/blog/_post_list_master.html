@@ -6,6 +6,15 @@
 <!-- Home Start -->
 <section class="bg-half d-table w-100" style="background: url('{% static 'images/home/bg-blog.png' %}')center center;">
     <div class="bg-overlay bg-overlay-white" style="opacity: 0.55"></div>
+    <div class="container">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-lg-12 text-center">
+                <div class="page-next-level">
+                    <h1 class="title">{% trans 'Latest News & Blog' %}</h1>
+                </div>
+            </div>  <!--end col-->
+        </div><!--end row-->
+    </div>
 </section><!--end section-->
 <!-- Home End -->
 
@@ -21,19 +30,17 @@
                                 <div class="blog-post rounded shadow">
                                     <a href="{{ post.get_absolute_url }}">
                                         <img src="{{ post.main_image_url }}" class="img-fluid rounded-top"
-                                             alt="{{ post.title }}">
+                                             alt="{{ post.title }}" loading="lazy">
                                     </a>
                                     <div class="content pt-4 pb-4 p-3">
                                         <ul class="list-unstyled d-flex justify-content-between post-meta">
-                                            <li><i data-feather="user" class="fea icon-sm me-1"></i><a
-                                                    href="{% url 'portfolio:home_page' %}"
-                                                    class="text-dark">{% trans 'Ali' %}</a>
-                                            </li>
                                             {% if post.category %}
                                                 <li><i data-feather="tag" class="fea icon-sm me-1"></i><a
                                                         href="{{ post.category.get_absolute_url }}"
                                                         class="text-dark">{{ post.category.name }}</a>
                                                 </li>
+                                            {% else %}
+                                                <div style="margin-bottom:1.7rem!important"></div>
                                             {% endif %}
                                         </ul>
                                         <h5 class="mb-3"><a href="{{ post.get_absolute_url }}"
@@ -42,7 +49,7 @@
                                             <li><a href="{{ post.get_absolute_url }}"
                                                    class="text-dark">{% trans 'Read More' %}<i
                                                     data-feather="chevron-left" class="fea icon-md-sm"></i></a></li>
-                                            <li>
+                                            <li dir="ltr">
                                                 <i4 class="mdi mdi-calendar-edit me-1"></i4>
                                                 {{ post.datetime_updated|to_jalali:"%Y/%m/%d"|num_fa }}
                                             </li>
@@ -153,13 +160,16 @@
                             <div class="mt-4">
                                 {% for recent_post in recent_posts %}
                                     <div class="clearfix d-flex align-items-center post-recent">
-                                        <div class="post-recent-thumb"><a href="{{ recent_post.get_absolute_url }}">
-                                            <img alt="{{ recent_post.title }}"
-                                                 src="{{ recent_post.main_image_url }}"
-                                                 class="img-fluid rounded"></a>
+                                        <div class="post-recent-thumb">
+                                            <a href="{{ recent_post.get_absolute_url }}">
+                                                <img alt="{{ recent_post.title }}"
+                                                     src="{{ recent_post.main_image_url }}"
+                                                     class="img-fluid rounded" loading="lazy">
+                                            </a>
                                         </div>
                                         <div class="post-recent-content"><a
                                                 href="{{ recent_post.get_absolute_url }}">{{ recent_post.title }}</a><span
+                                                dir="ltr"
                                                 class="text-muted">{{ recent_post.datetime_updated|to_jalali:"%Y/%m/%d"|num_fa }}</span>
                                         </div>
                                     </div>

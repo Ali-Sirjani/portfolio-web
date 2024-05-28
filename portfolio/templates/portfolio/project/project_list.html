@@ -3,11 +3,23 @@
 {% load i18n %}
 {% load static %}
 
-{% block title %}{% trans 'Project List' %}{% endblock title %}
+{% block title %}
+    {% trans 'Introducing the list of my projects: works of my efforts and creativity' %}
+{% endblock title %}
 
 {% block content %}
+
+    <div class="container mt-120">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-lg-12 text-center">
+                <div class="page-next-level">
+                    <h1 class="title">{% trans 'Projects &amp; Works' %}</h1>
+                </div>
+            </div>  <!--end col-->
+        </div><!--end row-->
+    </div>
     <!-- Projects End -->
-    <section class="section mt-5">
+    <section class="section">
         <div class="container">
             <!-- Gallary -->
             <!-- Gallary -->
@@ -35,8 +47,8 @@
                     </div>
                 {% endfor %}
             </div><!-- End row -->
-        <div class="mt-5">
-        {% include 'portfolio/project/_pagination.html' %}
+            <div class="mt-5">
+                {% include 'portfolio/project/_pagination.html' %}
             </div>
         </div><!--end container-->
 

@@ -19,15 +19,10 @@
                         {% trans "Edit Profile" %} <i class="mdi mdi-account-edit" style="font-size: 22px"></i>
                     </a>
 
-                    {% if user.has_usable_password %}
-                        <a href="#" class="list-group-item list-group-item-action" data-target="change-password">
-                            {% trans "Change Password" %} <i class="mdi mdi-key" style="font-size: 22px"></i>
-                        </a>
-                    {% else %}
-                        <a href="#" class="list-group-item list-group-item-action" data-target="set-password">
-                            {% trans "Set Password" %}
-                        </a>
-                    {% endif %}
+                    <a href="#" class="list-group-item list-group-item-action" data-target="password-section">
+                        {% if user.has_usable_password %}{% trans "Change Password" %}{% else %}
+                            {% trans "Set Password" %}{% endif %} <i class="mdi mdi-key" style="font-size: 22px"></i>
+                    </a>
 
                     <a href="{% url 'account_logout' %}" class="list-group-item" style="color: #3e4856;"
                        onmouseover="this.style.color='black'" onmouseout="this.style.color='#3e4856'"
@@ -88,7 +83,8 @@
                                                      style="max-width: 100px; max-height: 100px; display: none">
                                             </div>
                                         {% endif %}
-                                        <div class="invalid-feedback text-block mb-3" id="invalid-feedback-{{ field.name }}"
+                                        <div class="invalid-feedback text-block mb-3"
+                                             id="invalid-feedback-{{ field.name }}"
                                              style="display: none;"></div>
                                     {% endfor %}
 
@@ -119,7 +115,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="change-password" class="profile-section" style="display: none;">
+                <div id="password-section" class="profile-section" style="display: none;">
                     <div class="card">
                         <div class="card-body">
                             {% if user.has_usable_password %}

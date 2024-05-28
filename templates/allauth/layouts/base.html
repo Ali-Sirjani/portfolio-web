@@ -2,23 +2,28 @@
 {% load i18n %}
 {% load jalali_tags %}
 {% load trans_fa %}
+{% load meta %}
 
 <!doctype html>
 <html class="no-js" lang="zxx">
 
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head {% meta_namespaces %}>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
         {% block head_title %}
         {% endblock head_title %}
     </title>
+
+    {% include "meta/meta.html" %}
+
     {% block extra_head %}
     {% endblock extra_head %}
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premium Bootstrap 5 Landing Page Template">
-    <meta name="keywords" content="Bootstrap 5, premium, marketing, multipurpose">
-    <meta content="Shreethemes" name="author">
+
+    <!-- Canonical link tag -->
+    <link rel="canonical" href="https://{{ request.get_host }}{{ request.get_full_path }}" />
     <!-- favicon -->
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
     <!-- Bootstrap -->
@@ -32,6 +37,14 @@
     <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}"/>
     <!-- Custom Css -->
     <link href="{% static 'css/style-rtl.min.css' %}" rel="stylesheet" type="text/css" id="theme-opt">
+    <script>
+        var darkPath = "{% static 'css/style-dark-rtl.min.css' %}";
+        var lightPath = "{% static 'css/style-rtl.min.css' %}";
+        var savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.getElementById('theme-opt').href = darkPath;
+        }
+    </script>
     <link href="{% static 'css/colors/default.min.css' %}" rel="stylesheet" id="color-opt">
     <link rel="stylesheet" href="{% static 'css/custom.min.css' %}">
 
@@ -43,7 +56,14 @@
     <div id="preloader">
         <div id="status">
             <div class="logo">
-                <img src="{% static 'images/logo1.png' %}" height="60" width="200" class="d-block mx-auto" alt="">
+                <img id="logoImage" src="{% static 'images/logo1.png' %}" height="60" width="200"
+                     class="d-block mx-auto"
+                     alt="logo">
+                <script>
+                    if (savedTheme === 'dark') {
+                        document.getElementById('logoImage').src = "{% static 'images/logo1-dark.png' %}"
+                    }
+                </script>
             </div>
             <div class="spinner">
                 <div class="bounce1"></div>
@@ -74,8 +94,8 @@
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-5">
                 <div class="footer-logo mb-2">
-                    <a href="javascript: void(0);"><img src="{% static 'images/logo2-light-persian.png' %}"
-                                                        alt="Your Site Logo"></a>
+                    <a href="{% url 'portfolio:home_page' %}"><img src="{% static 'images/logo2-light-persian.png' %}"
+                                                        alt="Site Logo"></a>
                 </div>
                 <p class="footer-description d-inline"
                    style="font-size: 17px;">{% trans 'Follow me on social networks' %}</p>
@@ -89,20 +109,20 @@
                 </ul>
             </div><!-- .col-lg-4 -->
             <div class="col-lg-4 col-md-6 mb-4">
-                <h3 class="footer-heading">{% trans 'Quick Links' %}</h3>
+                <h4 class="footer-heading">{% trans 'Quick Links' %}</h4>
                 <ul class="list-unstyled footer-links">
                     <li class="mb-1"><a href="{% url 'portfolio:home_page' %}"
                                         class="footer-link">{% trans 'Home' %}</a></li>
                     <li class="mb-1"><a href="{% url 'portfolio:home_page' %}#services"
                                         class="footer-link">{% trans 'Services' %}</a></li>
-                    <li class="mb-1"><a href="{% url 'portfolio:project_list' %}"
+                    <li class="mb-2"><a href="{% url 'portfolio:project_list' %}"
                                         class="footer-link">{% trans 'Projects' %}</a></li>
                     <li class="mb-1"><a href="{% url 'portfolio:post_list' %}"
                                         class="footer-link">{% trans 'Blog' %}</a></li>
                 </ul>
             </div><!-- .col-lg-4 -->
             <div class="col-lg-4">
-                <h3 class="footer-heading">{% trans 'Contact Me' %}</h3>
+                <h4 class="footer-heading">{% trans 'Contact Me' %}</h4>
                 <ul class="list-unstyled contact-info">
                     <li class=""><i class="mdi mdi-message"></i> <a href="{% url 'portfolio:home_page' %}#contact"
                                                                     class="footer-link">{% trans 'leave a message' %}</a>

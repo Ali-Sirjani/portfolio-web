@@ -16,8 +16,9 @@ class ProjectListView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        context['meta'] = Meta(title=_('projects'), description=_('Explore my latest projects.'),
-                               keywords=[_('projects'), ])
+        context['meta'] = Meta(title=_('projects'), description=_(
+            "My projects page as a Django developer. Here you can see portfolios and projects I have done."),
+                               keywords=['projects', 'پروژه سایت', 'سایت', 'نمونه کار'])
 
         return context
 

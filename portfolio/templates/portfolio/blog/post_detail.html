@@ -21,17 +21,22 @@
             <div class="row mt-5 justify-content-center">
                 <div class="col-lg-12 text-center">
                     <div class="page-next-level">
-                        <h4 class="title"> {{ post.title }} </h4>
+                        <h1 class="title"> {{ post.title }} </h1>
                         <ul class="list-unstyled mt-3">
-                            <li class="list-inline-item me-3"><i class="mdi mdi-tag-outline me-1"></i><a
-                                    href="{{ post.category.get_absolute_url }}"
-                                    class="text-muted" style="color: #56667d !important;">{{ post.category.name }}</a>
-                            </li>
-                            <li class="list-inline-item me-3"><i class="mdi mdi-account-heart me-1"></i><a
+                            {% if post.category %}
+                                <li class="list-inline-item me-3"><i class="mdi mdi-tag-outline me-1"></i><a
+                                        href="{{ post.category.get_absolute_url }}"
+                                        class="text-muted"
+                                        style="color: #56667d !important;">{{ post.category.name }}</a>
+                                </li>
+                            {% endif %}
+                            <li class="list-inline-item me-3"><i class="mdi mdi-account-edit me-1"></i><a
                                     href="{% url 'portfolio:home_page' %}"
                                     class="text-muted">{% trans 'Ali Sirjani' %}</a></li>
                             <li class="list-inline-item"><i class="mdi mdi-calendar-edit me-1"></i><span
-                                    class="text-muted">{{ post.datetime_updated|to_jalali:'%Y/%m/%d'|num_fa }}</span></li>
+                                    class="text-muted"
+                                    dir="ltr">{{ post.datetime_updated|to_jalali:'%Y/%m/%d'|num_fa }}</span>
+                            </li>
                         </ul>
                     </div>
                 </div>  <!--end col-->
@@ -60,16 +65,18 @@
                 <div class="col-lg-7 col-md-8 mt-4 mt-sm-0 pt-2 pt-sm-0">
                     <div class="blog position-relative overflow-hidden shadow rounded">
                         <div class="content p-4">
-                            <h6 class="font-weight-normal"><i class="mdi mdi-tag text-primary me-1"></i><a
-                                    href="{{ post.category.get_absolute_url }}"
-                                    class="text-primary">{{ post.category.name }}</a></h6>
+                            {% if post.category %}
+                                <h6 class="font-weight-normal"><i class="mdi mdi-tag text-primary me-1"></i><a
+                                        href="{{ post.category.get_absolute_url }}"
+                                        class="text-primary">{{ post.category.name }}</a></h6>
+                            {% endif %}
                             <p class="text-muted mt-3">{{ post.description|safe }}</p>
                             <div class="post-meta mt-3">
                                 <ul class="list-unstyled mb-0">
                                     <li class="list-inline-item">
-                                        <a href="javascript:void(0)" class="text-muted comments">
+                                        <div class="text-muted comments">
                                             <i class="mdi mdi-comment-outline me-1"></i>{{ comments|length|num_fa }}
-                                        </a>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
@@ -83,20 +90,19 @@
                             <ul class="media-list list-unstyled mb-0">
                                 {% recursetree comments %}
                                     <li class="d-flex mt-4">
-                                        <a class="float-left pe-3 mt-2" href="javascript:void(0)">
+                                        <div class="float-left pe-3 mt-2">
                                             <img class="img-fluid d-block mx-auto  rounded-circle"
                                                  src="{{ node.author.profile.picture.url }}" alt="img"
                                                  style="width: 60px; height: 60px;">
-                                        </a>
+                                        </div>
                                         <div class="flex-1" style="width: 100%">
                                             <a class="float-right text-muted reply-btn" data-id="{{ node.id }}"
                                                type="button" data-comment-text="{{ node.text|truncatechars:15 }}">
                                                 {% trans 'Reply' %} <i class="mdi mdi-reply"></i>&nbsp;
                                             </a>
-                                            <h6 class="media-heading mb-0"><a href="javascript:void(0)"
-                                                                              class="text-dark">{{ node.author }}</a>
+                                            <h6 class="media-heading mb-0"><div class="text-dark">{{ node.author }}</div>
                                             </h6>
-                                            <small class="text-muted">{{ node.datetime_updated|to_jalali:'%Y/%m/%d'|num_fa }}</small>
+                                            <small dir="ltr" class="text-muted">{{ node.datetime_updated|to_jalali:'%Y/%m/%d'|num_fa }}</small>
                                             <p class="mt-2 bg-light font-italic media-para text-muted rounded pt-3 pb-3 ps-4 pe-3 mb-0">
                                                 {{ node.text }}
                                             </p>

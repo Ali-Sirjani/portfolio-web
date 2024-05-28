@@ -40,13 +40,14 @@
                     </a>
                     <div class="content pt-4 pb-4 p-3">
                         <ul class="list-unstyled d-flex justify-content-between post-meta">
-                            <li><i data-feather="user" class="fea icon-sm me-1"></i><a href="javascript:void(0)"
-                                                                                       class="text-dark">{% trans 'Ali' %}</a>
-                            </li>
-                            <li><i data-feather="tag" class="fea icon-sm me-1"></i><a
-                                    href="{{ post.category.get_absolute_url }}"
-                                    class="text-dark">{{ post.category.name }}</a>
-                            </li>
+                            {% if post.category %}
+                                <li><i data-feather="tag" class="fea icon-sm me-1"></i><a
+                                        href="{{ post.category.get_absolute_url }}"
+                                        class="text-dark">{{ post.category.name }}</a>
+                                </li>
+                            {% else %}
+                                <div style="margin-bottom:1.7rem!important"></div>
+                            {% endif %}
                         </ul>
                         <h5 class="mb-3"><a href="{{ post.get_absolute_url }}"
                                             class="title text-dark">{{ post.title }}</a></h5>
@@ -54,7 +55,7 @@
                             <li><a href="{{ post.get_absolute_url }}"
                                    class="text-dark">{% trans 'Read More' %}<i
                                     data-feather="chevron-left" class="fea icon-md-sm"></i></a></li>
-                            <li>
+                            <li dir="ltr">
                                 <i class="mdi mdi-calendar-edit me-1"></i>{{ post.datetime_updated|to_jalali:"%Y/%m/%d"|num_fa }}
                             </li>
                         </ul>
