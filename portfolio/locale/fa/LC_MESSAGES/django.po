@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-12 02:39+0330\n"
-"PO-Revision-Date: 2024-05-11 23:10+0000\n"
+"POT-Creation-Date: 2024-05-28 15:58+0330\n"
+"PO-Revision-Date: 2024-05-28 12:06+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -56,17 +56,17 @@ msgid "name"
 msgstr "نام"
 
 #: .\models\blog_models.py:19 .\models\blog_models.py:76
-#: .\models\project_models.py:39
+#: .\models\project_models.py:40
 msgid "slug change"
 msgstr "تغییر اسلاگ"
 
 #: .\models\blog_models.py:19 .\models\blog_models.py:76
-#: .\models\project_models.py:39
+#: .\models\project_models.py:40
 msgid "If you want change the slug by name"
 msgstr "اگر می خواهید اسلاگ را با نام تغییر دهید"
 
 #: .\models\blog_models.py:20 .\models\blog_models.py:77
-#: .\models\project_models.py:40
+#: .\models\project_models.py:41
 msgid "slug"
 msgstr "اسلاگ"
 
@@ -99,11 +99,11 @@ msgstr "دسته بندی برتر"
 msgid "top categories"
 msgstr "دسته بندی های برتر"
 
-#: .\models\blog_models.py:68 .\models\project_models.py:18
+#: .\models\blog_models.py:68 .\models\project_models.py:19
 msgid "title"
 msgstr "عنوان"
 
-#: .\models\blog_models.py:69 .\models\project_models.py:19
+#: .\models\blog_models.py:69 .\models\project_models.py:20
 msgid "description"
 msgstr "شرح"
 
@@ -111,19 +111,18 @@ msgstr "شرح"
 msgid "can published"
 msgstr "می تواند منتشر شود"
 
-#: .\models\blog_models.py:71 .\models\project_models.py:34
+#: .\models\blog_models.py:71 .\models\project_models.py:35
 msgid "keywords"
 msgstr "کلمات کلیدی"
 
-#: .\models\blog_models.py:73 .\models\project_models.py:36
+#: .\models\blog_models.py:73 .\models\project_models.py:37
 msgid ""
-"Keywords for SEO (separated by #). Category name will be automatically "
-"added."
+"Keywords for SEO (separated by #). Category name will be automatically added."
 msgstr ""
 "کلمات کلیدی برای سئو (با # از هم جدا می شوند). نام دسته بندی به طور خودکار "
 "اضافه خواهد شد."
 
-#: .\models\blog_models.py:78 .\models\project_models.py:41
+#: .\models\blog_models.py:78 .\models\project_models.py:42
 msgid "If field be empty it's automatic change by title"
 msgstr "اگر فیلد خالی باشد به صورت خودکار با عنوان تغییر می کند"
 
@@ -136,11 +135,11 @@ msgstr "پست"
 msgid "posts"
 msgstr "پست ها"
 
-#: .\models\blog_models.py:127 .\models\project_models.py:87
+#: .\models\blog_models.py:127 .\models\project_models.py:92
 msgid "image"
 msgstr "تصویر"
 
-#: .\models\blog_models.py:128 .\models\project_models.py:88
+#: .\models\blog_models.py:128 .\models\project_models.py:93
 msgid "main"
 msgstr "اصلی"
 
@@ -204,23 +203,23 @@ msgstr "پیام تماس"
 msgid "contact messages"
 msgstr "پیام های تماس"
 
-#: .\models\project_models.py:20
+#: .\models\project_models.py:21
 msgid "client"
 msgstr "مشتری"
 
-#: .\models\project_models.py:21
+#: .\models\project_models.py:22
 msgid "link"
 msgstr "لینک"
 
-#: .\models\project_models.py:22
+#: .\models\project_models.py:23
 msgid "location"
 msgstr "مکان"
 
-#: .\models\project_models.py:23
+#: .\models\project_models.py:24
 msgid "start date"
 msgstr "تاریخ شروع"
 
-#: .\models\project_models.py:29
+#: .\models\project_models.py:30
 msgid ""
 "Unsupported file format. Please upload a .MOV, .AVI, .MP4, .WEBM, or .MKV "
 "file."
@@ -228,28 +227,27 @@ msgstr ""
 "فرمت فایل پشتیبانی نشده لطفاً یک فایل با فرمت MOV، .AVI، .MP4 .WEBM یا MKV. "
 "آپلود کنید."
 
-#: .\models\project_models.py:32
+#: .\models\project_models.py:33
 msgid "video"
 msgstr "ویدئو"
 
-#: .\models\project_models.py:43
+#: .\models\project_models.py:44
 msgid "active"
 msgstr "فعال"
 
-#: .\models\project_models.py:61 .\models\project_models.py:85
+#: .\models\project_models.py:62 .\models\project_models.py:90
 msgid "project"
 msgstr "پروژه"
 
-#: .\models\project_models.py:62 .\views\project_views.py:19
-#: .\views\project_views.py:20
+#: .\models\project_models.py:63 .\views\project_views.py:19
 msgid "projects"
 msgstr "پروژه ها"
 
-#: .\models\project_models.py:91
+#: .\models\project_models.py:96
 msgid "project image"
 msgstr "تصویر پروژه"
 
-#: .\models\project_models.py:92
+#: .\models\project_models.py:97
 msgid "project images"
 msgstr "تصاویر پروژه"
 
@@ -258,6 +256,7 @@ msgid "Related Posts"
 msgstr "پست های مرتبط"
 
 #: .\templates\portfolio\_recent_or_related_posts.html:14
+#: .\templates\portfolio\blog\_post_list_master.html:13
 msgid "Latest News & Blog"
 msgstr "آخرین اخبار و بلاگ"
 
@@ -269,109 +268,103 @@ msgstr "مقالات و اطلاعات مرتبط را بیشتر کاوش کن�
 #: .\templates\portfolio\_recent_or_related_posts.html:26
 msgid ""
 "By getting information and familiarizing yourself with the benefits of the "
-"site, you will find a broader view of its facilities and benefits. This blog"
-" is the meeting point of ideas and effective solutions for your growth."
+"site, you will find a broader view of its facilities and benefits. This blog "
+"is the meeting point of ideas and effective solutions for your growth."
 msgstr ""
 "با کسب اطلاعات و آشنایی با فواید سایت، دیدگاه گسترده‌تری نسبت به امکانات و "
 "مزایای آن پیدا خواهید کرد. این بلاگ نقطه  به هم رسیدن ایده‌ها و راهکارهای "
 "موثر برای رشد شماست."
 
-#: .\templates\portfolio\_recent_or_related_posts.html:44
-#: .\templates\portfolio\blog\_post_list_master.html:30
-msgid "Ali"
-msgstr "علی"
-
-#: .\templates\portfolio\_recent_or_related_posts.html:55
-#: .\templates\portfolio\blog\_post_list_master.html:43
+#: .\templates\portfolio\_recent_or_related_posts.html:56
+#: .\templates\portfolio\blog\_post_list_master.html:50
 msgid "Read More"
 msgstr "ادامه مطلب"
 
-#: .\templates\portfolio\blog\_post_list_master.html:64
+#: .\templates\portfolio\blog\_post_list_master.html:71
 msgid "Oops! Please enter a search query to find posts."
 msgstr "لطفاً یک عبارت جستجو برای یافتن پست ها وارد کنید."
 
-#: .\templates\portfolio\blog\_post_list_master.html:72
+#: .\templates\portfolio\blog\_post_list_master.html:79
 #, python-format
 msgid ""
 "\n"
-"                                            Oops! There are no posts matching your search for '%(q)s'\n"
+"                                            Oops! There are no posts "
+"matching your search for '%(q)s'\n"
 "                                        "
 msgstr ""
 "\n"
 "هیچ پستی مطابق با جستجوی شما برای '%(q)s' وجود ندارد"
 
-#: .\templates\portfolio\blog\_post_list_master.html:77
+#: .\templates\portfolio\blog\_post_list_master.html:84
 msgid "Oops! There are no posts available at the moment."
 msgstr "در حال حاضر هیچ پستی موجود نیست."
 
-#: .\templates\portfolio\blog\_post_list_master.html:91
+#: .\templates\portfolio\blog\_post_list_master.html:98
 msgid "Author"
 msgstr "نویسنده"
 
-#: .\templates\portfolio\blog\_post_list_master.html:96
-#: .\templates\portfolio\blog\post_detail.html:32
+#: .\templates\portfolio\blog\_post_list_master.html:103
+#: .\templates\portfolio\blog\post_detail.html:35
 #: .\templates\portfolio\general\home_page.html:43
 msgid "Ali Sirjani"
 msgstr "علی سیرجانی"
 
-#: .\templates\portfolio\blog\_post_list_master.html:97
+#: .\templates\portfolio\blog\_post_list_master.html:104
 msgid "web developer"
 msgstr "توسعه دهنده وب"
 
-#: .\templates\portfolio\blog\_post_list_master.html:118
+#: .\templates\portfolio\blog\_post_list_master.html:125
 msgid "Search"
 msgstr "جستجو"
 
-#: .\templates\portfolio\blog\_post_list_master.html:124
+#: .\templates\portfolio\blog\_post_list_master.html:131
 msgid "Search Keywords..."
 msgstr "جستجوی کلمات ..."
 
-#: .\templates\portfolio\blog\_post_list_master.html:137
+#: .\templates\portfolio\blog\_post_list_master.html:144
 msgid "Categories"
 msgstr "دسته بندی ها"
 
-#: .\templates\portfolio\blog\_post_list_master.html:152
+#: .\templates\portfolio\blog\_post_list_master.html:159
 msgid "Recent Post"
 msgstr "پست های اخیر"
 
-#: .\templates\portfolio\blog\post_detail.html:81
+#: .\templates\portfolio\blog\post_detail.html:88
 msgid "Comments"
 msgstr "نظرات"
 
-#: .\templates\portfolio\blog\post_detail.html:94
+#: .\templates\portfolio\blog\post_detail.html:101
 msgid "Reply"
 msgstr "پاسخ"
 
-#: .\templates\portfolio\blog\post_detail.html:118
+#: .\templates\portfolio\blog\post_detail.html:124
 msgid "Leave A Comment"
 msgstr "یک نظر بگذارید"
 
-#: .\templates\portfolio\blog\post_detail.html:125
+#: .\templates\portfolio\blog\post_detail.html:131
 msgid "Send comment"
 msgstr "ارسال نظر"
 
-#: .\templates\portfolio\blog\post_detail.html:147
+#: .\templates\portfolio\blog\post_detail.html:153
 msgid "Reply To"
 msgstr "پاسخ دادن به"
 
-#: .\templates\portfolio\blog\post_detail.html:156
+#: .\templates\portfolio\blog\post_detail.html:162
 msgid "Post Comment"
 msgstr "ارسال نظر"
 
-#: .\templates\portfolio\blog\post_list.html:5 .\views\blog_views.py:40
-#: .\views\blog_views.py:77
-msgid "blog"
-msgstr "بلاگ"
+#: .\templates\portfolio\blog\post_list.html:5
+msgid "Personal blog: reviews and views on development and more"
+msgstr "وبلاگ شخصی: بررسی ها و دیدگاه ها در مورد توسعه و موارد دیگر"
 
 #: .\templates\portfolio\blog\search_page.html:6
 #: .\templates\portfolio\blog\search_q_none.html:6
 msgid "Search Results"
 msgstr "نتایج جستجو"
 
-#: .\templates\portfolio\general\home_page.html:8
-#: .\templates\portfolio\project\project_detail.html:111
-msgid "Home"
-msgstr "خانه"
+#: .\templates\portfolio\general\home_page.html:8 .\views\general_views.py:24
+msgid "Ali Sirjani - Freelance Website Developer with Django Expertise"
+msgstr "علی سیرجانی - توسعه دهنده وب سایت با تخصص جنگو"
 
 #: .\templates\portfolio\general\home_page.html:21
 msgid "I Am"
@@ -406,21 +399,20 @@ msgid ""
 "Hello! I am a young back-end web developer, specializing in Django and "
 "Django REST frameworks. I love creating powerful websites and implementing "
 "efficient solutions. Since I entered the world of programming, my goal has "
-"always been to improve people's lives and improve processes with my creative"
-" ideas. From user experience to performance optimization, I strive to "
-"provide solutions that not only meet the needs of users but also add value "
-"to them. Join me to achieve our goals and start new innovations in the world"
-" of technology with energy and enthusiasm."
+"always been to improve people's lives and improve processes with my creative "
+"ideas. From user experience to performance optimization, I strive to provide "
+"solutions that not only meet the needs of users but also add value to them. "
+"Join me to achieve our goals and start new innovations in the world of "
+"technology with energy and enthusiasm."
 msgstr ""
 "سلام! من یک توسعه‌دهنده جوان در زمینه‌ی بک اند وب، با تخصص در فریم‌ورک "
-"جنگو(Django ) و جنگو رست(Django REST) هستم. عاشق ایجاد وب‌سایت‌های قدرتمند و"
-" پیاده‌سازی راه‌حل‌های کارآمد هستم. از زمانی که به دنیای برنامه‌نویسی وارد "
-"شدم، هدفم همیشه این بوده تا با ایده‌های خلاقانه‌ام، بهبودی در زندگی مردم و "
-"بهبود فرایندها بوجود بیاورم. از زمینه‌ی تجربه کاربری گرفته تا بهینه‌سازی "
-"عملکرد، تلاش می‌کنم تا راه‌حل‌هایی ارائه دهم که نه تنها نیازهای کاربران را "
-"برطرف کنند بلکه ارزش افزوده‌ای به آنها ارائه دهند. با من همراه باشید تا در "
-"دنیای فناوری، با انرژی و اشتیاق، به هدف‌هایمان برسیم و نوآوری‌های جدیدی را "
-"آغاز کنیم."
+"جنگو(Django ) و جنگو رست(Django REST) هستم. عاشق ایجاد وب‌سایت‌های قدرتمند و "
+"پیاده‌سازی راه‌حل‌های کارآمد هستم. از زمانی که به دنیای برنامه‌نویسی وارد شدم، "
+"هدفم همیشه این بوده تا با ایده‌های خلاقانه‌ام، بهبودی در زندگی مردم و بهبود "
+"فرایندها بوجود بیاورم. از زمینه‌ی تجربه کاربری گرفته تا بهینه‌سازی عملکرد، "
+"تلاش می‌کنم تا راه‌حل‌هایی ارائه دهم که نه تنها نیازهای کاربران را برطرف کنند "
+"بلکه ارزش افزوده‌ای به آنها ارائه دهند. با من همراه باشید تا در دنیای فناوری، "
+"با انرژی و اشتیاق، به هدف‌هایمان برسیم و نوآوری‌های جدیدی را آغاز کنیم."
 
 #: .\templates\portfolio\general\home_page.html:49
 msgid "View Portfolio"
@@ -435,8 +427,7 @@ msgid "Database Design"
 msgstr "طراحی دیتابیس"
 
 #: .\templates\portfolio\general\home_page.html:86
-msgid ""
-"Designing efficient and scalable database schemas for web applications."
+msgid "Designing efficient and scalable database schemas for web applications."
 msgstr "طراحی طرح های دیتابیس کارآمد و مقیاس پذیر برای برنامه های کاربردی وب"
 
 #: .\templates\portfolio\general\home_page.html:101
@@ -468,8 +459,8 @@ msgid ""
 "Implementing secure user authentication and authorization mechanisms using "
 "Django's authentication system."
 msgstr ""
-"پیاده سازی مکانیسم های احراز هویت و مجوز کاربر امن با استفاده از سیستم احراز"
-" هویت جنگو."
+"پیاده سازی مکانیسم های احراز هویت و مجوز کاربر امن با استفاده از سیستم احراز "
+"هویت جنگو."
 
 #: .\templates\portfolio\general\home_page.html:149
 msgid "Performance Optimization"
@@ -516,8 +507,8 @@ msgid ""
 "I'm here to help you bring your ideas to life. You can contact me if you "
 "need any help"
 msgstr ""
-"من اینجا هستم تا به شما کمک کنم تا ایده هایتان را زنده کنید. در صورت نیاز به"
-" کمک می توانید با من تماس بگیرید"
+"من اینجا هستم تا به شما کمک کنم تا ایده هایتان را زنده کنید. در صورت نیاز به "
+"کمک می توانید با من تماس بگیرید"
 
 #: .\templates\portfolio\general\home_page.html:273
 msgid "Email"
@@ -559,35 +550,52 @@ msgstr "تاریخ"
 msgid "Website"
 msgstr "وب سایت"
 
-#: .\templates\portfolio\project\project_detail.html:68
+#: .\templates\portfolio\project\project_detail.html:69
 msgid "Location"
 msgstr "مکان"
 
-#: .\templates\portfolio\project\project_detail.html:106
+#: .\templates\portfolio\project\project_detail.html:107
 msgid "Prev"
 msgstr "قبلی"
 
-#: .\templates\portfolio\project\project_detail.html:114
+#: .\templates\portfolio\project\project_detail.html:112
+msgid "Home"
+msgstr "خانه"
+
+#: .\templates\portfolio\project\project_detail.html:115
 msgid "Next"
 msgstr "بعدی"
 
-#: .\templates\portfolio\project\project_list.html:6
-msgid "Project List"
-msgstr "لیست پروژه ها"
+#: .\templates\portfolio\project\project_list.html:7
+msgid "Introducing the list of my projects: works of my efforts and creativity"
+msgstr "معرفی لیست پروژه های من: آثار تلاش و خلاقیت من"
 
-#: .\views\blog_views.py:41 .\views\blog_views.py:78
-msgid "Explore my latest blog posts and stay updated with my insights."
-msgstr "آخرین پست‌های وبلاگ من را کاوش کنید و با دیدگاه‌های من بروز باشید."
+#: .\templates\portfolio\project\project_list.html:16
+msgid "Projects &amp; Works"
+msgstr "پروژه ها و کارها"
 
-#: .\views\blog_views.py:129
+#: .\views\blog_views.py:40 .\views\blog_views.py:78
+msgid "blog"
+msgstr "بلاگ"
+
+#: .\views\blog_views.py:42 .\views\blog_views.py:80
+msgid ""
+"My blog content is about my experiences and knowledge as a developer. Learn "
+"new information about web development and related technologies by reading my "
+"articles."
+msgstr ""
+"مطالب وبلاگ من دربارهٔ تجربیات و دانش من به عنوان یک توسعه‌دهنده. با مطالعهٔ "
+"مقالات من، اطلاعات جدیدی در مورد توسعه وب و فناوری‌های مرتبط کسب کنید."
+
+#: .\views\blog_views.py:131
 msgid "You comment after confirmation will show in comments."
 msgstr "نظر شما پس از تایید در نظرات نشان داده می شود."
 
-#: .\views\blog_views.py:133
+#: .\views\blog_views.py:135
 msgid "Your comment have problem please try again!"
 msgstr "نظر شما مشکلی دارد لطفا دوباره امتحان کنید!"
 
-#: .\views\general_views.py:25
+#: .\views\general_views.py:26
 msgid ""
 "Discover the projects and expertise of a freelance website developer with "
 "Django passionate about delivering quality work."
@@ -595,14 +603,30 @@ msgstr ""
 "پروژه ها و تخصص یک توسعه دهنده وب سایت را با جنگو که مشتاق ارائه کار با "
 "کیفیت است، کشف کنید."
 
-#: .\views\general_views.py:42
+#: .\views\general_views.py:44
 msgid ""
 "Your message has been sent successfully. I will get back to you shortly."
 msgstr "پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهم گرفت."
 
-#: .\views\project_views.py:19
-msgid "Explore my latest projects."
-msgstr "آخرین پروژه های من را کاوش کنید."
+#: .\views\project_views.py:20
+msgid ""
+"My projects page as a Django developer. Here you can see portfolios and "
+"projects I have done."
+msgstr ""
+"صفحه پروژه‌های من به عنوان یک توسعه‌دهنده وب. اینجا می‌توانید نمونه‌کارها و "
+"پروژه‌هایی که انجام داده‌ام را مشاهده کنید."
+
+#~ msgid "Explore my latest blog posts and stay updated with my insights."
+#~ msgstr "آخرین پست‌های وبلاگ من را کاوش کنید و با دیدگاه‌های من بروز باشید."
+
+#~ msgid "Explore my latest projects."
+#~ msgstr "آخرین پروژه های من را کاوش کنید."
+
+#~ msgid "Project List"
+#~ msgstr "لیست پروژه ها"
+
+#~ msgid "Ali"
+#~ msgstr "علی"
 
 #, fuzzy
 #~ msgid "website project"
@@ -612,5 +636,5 @@ msgstr "آخرین پروژه های من را کاوش کنید."
 #~ "As a Junior Backend Developer specializing in Django framework and Django "
 #~ "REST framework, I offer the following services:"
 #~ msgstr ""
-#~ "من به عنوان یک توسعه دهنده متخصص در چارچوب جنگو و چارچوب جنگو رست، خدمات زیر"
-#~ " را ارائه می دهم:"
+#~ "من به عنوان یک توسعه دهنده متخصص در چارچوب جنگو و چارچوب جنگو رست، خدمات "
+#~ "زیر را ارائه می دهم:"
