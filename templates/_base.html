@@ -5,17 +5,19 @@
 {% load meta %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa">
 
 <head {% meta_namespaces %}>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {% include "meta/meta.html" %}
 
-    <meta charset="utf-8">
     <title>{% block title %}{% endblock title %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premium Bootstrap 5 Landing Page Template">
-    <meta name="keywords" content="Bootstrap 5, premium, marketing, multipurpose">
-    <meta content="Shreethemes" name="author">
+
+    <!-- Canonical link tag -->
+    <link rel="canonical" href="https://{{ request.get_host }}{{ request.get_full_path }}" />
     <!-- favicon -->
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
     <!-- Bootstrap -->
@@ -83,7 +85,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-5">
                 <div class="footer-logo mb-2">
-                    <a href="javascript: void(0);"><img src="{% static 'images/logo2-light-persian.png' %}"
+                    <a href="{% url 'portfolio:home_page' %}"><img src="{% static 'images/logo2-light-persian.png' %}"
                                                         alt="Site Logo"></a>
                 </div>
                 <p class="footer-description d-inline"
@@ -98,20 +100,20 @@
                 </ul>
             </div><!-- .col-lg-4 -->
             <div class="col-lg-4 col-md-6 mb-4">
-                <h3 class="footer-heading">{% trans 'Quick Links' %}</h3>
+                <h4 class="footer-heading">{% trans 'Quick Links' %}</h4>
                 <ul class="list-unstyled footer-links">
                     <li class="mb-1"><a href="{% url 'portfolio:home_page' %}"
                                         class="footer-link">{% trans 'Home' %}</a></li>
                     <li class="mb-1"><a href="{% url 'portfolio:home_page' %}#services"
                                         class="footer-link">{% trans 'Services' %}</a></li>
-                    <li class="mb-1"><a href="{% url 'portfolio:project_list' %}"
+                    <li class="mb-2"><a href="{% url 'portfolio:project_list' %}"
                                         class="footer-link">{% trans 'Projects' %}</a></li>
                     <li class="mb-1"><a href="{% url 'portfolio:post_list' %}"
                                         class="footer-link">{% trans 'Blog' %}</a></li>
                 </ul>
             </div><!-- .col-lg-4 -->
             <div class="col-lg-4">
-                <h3 class="footer-heading">{% trans 'Contact Me' %}</h3>
+                <h4 class="footer-heading">{% trans 'Contact Me' %}</h4>
                 <ul class="list-unstyled contact-info">
                     <li class=""><i class="mdi mdi-message"></i> <a href="{% url 'portfolio:home_page' %}#contact"
                                                                     class="footer-link">{% trans 'leave a message' %}</a>
