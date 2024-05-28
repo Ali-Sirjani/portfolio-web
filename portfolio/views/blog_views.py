@@ -38,8 +38,9 @@ class PostListView(generic.ListView):
 
         context['top_categories'] = top_category_query()
         context['meta'] = Meta(title=_('blog'),
-                               description=_('Explore my latest blog posts and stay updated with my insights.'),
-                               keywords=['blog', 'articles', 'posts', 'insights'])
+                               description=_(
+                                   'My blog content is about my experiences and knowledge as a developer. Learn new information about web development and related technologies by reading my articles.'),
+                               keywords=['وبلاگ', 'مقالات', 'پست ها', 'بلاگ'])
 
         return context
 
@@ -75,8 +76,9 @@ class PostSearchView(generic.ListView):
 
         context['top_categories'] = top_category_query()
         context['meta'] = Meta(title=_('blog'),
-                               description=_('Explore my latest blog posts and stay updated with my insights.'),
-                               keywords=['blog', 'articles', 'posts', 'insights'])
+                               description=_(
+                                   'My blog content is about my experiences and knowledge as a developer. Learn new information about web development and related technologies by reading my articles.'),
+                               keywords=['وبلاگ', 'مقالات', 'پست ها', 'بلاگ'])
 
         return context
 
